@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Text, View, StyleSheet, TouchableHighlight, KeyboardAvoidingView} from 'react-native';
+import {Text, View, ScrollView, StyleSheet, TouchableHighlight, KeyboardAvoidingView} from 'react-native';
 import BackLeft from '../components/BackLeft'
 import Footer from '../components/Footer'
 import moment from 'moment';
@@ -79,19 +79,21 @@ export default class VoucherView extends Component {
   
   render() {
     return (
-      <View style={{flex: 1, backgroundColor: '#FFF' , flexDirection: 'column', justifyContent: 'flex-start', paddingTop: 30 }}>
+      <View style={{flex: 1, backgroundColor: '#FFF' , flexDirection: 'column', justifyContent: 'flex-start'}}>
         <BackLeft/>
-        <View style={{flex: 1, justifyContent: 'space-between', padding: 8}}>
-          <Form
-            ref="form"
-            type={Person}
-            options={options}
-          />
-          <TouchableHighlight style={styles.button} onPress={this.onPress} underlayColor='#99d9f4'>
-            <Text style={styles.buttonText}>Enviar</Text>
-          </TouchableHighlight>
-        </View>
-        <Footer/>
+        <ScrollView>
+          <View style={{flex: 1, justifyContent: 'space-between', padding: 8}}>
+              <Form
+                ref="form"
+                type={Person}
+                options={options}
+              />
+              <TouchableHighlight style={styles.button} onPress={this.onPress} underlayColor='#99d9f4'>
+                <Text style={styles.buttonText}>Enviar</Text>
+              </TouchableHighlight>
+          </View>
+          <Footer/>
+        </ScrollView>
       </View>
     );
   }
