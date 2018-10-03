@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {View, ListView, TouchableOpacity } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import DestinationBox from './DestinationBox.js'
+import BackLeft from '../components/BackLeft.js'
+
 
 export default class DestinationList extends Component {
   
@@ -66,7 +68,10 @@ export default class DestinationList extends Component {
   render() {
 
     return (
-      <View style={{flex: 1, flexDirection: 'column', paddingTop: 30 }}>
+      <View style={{flex: 1, flexDirection: 'column'}}>
+
+      <BackLeft/>
+
       <ListView
         enableEmptySections={true}
         dataSource={this.state.dataSource}
