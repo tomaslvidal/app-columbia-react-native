@@ -79,7 +79,7 @@ export default class PollsView extends Component {
   
   render() {
     return (
-      <View style={{flex: 1, backgroundColor: '#FFF' , flexDirection: 'column', justifyContent: 'flex-start', paddingTop: 30 }}>
+      <View style={{flex: 1, backgroundColor: '#FFF' , flexDirection: 'column', justifyContent: 'flex-start'}}>
         <BackLeft/>
         <View style={{flex: 1, justifyContent: 'space-between', padding: 8}}>
           <Form

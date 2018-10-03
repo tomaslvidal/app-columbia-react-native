@@ -41,7 +41,7 @@ export default class DestinationDetail extends Component {
   render() {
   
     return (
-      <View style={{flex: 1, flexDirection: 'column', justifyContent: 'flex-start', paddingTop: 30}}>
+      <View style={{flex: 1, flexDirection: 'column', justifyContent: 'flex-start'}}>
 
           <BackLeft/>
 

@@ -42,8 +42,8 @@ export default class DestinationBox extends Component {
 const styles = StyleSheet.create({
     boxDefault: {
       height: 200,
-      paddingTop: 5,
-      padding: 5,
+      padding: 10,
+      paddingBottom: 5
     },
     imageBackground:{
       height: '100%',
@@ -53,8 +53,8 @@ const styles = StyleSheet.create({
       borderColor: '#d6d7da'
     },
     text: {
-      fontSize: 37,
-      paddingTop: 25,
+      fontSize: 33,
+      paddingTop: 18,
       paddingLeft: 20,
       color: '#FFF', 
       paddingBottom: 18,

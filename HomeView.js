@@ -86,7 +86,6 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container : {
-    paddingTop: 30,
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'flex-start',
@@ -118,7 +117,7 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     margin: 1
   },
-  row1 : {
+  row1:{
     flex: 4
   },
   row2:{
@@ -133,8 +132,9 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap'
   },
   row5:{
-    flex: 1, 
-    padding: 0
+    flex: 2, 
+    padding: 0,
+    maxHeight: 80
   },
   onlyColumn4:{
     flex: 1, 
