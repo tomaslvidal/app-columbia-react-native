@@ -1,103 +1,74 @@
 import React, { Component } from 'react';
-import {Text, View, StyleSheet, TouchableHighlight} from 'react-native';
-import BackLeft from '../components/BackLeft'
-import Footer from '../components/Footer'
-import moment from 'moment';
+
+import {Text, View, StyleSheet, Image, ScrollView, ImageBackground, TouchableOpacity, TouchableHighlight, Linking } from 'react-native';
+
+import {Scene,Router, Actions} from 'react-native-router-flux';
+
+import CollapsibleList from 'react-native-collapsible-list'
+
+import Div from './ModelContainer/index.js';
+
+import Panel from '../components/PanelComponent.js';
+
 import * as t from 'tcomb-form-native'
+
 var Form = t.form.Form;
 
-// here we are: define your domain model
+import * as tvalidation from 'tcomb-validation';
 
-var motivos = t.enums({
-  1:"Demoras en las respuestas de los vendedores",
-  2:"Errores en el tarifario",
-  3:"Precio de un servicio distinto al acordado con los vendedores",
-  4:"Problemas con el hotel",
-  5:"Problemas con el traslado",
-  6:"Problemas con la línea aérea",
-  7:"Problemas con las excursiones",
-  8:"Servicio cancelado previamente y facturado",
-  9:"Problemas con compañías de cruceros"
-});
-
-var vendedores = t.enums({
-  1: "Gomez",
-  2: "Perez",
-  3: "Silva"
-})
+var validate = tvalidation.validate;
 
 var Person = t.struct({
-  nombre: t.String,              // a required string
-  apellido: t.maybe(t.String),  // an optional string
-  motivo: motivos ,               // a required number
-  descripcionDelReclamo: t.String,
-  prestadorDelServicio: t.String,
-  vendedor: vendedores,
-  fechaDelReclamo: t.Date
+  '¿Lorem ipsum dolor sit amet?': t.String,
+  '¿Lorem ipsum dolor sit amet2?': t.String,
+  '¿Lorem ipsum dolor sit amet3?': t.String,
+  '¿Lorem ipsum dolor sit amet4?': t.String,
+  '¿Lorem ipsum dolor sit amet5?': t.String,
+  '¿Lorem ipsum dolor sit amet6?': t.String,
+  //fechaDelReclamo: t.Date
 });
 
-let myFormatFunction = (format,date) =>{
+let myFormatFunction = (format,date) => {
     return moment(date).format(format);
 }
-var fechaDelReclamo = {
-    label: 'Fecha del reclamo',
-    mode:'date',
-    config:{
-        format:(date) => myFormatFunction("DD MMM YYYY",date)
-    }
-};
-let options = {
-    fields: {
-       "fechaDelReclamo":fechaDelReclamo
-    }
+
+let options={
+  fields:{
+  }
 };
 
-export default class PollsView extends Component {
-  
-  constructor(props, context) {
-    super(props, context)
-      this.state = {
-        form: {
-          Nombre: 'Marco Polo',
-          Apellido: false,
-        }
-      }
+export default class PollsView extends Component{
+  constructor(props){
+    super(props);
+    
+    this.state={
+    };
   }
-  
-  handleValueChange(values) {
-    console.log('handleValueChange', values)
-    this.setState({ form: values })
-  }
-  
-  onPress(){
-    // call getValue() to get the values of the form
-    var value = this.refs.form.getValue();
-    if (value) { // if validation fails, value will be null
-      console.log(value); // value here is an instance of Person
-    }
-  }
-  
-  render() {
-    return (
-      <View style={{flex: 1, backgroundColor: '#FFF' , flexDirection: 'column', justifyContent: 'flex-start'}}>
-        <BackLeft/>
-        <View style={{flex: 1, justifyContent: 'space-between', padding: 8}}>
-          <Form
-            ref="form"
-            type={Person}
-            options={options}
-          />
-          <TouchableHighlight style={styles.button} onPress={this.onPress} underlayColor='#99d9f4'>
-            <Text style={styles.buttonText}>Enviar</Text>
+
+  render(){
+    return(
+      <Div name="Encuesta" icon="bar-chart" container={false}>
+        <Panel title="Encuesta de calidad 1">
+          <Form ref="form" type={Person} options={options}/>
+
+          <TouchableHighlight style={styles.button} onPress={ () => this.onPress() } underlayColor='#99d9f4'>
+            <Text style={[styles.buttonText, {}]}>Enviar</Text>
           </TouchableHighlight>
-        </View>
-        <Footer/>
-      </View>
+        </Panel>
+
+        <Panel title="Encuesta de calidad 2">
+          <Form ref="form" type={Person} options={options}/>
+
+          <TouchableHighlight style={styles.button} onPress={ () => this.onPress() } underlayColor='#99d9f4'>
+            <Text style={[styles.buttonText, {}]}>Enviar</Text>
+          </TouchableHighlight>
+        </Panel>
+      </Div>
     );
   }
 }
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   buttonText: {
     fontSize: 18,
     color: 'white',
@@ -114,4 +85,5 @@ var styles = StyleSheet.create({
     justifyContent: 'center'
   }
 });
+
 
