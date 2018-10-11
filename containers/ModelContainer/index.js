@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {Text, View, StyleSheet, Image, ImageBackground, TouchableOpacity, Linking, ScrollView} from 'react-native';
+import {Text, StatusBar, View, StyleSheet, Image, ImageBackground, TouchableOpacity, Linking, ScrollView} from 'react-native';
 
 import {Scene, Router, Actions} from 'react-native-router-flux';
 
@@ -31,6 +31,7 @@ export default class PollsContainer extends Component{
   render(){
     return(
       <View style={[{flex: 1, flexDirection: 'column'}, {}]}>
+        <StatusBar backgroundColor='#2CAEE6' barStyle='light-content' />
         {
         (this.props.backleft != undefined && this.props.backleft == false)  ? null
         : (<BackLeft name={this.props.name} icon={this.props.icon} />)
@@ -40,9 +41,7 @@ export default class PollsContainer extends Component{
             <View style={[styles.childrenScrollView, {minHeight: this.state.heightParent!="" ? this.state.heightParent : null}]}>
               <View style={this.state.loading ? [styles.loading, styles.container] : styles.container}>
                 <View>
-                  <Text>
-                  {this.props.title}
-                  </Text>
+                  <Text>{this.props.title}</Text>
                 </View>
 
                 {
