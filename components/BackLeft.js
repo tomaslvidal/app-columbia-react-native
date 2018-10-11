@@ -1,22 +1,23 @@
-import React, { Component } from 'react';
-import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import React, {Component} from 'react';
 
+import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
-export default class BackLeft extends Component {
-  
-  changePage()
-  {
-    Actions.pop();
-  }
-  
-  render() {
-    return (
-      <View style={[styles.boxDefault, { backgroundColor: '#48BBEC', alignSelf: 'stretch'}]}>
-        <TouchableOpacity onPress={() => this.changePage()}>
-          <Text>
-            Volver
-          </Text>
+import {Scene,Router, Actions} from 'react-native-router-flux';
+
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+
+export default class BackLeft extends Component{
+  render(){
+    return(
+      <View style={styles.body}>
+        <TouchableOpacity style={styles.container} onPress={() => Actions.pop()}>
+          <View>
+            <FontAwesome5 name={"arrow-alt-circle-left"} size={30} color="white" solid />
+          </View>
+
+          <View>
+            <Text style={styles.textVolver}>Volver</Text>
+          </View>
         </TouchableOpacity>
       </View>
     );
@@ -24,7 +25,22 @@ export default class BackLeft extends Component {
 }
 
 const styles = StyleSheet.create({
-  boxDefault: {
-    height: 55
+  body:{
+    height: 55,
+    paddingLeft: 10,
+    backgroundColor: '#48BBEC',
+    display: 'flex',
+    justifyContent: 'center'
   },
+  container:{
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  textVolver:{
+    fontSize: 18, 
+    fontWeight: '700', 
+    color: 'white',
+    marginLeft: 5
+  }
 });
