@@ -5,11 +5,12 @@ import {Text, View, StyleSheet, Image, ImageBackground, TouchableOpacity, Linkin
 import {Actions} from 'react-native-router-flux';
 
 export default class App extends Component {
-
   render() {
     return (
-      <View style={{flex: 1, flexDirection: 'column'}}>
-        <View style={[styles.row1, {flex: 4, padding: 3}]}>
+      <View style={{flex: 1, flexDirection: 'column', backgroundColor: '#252525'}}>
+        <StatusBar backgroundColor='#2CAEE6' barStyle='light-content' />
+
+        <View style={[styles.row1, {flex: 4, padding: 1}]}>
             <TouchableOpacity onPress={() => Actions.VoucherView()}>
               <ImageBackground style={ styles.imageBackground } source={require('./img/vouchers.jpg')}>
                 <View style={{flex: 1, justifyContent: 'flex-end'}}>
@@ -22,7 +23,7 @@ export default class App extends Component {
         </View>
 
         <View style={[styles.row1, {flexDirection: 'row'}]}>
-          <View style={[styles.row1, {padding: 3}]}>
+          <View style={[styles.row1, {padding: 1}]}>
             <TouchableOpacity onPress={() => Actions.DestinationList()}>
               <ImageBackground style={ styles.imageBackground } source={require('./img/destinos.jpg')}>
                 <View style={{flex: 1, justifyContent: 'flex-end'}}>
@@ -34,8 +35,8 @@ export default class App extends Component {
             </TouchableOpacity>
           </View>
 
-          <View style={[styles.row1, {padding: 3}]}>
-            <TouchableOpacity onPress={() => Linking.openURL('http://www.columbiaviajes.com.ar/contacto.php' )}>
+          <View style={[styles.row1, {padding: 1}]}>
+            <TouchableOpacity onPress={() => Linking.openURL('https://www.columbiaviajes.com.ar/landing/3/Web-Check-in/')}>
             <ImageBackground style={ styles.imageBackground } source={require('./img/checkin.jpg')}>
               <View style={{flex: 1, justifyContent: 'flex-end'}}>
                 <Text style={[ styles.text , { textAlign: 'right', paddingRight: 22, fontSize: 25 } ]}>
@@ -48,7 +49,7 @@ export default class App extends Component {
         </View>
 
         <View style={[styles.row1, {flexDirection: 'row'}]}>
-          <View style={[styles.row1, {padding: 3}]}>
+          <View style={[styles.row1, {padding: 1}]}>
             <TouchableOpacity onPress={() => Actions.PollsView()}>
             <ImageBackground style={ styles.imageBackground } source={require('./img/encuestas.jpg')}>
               <View style={{flex: 1, justifyContent: 'flex-end'}}>
@@ -60,8 +61,8 @@ export default class App extends Component {
           </TouchableOpacity>
           </View>
 
-          <View style={[styles.row1, {padding: 3}]}>
-            <TouchableOpacity onPress={() => Linking.openURL('http://www.columbiaviajes.com.ar/contacto.php' )}>
+          <View style={[styles.row1, {padding: 1}]}>
+            <TouchableOpacity onPress={() => Linking.openURL('https://www.columbiaviajes.com.ar')}>
             <ImageBackground style={ styles.imageBackground } source={require('./img/web.jpg')}>
               <View style={{flex: 1, justifyContent: 'flex-end'}}>
                 <Text style={[ styles.text , { textAlign: 'right', paddingRight: 22, fontSize: 25 } ]}>
@@ -74,7 +75,7 @@ export default class App extends Component {
         </View>
 
         <View style={[styles.row1, {flexDirection: 'row'}]}>
-          <View style={[styles.row1, {padding: 3}]}>
+          <View style={[styles.row1, {padding: 1}]}>
             <TouchableOpacity onPress={() => Actions.ClaimsView()}>
               <ImageBackground style={ styles.imageBackground } source={require('./img/reclamos.jpg')}>
                 <View style={{flex: 1, justifyContent: 'flex-end'}}>
@@ -86,8 +87,8 @@ export default class App extends Component {
             </TouchableOpacity>
           </View>
 
-          <View style={[styles.row1, {padding: 3}]}>
-            <TouchableOpacity onPress={() => Linking.openURL('http://www.columbiaviajes.com.ar/contacto.php' )}>
+          <View style={[styles.row1, {padding: 1}]}>
+            <TouchableOpacity onPress={() => Linking.openURL('https://www.columbiaviajes.com.ar/contacto.php')}>
               <ImageBackground style={ styles.imageBackground } source={require('./img/contacto.jpg')}>
                 <View style={{flex: 1, justifyContent: 'flex-end'}}>
                   <Text style={[ styles.text , { textAlign: 'right', paddingRight: 22, fontSize: 25 } ]}>
@@ -135,11 +136,11 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
-  imageBackground:{
+  imageBackground: {
     height: '100%',
     width: '100%'
   },
-  imagenColumn5:{
+  imagenColumn5: {
     flex: 1,
     alignItems: 'center',
     justifyContent:'center',
@@ -154,33 +155,33 @@ const styles = StyleSheet.create({
     textShadowRadius: 7, 
     textShadowOffset: { height: 2, width: -0 }
   },
-  generalStyle:{
+  generalStyle: {
     alignSelf: 'stretch',
     borderRadius: 5, 
     borderWidth: 2.5, 
     borderColor: 'white',
     margin: 1
   },
-  row1:{
+  row1: {
     flex: 4
   },
-  row2:{
+  row2: {
     flex: 4, 
   },
-  row3:{
+  row3: {
     flex: 2, 
   },
-  row4:{
+  row4: {
     flex: 3, 
     flexDirection: 'row',
     flexWrap: 'wrap'
   },
-  row5:{
+  row5: {
     flex: 2, 
     padding: 0,
     maxHeight: 80
   },
-  onlyColumn4:{
+  onlyColumn4: {
     flex: 1, 
     alignSelf: 'stretch',
     backgroundColor: '#038ec7', 
