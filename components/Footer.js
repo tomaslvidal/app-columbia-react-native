@@ -15,13 +15,13 @@ export default class Footer extends Component{
 }
 
 const styles = StyleSheet.create({
-  body:{
+  body: {
     height: 85, 
     marginTop: 'auto', 
     backgroundColor: '#48BBEC',
     borderRadius: 1
   },
-  footerImage:{
+  footerImage: {
     flex: 1,
     alignSelf: 'center',
     justifyContent:'center',

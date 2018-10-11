@@ -7,85 +7,85 @@ import {Scene, Router, Actions} from 'react-native-router-flux';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 export default class PanelComponent extends Component{
-    constructor(props){
-      super(props);
+  constructor(props){
+    super(props);
 
-      this.icons = {
-        'up'    : 'caret-up',
-        'down'  : 'caret-down'
-      };
+    this.icons = {
+      'up'    : 'caret-up',
+      'down'  : 'caret-down'
+    };
 
-      this.state = {
-        title : props.title,
-        expanded : false,
-        animation : new Animated.Value(),
-        init: true
-      };
-    }
+    this.state = {
+      title : props.title,
+      expanded : false,
+      animation : new Animated.Value(),
+      init: true
+    };
+  }
 
-    componentDidMount(){
-      this.state.animation.setValue(40);
-    }
+  componentDidMount(){
+    this.state.animation.setValue(40);
+  }
 
-    toggle(){
-      let initialValue = this.state.expanded ? this.state.maxHeight + this.state.minHeight : this.state.minHeight;
+  toggle(){
+    let initialValue = this.state.expanded ? this.state.maxHeight + this.state.minHeight : this.state.minHeight;
 
-      let finalValue = this.state.expanded ? this.state.minHeight : this.state.maxHeight + this.state.minHeight;
+    let finalValue = this.state.expanded ? this.state.minHeight : this.state.maxHeight + this.state.minHeight;
 
-      this.setState({
-        expanded : !this.state.expanded
-      });
-  
-      this.state.animation.setValue(initialValue);
+    this.setState({
+      expanded : !this.state.expanded
+    });
 
-      Animated.spring(
-        this.state.animation,
-        {
-          toValue: finalValue
-        }
-      ).start();
-    }
-    
-    _setMaxHeight(event){
-      this.setState({
-        maxHeight: event.nativeEvent.layout.height
-      });
-    }
+    this.state.animation.setValue(initialValue);
 
-    _setMinHeight(event){
-      this.setState({
-        minHeight: event.nativeEvent.layout.height
-      });
-    }
-
-    render(){
-      let icon = this.icons.down;
-
-      if(this.state.expanded){
-        icon = this.icons.up;
+    Animated.spring(
+      this.state.animation,
+      {
+        toValue: finalValue
       }
+    ).start();
+  }
+  
+  _setMaxHeight(event){
+    this.setState({
+      maxHeight: event.nativeEvent.layout.height
+    });
+  }
 
-      return(
-        <Animated.View style={[styles.container, {height: this.state.animation}]}>
-          <View ref="viewMinHeight" style={styles.titleContainer} onLayout={(e) => this._setMinHeight(e)}>
-            <Text style={styles.title}>{this.state.title}</Text>
+  _setMinHeight(event){
+    this.setState({
+      minHeight: event.nativeEvent.layout.height
+    });
+  }
 
-            <TouchableHighlight style={styles.button} onPress={(e) => this.toggle(e)} underlayColor="#f1f1f1">
-              <FontAwesome5 name={icon} size={27} color={'#009EE0'} solid />
-            </TouchableHighlight>
-          </View>
+  render(){
+    let icon = this.icons.down;
 
-          <View style={styles.body} onLayout={(e) => this._setMaxHeight(e)}>
-            <View>
-              {this.props.children}
-            </View>
-          </View>
-        </Animated.View>
-      );
+    if(this.state.expanded){
+      icon = this.icons.up;
     }
+
+    return(
+      <Animated.View style={[styles.container, {height: this.state.animation}]}>
+        <View ref="viewMinHeight" style={styles.titleContainer} onLayout={(e) => this._setMinHeight(e)}>
+          <Text style={styles.title}>{this.state.title}</Text>
+
+          <TouchableHighlight style={styles.button} onPress={(e) => this.toggle(e)} underlayColor="#f1f1f1">
+            <FontAwesome5 name={icon} size={27} color={'#009EE0'} solid />
+          </TouchableHighlight>
+        </View>
+
+        <View style={styles.body} onLayout={(e) => this._setMaxHeight(e)}>
+          <View>
+            {this.props.children}
+          </View>
+        </View>
+      </Animated.View>
+    );
+  }
 }
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container:{
     backgroundColor: '#fff',
     marginTop: 5,

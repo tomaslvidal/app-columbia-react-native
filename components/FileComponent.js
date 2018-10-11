@@ -13,12 +13,16 @@ export default class FileComponent extends Component{
         </View>
         
         <TouchableOpacity onPress={() => Linking.openURL(this.props.url)} style={styles.icon}>
-          <FontAwesome5 name={'file-download'} size={20} color={'#FFFFFF'} solid />
+          <FontAwesome5 name={'file-download'} size={20} color={attributes.color} solid />
         </TouchableOpacity>
       </View>
     );
   }
 }
+
+const attributes = {
+  color : '#FFFFFF'
+};
 
 const styles = StyleSheet.create({
   body: {
