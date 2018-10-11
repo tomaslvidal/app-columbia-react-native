@@ -1,119 +1,48 @@
-import React, { Component } from 'react';
-import {Text, View, ScrollView, StyleSheet, TouchableHighlight, KeyboardAvoidingView} from 'react-native';
-import BackLeft from '../components/BackLeft'
-import Footer from '../components/Footer'
-import moment from 'moment';
-import * as t from 'tcomb-form-native'
-var Form = t.form.Form;
+import React, {Component} from 'react';
 
-// here we are: define your domain model
+import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 
-var motivos = t.enums({
-  1:"Demoras en las respuestas de los vendedores",
-  2:"Errores en el tarifario",
-  3:"Precio de un servicio distinto al acordado con los vendedores",
-  4:"Problemas con el hotel",
-  5:"Problemas con el traslado",
-  6:"Problemas con la línea aérea",
-  7:"Problemas con las excursiones",
-  8:"Servicio cancelado previamente y facturado",
-  9:"Problemas con compañías de cruceros"
-});
+import {Actions} from 'react-native-router-flux';
 
-var vendedores = t.enums({
-  1: "Gomez",
-  2: "Perez",
-  3: "Silva"
-})
+import Div from './ModelContainer/index.js';
 
-var Person = t.struct({
-  nombre: t.String,              // a required string
-  apellido: t.maybe(t.String),  // an optional string
-  motivo: motivos ,               // a required number
-  descripcionDelReclamo: t.String,
-  prestadorDelServicio: t.String,
-  vendedor: vendedores,
-  fechaDelReclamo: t.Date
-});
+import FileComponent from '../components/FileComponent.js';
 
-let myFormatFunction = (format,date) =>{
-    return moment(date).format(format);
-}
-var fechaDelReclamo = {
-    label: 'Fecha del reclamo',
-    mode:'date',
-    config:{
-        format:(date) => myFormatFunction("DD MMM YYYY",date)
-    }
-};
-let options = {
-    fields: {
-       "fechaDelReclamo":fechaDelReclamo
-    }
-};
+export default class VoucherContainer extends Component{
+  constructor(props){
+    super(props);
+    
+    this.state = {
+    };
+  }
 
-export default class VoucherView extends Component {
-  
-  constructor(props, context) {
-    super(props, context)
-      this.state = {
-        form: {
-          Nombre: 'Marco Polo',
-          Apellido: false,
-        }
+  render(){
+    return(
+      <Div name="Voucher e Initerarios" icon='bar-chart'>
+      {
+        function(){
+          let contentFiles = [];
+
+          // for(i = 0; i < 1; i++){
+            contentFiles.push(<FileComponent url="http://eviajes.online/columbiaAPP/Reserva_de_viaje_10_octubre.pdf" name="Reserva viajes 10 de octubre" style={styles.fileComponent}/>);
+
+            contentFiles.push(<FileComponent url="http://eviajes.online/columbiaAPP/Info_APP_Sura.pdf" name="Info SUBE" style={styles.fileComponent}/>);
+          // }
+
+          return contentFiles;
+        }()
       }
-  }
-  
-  handleValueChange(values) {
-    console.log('handleValueChange', values)
-    this.setState({ form: values })
-  }
-  
-  onPress(){
-    // call getValue() to get the values of the form
-    var value = this.refs.form.getValue();
-    if (value) { // if validation fails, value will be null
-      console.log(value); // value here is an instance of Person
-    }
-  }
-  
-  render() {
-    return (
-      <View style={{flex: 1, backgroundColor: '#FFF' , flexDirection: 'column', justifyContent: 'flex-start'}}>
-        <BackLeft/>
-        <ScrollView>
-          <View style={{flex: 1, justifyContent: 'space-between', padding: 8}}>
-              <Form
-                ref="form"
-                type={Person}
-                options={options}
-              />
-              <TouchableHighlight style={styles.button} onPress={this.onPress} underlayColor='#99d9f4'>
-                <Text style={styles.buttonText}>Enviar</Text>
-              </TouchableHighlight>
-          </View>
-          <Footer/>
-        </ScrollView>
-      </View>
-    );
+      </Div>
+    )
   }
 }
 
-var styles = StyleSheet.create({
-  buttonText: {
-    fontSize: 18,
-    color: 'white',
-    alignSelf: 'center'
+const styles = StyleSheet.create({
+  texts: {
+    color: 'white'
   },
-  button: {
-    height: 36,
-    backgroundColor: '#48BBEC',
-    borderColor: '#48BBEC',
-    borderWidth: 1,
-    borderRadius: 8,
-    marginBottom: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
+  fileComponent: {
+    marginTop: 6,
+    marginBottom: 6
   }
 });
-
