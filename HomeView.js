@@ -1,20 +1,22 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
-import {Text, View, StyleSheet, Image, ImageBackground, TouchableOpacity, Linking, Plataform, StatusBar} from 'react-native';
+import {Text, View, StyleSheet, Image, ImageBackground, TouchableOpacity, Linking, StatusBar} from 'react-native';
 
 import {Actions} from 'react-native-router-flux';
 
-export default class App extends Component {
-  render() {
-    return (
-      <View style={{flex: 1, flexDirection: 'column', backgroundColor: '#252525'}}>
-        <StatusBar backgroundColor='#2CAEE6' barStyle='light-content' />
+export default class App extends Component{
+  render(){
+    const img_path = './img/';
 
-        <View style={[styles.row1, {flex: 4, padding: 1}]}>
+    return(
+      <View style={styles.body}>
+        <StatusBar backgroundColor={attributes.statusBarColor} />
+
+        <View style={[styles.row1, styles.separation]}>
             <TouchableOpacity onPress={() => Actions.VoucherView()}>
-              <ImageBackground style={ styles.imageBackground } source={require('./img/vouchers.jpg')}>
-                <View style={{flex: 1, justifyContent: 'flex-end'}}>
-                  <Text style={[ styles.text , { textAlign: 'right', paddingRight: 22, fontSize: 25 } ]}>
+              <ImageBackground style={styles.imageBackground} source={require(img_path+'vouchers.jpg')}>
+                <View style={[styles.viewText]}>
+                  <Text style={[styles.text]}>
                     Vouchers
                   </Text>
                 </View>
@@ -23,11 +25,11 @@ export default class App extends Component {
         </View>
 
         <View style={[styles.row1, {flexDirection: 'row'}]}>
-          <View style={[styles.row1, {padding: 1}]}>
+          <View style={[styles.row1, styles.separation]}>
             <TouchableOpacity onPress={() => Actions.DestinationList()}>
-              <ImageBackground style={ styles.imageBackground } source={require('./img/destinos.jpg')}>
-                <View style={{flex: 1, justifyContent: 'flex-end'}}>
-                  <Text style={[ styles.text , { textAlign: 'right', paddingRight: 22, fontSize: 25 } ]}>
+              <ImageBackground style={styles.imageBackground} source={require(img_path+'destinos.jpg')}>
+                <View style={[styles.viewText]}>
+                  <Text style={[styles.text]}>
                     Destinos
                   </Text>
                 </View>
@@ -35,11 +37,11 @@ export default class App extends Component {
             </TouchableOpacity>
           </View>
 
-          <View style={[styles.row1, {padding: 1}]}>
+          <View style={[styles.row1, styles.separation]}>
             <TouchableOpacity onPress={() => Linking.openURL('https://www.columbiaviajes.com.ar/landing/3/Web-Check-in/')}>
-            <ImageBackground style={ styles.imageBackground } source={require('./img/checkin.jpg')}>
-              <View style={{flex: 1, justifyContent: 'flex-end'}}>
-                <Text style={[ styles.text , { textAlign: 'right', paddingRight: 22, fontSize: 25 } ]}>
+            <ImageBackground style={styles.imageBackground} source={require(img_path+'checkin.jpg')}>
+              <View style={[styles.viewText]}>
+                <Text style={[styles.text]}>
                   Check In
                 </Text>
               </View>
@@ -49,11 +51,11 @@ export default class App extends Component {
         </View>
 
         <View style={[styles.row1, {flexDirection: 'row'}]}>
-          <View style={[styles.row1, {padding: 1}]}>
+          <View style={[styles.row1, styles.separation]}>
             <TouchableOpacity onPress={() => Actions.PollsView()}>
-            <ImageBackground style={ styles.imageBackground } source={require('./img/encuestas.jpg')}>
-              <View style={{flex: 1, justifyContent: 'flex-end'}}>
-                <Text style={[ styles.text , { textAlign: 'right', paddingRight: 22, fontSize: 25 } ]}>
+            <ImageBackground style={styles.imageBackground} source={require(img_path+'encuestas.jpg')}>
+              <View style={[styles.viewText]}>
+                <Text style={[styles.text]}>
                   Encuesta
                 </Text>
               </View>
@@ -61,11 +63,11 @@ export default class App extends Component {
           </TouchableOpacity>
           </View>
 
-          <View style={[styles.row1, {padding: 1}]}>
+          <View style={[styles.row1, styles.separation]}>
             <TouchableOpacity onPress={() => Linking.openURL('https://www.columbiaviajes.com.ar')}>
-            <ImageBackground style={ styles.imageBackground } source={require('./img/web.jpg')}>
-              <View style={{flex: 1, justifyContent: 'flex-end'}}>
-                <Text style={[ styles.text , { textAlign: 'right', paddingRight: 22, fontSize: 25 } ]}>
+            <ImageBackground style={styles.imageBackground} source={require(img_path+'web.jpg')}>
+              <View style={[styles.viewText]}>
+                <Text style={[styles.text]}>
                   Web
                 </Text>
               </View>
@@ -75,11 +77,11 @@ export default class App extends Component {
         </View>
 
         <View style={[styles.row1, {flexDirection: 'row'}]}>
-          <View style={[styles.row1, {padding: 1}]}>
+          <View style={[styles.row1, styles.separation]}>
             <TouchableOpacity onPress={() => Actions.ClaimsView()}>
-              <ImageBackground style={ styles.imageBackground } source={require('./img/reclamos.jpg')}>
-                <View style={{flex: 1, justifyContent: 'flex-end'}}>
-                  <Text style={[ styles.text , { textAlign: 'right', paddingRight: 22, fontSize: 25 } ]}>
+              <ImageBackground style={styles.imageBackground} source={require(img_path+'reclamos.jpg')}>
+                <View style={[styles.viewText]}>
+                  <Text style={[styles.text]}>
                     Reclamo
                   </Text>
                 </View>
@@ -87,11 +89,11 @@ export default class App extends Component {
             </TouchableOpacity>
           </View>
 
-          <View style={[styles.row1, {padding: 1}]}>
+          <View style={[styles.row1, styles.separation]}>
             <TouchableOpacity onPress={() => Linking.openURL('https://www.columbiaviajes.com.ar/contacto.php')}>
-              <ImageBackground style={ styles.imageBackground } source={require('./img/contacto.jpg')}>
-                <View style={{flex: 1, justifyContent: 'flex-end'}}>
-                  <Text style={[ styles.text , { textAlign: 'right', paddingRight: 22, fontSize: 25 } ]}>
+              <ImageBackground style={styles.imageBackground} source={require(img_path+'contacto.jpg')}>
+                <View style={[styles.viewText]}>
+                  <Text style={[styles.text]}>
                     Contacto
                   </Text>
                 </View>
@@ -100,21 +102,31 @@ export default class App extends Component {
           </View>
         </View>
 
-        <View style={styles.footer1}>
-          <Image source={require('./img/footer.jpg')} style={styles.footerImage} />
+        <View style={styles.footer}>
+          <Image source={require(img_path+'footer.jpg')} style={styles.footerImage} />
         </View>
       </View>
     );
   }
 }
 
+const attributes = {
+  statusBarColor : '#2CAEE6'
+};
+
 const styles = StyleSheet.create({
-  row1:{
-    display: 'flex',
-    flex: 1,
-    flexDirection: 'row'
+  body:{
+    flex: 1, 
+    flexDirection: 'column', 
+    backgroundColor: '#252525'
   },
-  footer1:{
+  row1: {
+    flex: 1
+  },
+  separation: {
+    padding: 1
+  },
+  footer: {
     height: 85, 
     marginTop: 'auto', 
     backgroundColor: '#48BBEC',
@@ -130,62 +142,22 @@ const styles = StyleSheet.create({
     marginTop: 'auto',
     marginBottom:'auto'
   },
-  container : {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-  },
   imageBackground: {
     height: '100%',
     width: '100%'
   },
-  imagenColumn5: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent:'center',
-    width:'100%',
-    marginTop: 'auto',
-    marginBottom:'auto'
+  viewText:{
+    flex: 1, 
+    justifyContent: 'flex-end'
   },
   text: {
     color: '#FFF', 
     paddingBottom: 18, 
     textShadowColor: "#000", 
     textShadowRadius: 7, 
-    textShadowOffset: { height: 2, width: -0 }
-  },
-  generalStyle: {
-    alignSelf: 'stretch',
-    borderRadius: 5, 
-    borderWidth: 2.5, 
-    borderColor: 'white',
-    margin: 1
-  },
-  row1: {
-    flex: 4
-  },
-  row2: {
-    flex: 4, 
-  },
-  row3: {
-    flex: 2, 
-  },
-  row4: {
-    flex: 3, 
-    flexDirection: 'row',
-    flexWrap: 'wrap'
-  },
-  row5: {
-    flex: 2, 
-    padding: 0,
-    maxHeight: 80
-  },
-  onlyColumn4: {
-    flex: 1, 
-    alignSelf: 'stretch',
-    backgroundColor: '#038ec7', 
-    flexWrap: 'wrap', 
-    justifyContent:'center'
+    textShadowOffset: { height: 2, width: -0 },
+    textAlign: 'right', 
+    paddingRight: 22, 
+    fontSize: 25
   }
 });
