@@ -24,9 +24,9 @@ export default class VoucherContainer extends Component{
           let contentFiles = [];
 
           // for(i = 0; i < 1; i++){
-            contentFiles.push(<FileComponent url="http://eviajes.online/columbiaAPP/Reserva_de_viaje_10_octubre.pdf" name="Reserva viajes 10 de octubre" style={styles.fileComponent}/>);
+            contentFiles.push(<FileComponent key={1} url="http://eviajes.online/columbiaAPP/Reserva_de_viaje_10_octubre.pdf" name="Reserva viajes 10 de octubre" style={styles.fileComponent}/>);
 
-            contentFiles.push(<FileComponent url="http://eviajes.online/columbiaAPP/Info_APP_Sura.pdf" name="Info SUBE" style={styles.fileComponent}/>);
+            {/*contentFiles.push(<FileComponent key={2} url="http://eviajes.online/columbiaAPP/Info_APP_Sura.pdf" name="Info SUBE" style={styles.fileComponent}/>);*/}
           // }
 
           return contentFiles;
