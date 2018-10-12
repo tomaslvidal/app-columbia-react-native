@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {Text, View, StyleSheet, Image, ScrollView, TouchableOpacity, TouchableHighlight, Linking } from 'react-native';
+import {Text, View, StyleSheet, Image, ScrollView, TouchableOpacity, TouchableHighlight, Linking} from 'react-native';
 
 import {Scene,Router, Actions} from 'react-native-router-flux';
 
@@ -34,13 +34,15 @@ var vendedores = t.enums({
   3: "Silva"
 })
 
+var date_now = new moment().format("DD MMM YYYY");
+
 var types_ = t.struct({
   nombre_y_Apellido: t.String,
   motivo: motivos,
   descripcionDelReclamo: t.String,
   prestadorDelServicio: t.String,
   vendedor: vendedores,
-  fechaDelReclamo: t.Date
+  fechaDelReclamo: t.String
 });
 
 let myFormatFunction = (format,date) => {
@@ -57,11 +59,17 @@ var fechaDelReclamo = {
 
 let options = {
   fields: {
-     "fechaDelReclamo":fechaDelReclamo
+     fechaDelReclamo: {
+        editable : false
+     }
   }
 };
 
-export default class ClaimsContainer extends Component{
+let value = {
+  "fechaDelReclamo" : date_now
+};
+
+export default class ClaimsView extends Component{
   constructor(props, context){
     super(props, context);
   }
@@ -81,7 +89,7 @@ export default class ClaimsContainer extends Component{
   render(){
     return(
       <Div name="Formulario de Reclamos" icon="wpforms">
-        <Form ref="form" type={types_} options={options}/>
+        <Form ref="form" type={types_} options={options} value={value}/>
 
         <TouchableHighlight style={styles.button} onPress={ (e) => this.onPress(e) } underlayColor='#99d9f4'>
           <Text style={styles.buttonText}>Enviar</Text>
