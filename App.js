@@ -1,4 +1,4 @@
-import {Scene,Router, Actions} from 'react-native-router-flux';
+import { Scene, Router, Actions } from 'react-native-router-flux';
 
 import React, { Component } from 'react';
 
@@ -34,7 +34,7 @@ const store = createStore(
   )
 );
 
-store.dispatch(setLoguedAccount({name: "Tomás", last_name: "Vidal", description: "asdasdasdlkdflskjfsdfsfjl"}));
+store.dispatch(setLoguedAccount({name: "Tomás", last_name: "Vidal", description: "asd"}));
 
 export default class App extends Component {
   render() {
