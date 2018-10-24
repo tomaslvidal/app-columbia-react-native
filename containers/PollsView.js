@@ -6,7 +6,7 @@ import {Scene,Router, Actions} from 'react-native-router-flux';
 
 import CollapsibleList from 'react-native-collapsible-list'
 
-import Div from './ModelContainer/index.js';
+import Div from '../layouts/default';
 
 import Panel from '../components/PanelComponent.js';
 

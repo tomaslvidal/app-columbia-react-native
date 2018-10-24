@@ -2,9 +2,7 @@ import React, {Component} from 'react';
 
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 
-import {Actions} from 'react-native-router-flux';
-
-import Div from './ModelContainer/index.js';
+import Div from '../layouts/default';
 
 import FileComponent from '../components/FileComponent.js';
 

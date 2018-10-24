@@ -2,13 +2,11 @@ import React, {Component} from 'react';
 
 import {View, ListView, TouchableOpacity, StyleSheet, Linking} from 'react-native';
 
-import {Actions} from 'react-native-router-flux';
-
-import DestinationBox from './DestinationBox.js'
+import DestinationBox from '../components/DestinationBox.js'
 
 import BackLeft from '../components/BackLeft.js'
 
-import Div from './ModelContainer/index.js';
+import Div from '../layouts/default';
 
 export default class DestinationList extends Component {
   constructor(props){
@@ -52,7 +50,7 @@ export default class DestinationList extends Component {
 
   handlePress(destination){
     if(destination.url==undefined){
-      Actions.DestinationDetail({ destination: destination })
+      this.props.navigation.navigate('DestinationDetail', { destination: destination });
     }
     else{
       Linking.openURL(destination.url)

@@ -2,18 +2,16 @@ import React, {Component} from 'react';
 
 import {Text, View, StyleSheet, Image, ImageBackground, TouchableOpacity, Linking, StatusBar} from 'react-native';
 
-import {Actions} from 'react-native-router-flux';
-
 export default class App extends Component{
   render(){
-    const img_path = './img/';
+    const img_path = '../img/';
 
     return(
       <View style={styles.body}>
         <StatusBar backgroundColor={attributes.statusBarColor} />
 
         <View style={[styles.row1, styles.separation]}>
-            <TouchableOpacity onPress={() => Actions.VoucherView()}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Voucher')}>
               <ImageBackground style={styles.imageBackground} source={require(img_path+'vouchers.jpg')}>
                 <View style={[styles.viewText]}>
                   <Text style={[styles.text]}>
@@ -26,7 +24,7 @@ export default class App extends Component{
 
         <View style={[styles.row1, {flexDirection: 'row'}]}>
           <View style={[styles.row1, styles.separation]}>
-            <TouchableOpacity onPress={() => Actions.DestinationList()}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('DestinationList')}>
               <ImageBackground style={styles.imageBackground} source={require(img_path+'destinos.jpg')}>
                 <View style={[styles.viewText]}>
                   <Text style={[styles.text]}>
@@ -52,7 +50,7 @@ export default class App extends Component{
 
         <View style={[styles.row1, {flexDirection: 'row'}]}>
           <View style={[styles.row1, styles.separation]}>
-            <TouchableOpacity onPress={() => Actions.PollsView()}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Pools')}>
             <ImageBackground style={styles.imageBackground} source={require(img_path+'encuestas.jpg')}>
               <View style={[styles.viewText]}>
                 <Text style={[styles.text]}>
@@ -78,7 +76,7 @@ export default class App extends Component{
 
         <View style={[styles.row1, {flexDirection: 'row'}]}>
           <View style={[styles.row1, styles.separation]}>
-            <TouchableOpacity onPress={() => Actions.ClaimsView()}>
+            <TouchableOpacity onPress={() => this.props.navigation.push('Claims')}>
               <ImageBackground style={styles.imageBackground} source={require(img_path+'reclamos.jpg')}>
                 <View style={[styles.viewText]}>
                   <Text style={[styles.text]}>

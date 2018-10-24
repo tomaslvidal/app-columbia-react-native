@@ -4,7 +4,7 @@ import {Text, View, StyleSheet, Image, ScrollView, TouchableOpacity, TouchableHi
 
 import {Scene,Router, Actions} from 'react-native-router-flux';
 
-import Div from './ModelContainer/index.js';
+import Div from '../layouts/default';
 
 import moment from 'moment';
 

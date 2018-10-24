@@ -6,11 +6,13 @@ import {Scene,Router, Actions} from 'react-native-router-flux';
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-export default class BackLeft extends Component{
+import { withNavigation } from 'react-navigation';
+
+class BackLeft extends Component{
   render(){
     return(
       <View style={styles.body}>
-        <TouchableOpacity style={styles.container} onPress={() => Actions.pop()}>
+        <TouchableOpacity style={styles.container} onPress={() => this.props.navigation.goBack()}>
           <View>
             <FontAwesome5 name={"arrow-alt-circle-left"} size={30} color="white" solid />
           </View>
@@ -44,3 +46,5 @@ const styles = StyleSheet.create({
     marginLeft: 5
   }
 });
+
+export default withNavigation(BackLeft);

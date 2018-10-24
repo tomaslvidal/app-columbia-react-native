@@ -4,25 +4,19 @@ import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 
 import {Icon} from 'react-native-elements'
 
-import {Actions} from 'react-native-router-flux';
-
 import SwipeableParallaxCarousel, {ScrollView, SwipeableCarousel} from 'react-native-swipeable-parallax-carousel';
 
 import BackLeft from '../components/BackLeft.js'
 
 import Footer from '../components/Footer.js'
 
-import Div from './ModelContainer/index.js';
+import Div from '../layouts/default';
 
 export default class DestinationDetail extends Component{
   constructor(props){
     super(props);
   }
   
-  changePage(){
-    Actions.pop();
-  }
-
   render() {
     const img_path = '../img/';
 

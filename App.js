@@ -1,18 +1,8 @@
-import { Scene, Router, Actions } from 'react-native-router-flux';
+import React from "react";
 
-import React, { Component } from 'react';
+import { createRootNavigator } from "./router";
 
-import HomeView from './HomeView';
-
-import DestinationList from './containers/DestinationList.js';
-
-import DestinationDetail from './containers/DestinationDetail.js';
-
-import VoucherView from './containers/VoucherView.js';
-
-import PollsView from './containers/PollsView.js';
-
-import ClaimsView from './containers/ClaimsView.js';
+import { isSignedIn } from "./auth";
 
 import { createStore, applyMiddleware } from 'redux';
 
@@ -34,27 +24,35 @@ const store = createStore(
   )
 );
 
-store.dispatch(setLoguedAccount({name: "Tomás", last_name: "Vidal", description: "asd"}));
+// store.dispatch(setLoguedAccount({name: "Tomás", last_name: "Vidal", description: "asd"}));
 
-export default class App extends Component {
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      signedIn: false,
+      checkedSignIn: false
+    };
+  }
+
+  componentDidMount() {
+    isSignedIn()
+      .then(res => this.setState({ signedIn: res, checkedSignIn: true }))
+      .catch(err => alert("An error occurred"));
+  }
+
   render() {
-    return (
+    const { checkedSignIn, signedIn } = this.state;
+
+    if (!checkedSignIn) {
+      return null;
+    }
+
+    const Layout = createRootNavigator(signedIn);
+    return(
       <Provider store={store}>
-        <Router>
-          <Scene key="root">
-            <Scene key="home" component={HomeView} hideNavBar />
-            
-            <Scene key="DestinationList" component={DestinationList} hideNavBar />
-            
-            <Scene key="DestinationDetail" component={DestinationDetail} hideNavBar />
-            
-            <Scene key="VoucherView" component={VoucherView} hideNavBar />
-            
-            <Scene key="PollsView" component={PollsView} hideNavBar />
-            
-            <Scene key="ClaimsView" component={ClaimsView} hideNavBar />
-          </Scene>
-        </Router>
+        <Layout />
       </Provider>
     );
   }
