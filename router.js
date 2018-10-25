@@ -4,7 +4,7 @@ import { Platform, StatusBar } from "react-native";
 
 import { createStackNavigator, createBottomTabNavigator, createSwitchNavigator } from "react-navigation";
 
-// import SignIn from "./containers/SignIn";
+import SignIn from "./containers/LoginContainer";
 
 import HomeView from './containers/HomeView';
 
@@ -20,7 +20,7 @@ import ClaimsView from './containers/ClaimsView';
 
 export const SignedOut = createStackNavigator({
   SignIn: {
-    screen: DestinationList
+    screen: HomeView
   }
 },
 {
@@ -34,6 +34,9 @@ export const SignedOut = createStackNavigator({
 export const SignedIn = createStackNavigator({
   Home: {
     screen: HomeView
+  },
+  SignIn_: {
+    screen: SignIn
   },
   DestinationList: {
     screen: DestinationList

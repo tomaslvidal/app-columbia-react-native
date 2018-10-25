@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import {Text, View, StyleSheet, Image, ScrollView, ImageBackground, TouchableOpacity, TouchableHighlight, Linking} from 'react-native';
+import { isSignedIn } from '../auth';
 
-import {Scene,Router, Actions} from 'react-native-router-flux';
+import {Text, View, StyleSheet, Image, ScrollView, ImageBackground, TouchableOpacity, TouchableHighlight, Linking} from 'react-native';
 
 import CollapsibleList from 'react-native-collapsible-list'
 
@@ -39,7 +39,25 @@ export default class PollsView extends Component{
     super(props);
     
     this.state={
+      run: false
     };
+  }
+
+  componentWillMount(){
+    isSignedIn()
+    .then(res => {
+      if(res==false){
+        this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_');
+      }
+      else{
+        this.setState({
+          run: true
+        });
+      }
+    })
+    .catch(res => {
+      this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_');
+    });
   }
 
   onPress(){
@@ -53,21 +71,32 @@ export default class PollsView extends Component{
   render(){
     return(
       <Div name="Encuesta" icon="bar-chart" container={false}>
-        <Panel title="Encuesta de calidad 1">
-          <Form ref="form" type={Person} options={options}/>
+      {
+        !this.state.run ? null :
+        (function(){
+          const return_ = (
+          <View>
+            <Panel title="Encuesta de calidad 1">
+              <Form ref="form" type={Person} options={options}/>
 
-          <TouchableHighlight style={styles.button} onPress={() => this.onPress()} underlayColor={attributes.underlayColor}>
-            <Text style={[styles.buttonText, {}]}>Enviar</Text>
-          </TouchableHighlight>
-        </Panel>
+              <TouchableHighlight style={styles.button} onPress={() => this.onPress()} underlayColor={attributes.underlayColor}>
+                <Text style={[styles.buttonText, {}]}>Enviar</Text>
+              </TouchableHighlight>
+            </Panel>
 
-        <Panel title="Encuesta de calidad 2">
-          <Form ref="form" type={Person} options={options}/>
+            <Panel title="Encuesta de calidad 2">
+              <Form ref="form" type={Person} options={options}/>
 
-          <TouchableHighlight style={styles.button} onPress={() => this.onPress()} underlayColor={attributes.underlayColor}>
-            <Text style={[styles.buttonText, {}]}>Enviar</Text>
-          </TouchableHighlight>
-        </Panel>
+              <TouchableHighlight style={styles.button} onPress={() => this.onPress()} underlayColor={attributes.underlayColor}>
+                <Text style={[styles.buttonText, {}]}>Enviar</Text>
+              </TouchableHighlight>
+            </Panel>
+          </View>
+          );
+
+          return return_;
+        })()
+      }
       </Div>
     );
   }

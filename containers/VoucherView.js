@@ -6,19 +6,40 @@ import Div from '../layouts/default';
 
 import FileComponent from '../components/FileComponent.js';
 
-export default class VoucherContainer extends Component{
+import { isSignedIn } from '../auth';
+
+export default class VoucherView extends Component{
   constructor(props){
     super(props);
-    
+
     this.state = {
+      run: false
     };
+  }
+
+  componentWillMount(){
+    isSignedIn()
+    .then(res => {
+      if(res==false){
+        this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_');
+      }
+      else{
+        this.setState({
+          run: true
+        });
+      }
+    })
+    .catch(res => {
+      this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_');
+    });
   }
 
   render(){
     return(
       <Div name="Voucher e Initerarios" icon='bar-chart'>
       {
-        function(){
+        !this.state.run ? null :
+        (function(){
           let contentFiles = [];
 
           // for(i = 0; i < 1; i++){
@@ -28,10 +49,10 @@ export default class VoucherContainer extends Component{
           // }
 
           return contentFiles;
-        }()
+        })()
       }
       </Div>
-    )
+    );
   }
 }
 
