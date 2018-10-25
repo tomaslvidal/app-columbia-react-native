@@ -6,11 +6,11 @@ function listener(){
   return new Promise((resolve, reject) => {
     let access_token = store.getState().account;
 
-    if(access_token.oauth!=undefined){
-      resolve(true);
+    if(access_token.oauth.access_token!=""){
+		resolve(true);
     }
     else{
-      resolve(false);
+		resolve(false);
     }
   });
 }

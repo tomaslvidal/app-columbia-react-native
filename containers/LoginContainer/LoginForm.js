@@ -34,7 +34,7 @@ stylesheet.controlLabel.error.color = colorError;
 
 stylesheet.helpBlock.error.color = colorError;
 
-stylesheet.errorBlock.color = '#FFE6E6';
+// stylesheet.errorBlock.color = '#FFE6E6';
 
 const Form = t.form.Form;
 
