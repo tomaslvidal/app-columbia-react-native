@@ -44,20 +44,22 @@ export default class PollsView extends Component{
   }
 
   componentWillMount(){
-    isSignedIn()
-    .then(res => {
-      if(res==false){
+    setTimeout( () => {
+      isSignedIn()
+      .then(res => {
+        if(res==false){
+          this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_');
+        }
+        else{
+          this.setState({
+            run: true
+          });
+        }
+      })
+      .catch(res => {
         this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_');
-      }
-      else{
-        this.setState({
-          run: true
-        });
-      }
-    })
-    .catch(res => {
-      this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_');
-    });
+      });
+    }, 300);
   }
 
   onPress(){
@@ -70,7 +72,7 @@ export default class PollsView extends Component{
 
   render(){
     return(
-      <Div name="Encuesta" icon="bar-chart" container={false}>
+      <Div name="Encuesta" icon="bar-chart" container={false} loading={!this.state.run}>
       {
         !this.state.run ? null :
         (function(){
