@@ -8,12 +8,14 @@ export default class DestinationBox extends Component{
   }
 
   render(){
+    const url = this.props.destination.parseado!= undefined ? this.props.destination.image1 : "http://columbiaapp.eviajes.online/destinations/download/"+this.props.destination.image1;
+
     return(
       <View style={[styles.boxDefault]}>
-        <ImageBackground style={[styles.imageBackground, {}]} source={{uri: this.props.destination.img}}>
-          <View style={[{flex: 1}]}>
+        <ImageBackground style={[styles.imageBackground, {}]} source={ {uri: url} }>
+          <View style={{flex: 1}}>
             <Text style={[styles.text]}>
-              {this.props.destination.name}
+              {this.props.destination.title}
             </Text>
           </View>
         </ImageBackground>

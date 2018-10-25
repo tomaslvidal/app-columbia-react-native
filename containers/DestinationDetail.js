@@ -15,34 +15,30 @@ import Div from '../layouts/default';
 export default class DestinationDetail extends Component{
   constructor(props){
     super(props);
+
+    this.state = { 
+      item: this.props.navigation.state.params.item
+    };
   }
-  
+
   render() {
-    const img_path = '../img/';
+    const img_path = '../img/', url = "http://columbiaapp.eviajes.online/destinations/download/";
 
     return (
       <Div name="Formulario de Reclamos" icon="wpforms">
         <View>
-          <Image source={require(img_path+'bsas.jpg')} style={[styles.footerImage, {marginTop: -27}]} />
+          <View style={{marginLeft: -20, marginRight: -20}}>
+            <Image source={{uri: url+this.state.item.image1}} style={[styles.footerImage, {height: 200, width: '100%', marginTop: -27}]} />
+          </View>
 
           <View style={styles.box}>
-            <Text style={styles.textTitle}>Buenos Aires</Text>
+            <Text style={styles.textTitle}>{this.state.item.title}</Text>
 
-            <Text style={styles.text}>Nuestra sangre es inmigrante. Somos apasionados. Somos "familieros". Nos damos abrazos fuertes. Saludamos siempre con un beso. Nuestras mesas están llenas de amigos, tíos, primos, hijos y hermanos. Hacemos ‘sobremesa’. Discutimos acaloradamente. Nos emocionamos con envidiable facilidad. Estamos hechos de contrastes, la cultura popular y la cultura sofisticada, lo tradicional y lo moderno, las religiones de siempre y los ídolos modernos.</Text>
-
-            <Text style={styles.text}>Nuestra ciudad está llena de vida e intensidad, enriquecida con historias que se comparten y entrelazan. Acá, nos encontramos por la calle, nos sentamos por horas en las mesas de los cafés. Acá nosmiramos a los ojos. Acá, la noche es un nuevo día. La ciudad se enciende con sus cientos de teatros con sus miles de restaurantes y barras. La noche te despierta.</Text>
-
-            <Text style={styles.text}>Acá no hablamos español, hablamos porteño, algo que no vas aencontrar en ningún otro lado. Acá un partido de fútbol es un espectáculo que deberías ver al menos una vez en la vida. Acá los taxistas son poetas y filósofos.</Text>
-
-            <Text style={styles.text}>Acá vamos a mostrarte el tango y el dulce de leche y queremos descubrirte, queremos conocerte. Porque acá no recibimos turistas;hacemos amigos. Y podrás encontrarnos un poco ruidosos, pero por, sobre todo, auténticos.</Text>
-
-            <Text style={styles.text}>Acá, en Buenos Aires de algo podés estar seguro: te sentirás parte dela ciudad. Y cuando te vayas, te llevarás algo nuestro y dejarás tu huella.</Text>
-
-            <Text style={styles.text}>PORQUE NOSOTROS NO RECIBIMOS TURISTAS, HACEMOS AMIGOS.</Text>
+            <Text style={styles.text}>{this.state.item.description}</Text>
           </View>
         </View>
 
-        <View>
+{/*        <View>
           <View style={styles.box}>
             <Text style={styles.textTitle}>Atracciones Gratuitas - Buenos Aires</Text>
 
@@ -152,7 +148,7 @@ export default class DestinationDetail extends Component{
               <Text style={styles.text}>El Museo Nacional de Bellas Artes es uno de los más importantes de Latinoamérica y el que tiene la mayor colección de arte argentino del país. Ubicado en el barrio de Recoleta, fue inaugurado en 1896, si bien su actual sede data del año 1933, en un edificio reformado en su momento por el arquitecto Alejandro Bustillo para recibir la colección permanente.</Text>
             </View>
           </View>
-        </View>
+        </View>*/}
       </Div>
     );
   }

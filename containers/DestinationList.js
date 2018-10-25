@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import { connect } from 'react-redux';
+
 import {View, ListView, TouchableOpacity, StyleSheet, Linking} from 'react-native';
 
 import DestinationBox from '../components/DestinationBox.js'
@@ -8,7 +10,9 @@ import BackLeft from '../components/BackLeft.js'
 
 import Div from '../layouts/default';
 
-export default class DestinationList extends Component {
+import axios from 'axios';
+
+class DestinationList extends Component {
   constructor(props){
     super(props);
 
@@ -16,8 +20,8 @@ export default class DestinationList extends Component {
 
     this.state = {
       dataSource: ds,
-      artists: null
-    }
+      items: {}
+    };
   }
 
   updateDataSource(data){
@@ -27,31 +31,32 @@ export default class DestinationList extends Component {
   }
 
   componentDidMount(){
-    this.setState({
-      artists: [
-      {
-        id: 1,
-        name: 'Buenos Aires',
-        img: 'https://images2.listindiario.com/imagen/2016/12/28/448/448427/680x460/201612280055381/argentina-crea-dos-ministerios-de-economia.jpeg'
-      },
-      {
-        id: 2,
-        name: 'Info SUBE',
-        img: 'http://municipiosarmiento.gob.ar/wp-content/uploads/2017/04/FACESUBE-01-800x445.jpg',
-        url: 'http://eviajes.online/columbiaAPP/Info_APP_Sura.pdf'
-      }
-      ]}, () => {
-        this.updateDataSource(this.state.artists)
-      }
-    );
+    axios.get('http://columbiaapp.eviajes.online/api/destinations')
+    .then(response => {
+        response.data.unshift({
+          id: 2,
+          title: 'Info SUBE',
+          image1: 'http://municipiosarmiento.gob.ar/wp-content/uploads/2017/04/FACESUBE-01-800x445.jpg',
+          url: 'http://eviajes.online/columbiaAPP/Info_APP_Sura.pdf',
+          parseado: true
+        });
+
+        this.setState({
+          items: response.data
+        }, () => {
+          console.log("data: ", response.data);
+
+          this.updateDataSource(this.state.items);
+        });
+    });
   }
 
-  handlePress(destination){
-    if(destination.url==undefined){
-      this.props.navigation.navigate('DestinationDetail', { destination: destination });
+  handlePress(item){
+    if(item.url==undefined){
+      this.props.navigation.navigate('DestinationDetail', { item: item });
     }
     else{
-      Linking.openURL(destination.url)
+      Linking.openURL(item.url)
     }
   }
 
@@ -61,10 +66,10 @@ export default class DestinationList extends Component {
         <ListView
           enableEmptySections={true}
           dataSource={this.state.dataSource}
-          renderRow={(destination) => {
+          renderRow={ (item) => {
             return (
-              <TouchableOpacity onPress={() => this.handlePress(destination)}>
-                <DestinationBox destination={destination}/>
+              <TouchableOpacity onPress={ () => this.handlePress(item) }>
+                <DestinationBox destination={item}/>
               </TouchableOpacity>
             )
           }}
@@ -77,3 +82,5 @@ export default class DestinationList extends Component {
 const styles = StyleSheet.create({
 
 });
+
+export default connect()(DestinationList);

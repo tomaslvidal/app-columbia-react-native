@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import { connect } from 'react-redux';
+
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 
 import Div from '../layouts/default';
@@ -8,48 +10,57 @@ import FileComponent from '../components/FileComponent.js';
 
 import { isSignedIn } from '../auth';
 
-export default class VoucherView extends Component{
+import axios from 'axios';
+
+class VoucherView extends Component{
   constructor(props){
     super(props);
 
     this.state = {
-      run: false
+      run: false,
+      items: []
     };
   }
 
   componentWillMount(){
-    isSignedIn()
-    .then(res => {
-      if(res==false){
+    setTimeout( () => {
+      isSignedIn()
+      .then(res => {
+        if(res==false){
+          this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_');
+        }
+        else{
+          axios.get('http://columbiaapp.eviajes.online/api/vouchers', { headers: {"Authorization" : `Bearer ${this.props.access_token}`} })
+          .then(response => {
+              this.setState({
+                items: response.data,
+                run: true
+              }, () => console.log(this.state.items));
+          });
+        }
+      })
+      .catch(res => {
         this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_');
-      }
-      else{
-        this.setState({
-          run: true
-        });
-      }
-    })
-    .catch(res => {
-      this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_');
-    });
+      });
+    }, 300);
   }
 
   render(){
     return(
-      <Div name="Voucher e Initerarios" icon='bar-chart'>
+      <Div name="Voucher e Initerarios" icon='bar-chart' loading={!this.state.run}>
       {
         !this.state.run ? null :
-        (function(){
+        (function(items){
           let contentFiles = [];
 
-          // for(i = 0; i < 1; i++){
-            contentFiles.push(<FileComponent key={1} url="http://eviajes.online/columbiaAPP/Reserva_de_viaje_10_octubre.pdf" name="Reserva viajes 10 de octubre" style={styles.fileComponent}/>);
+          let url = "http://columbiaapp.eviajes.online/destinations/download/";
 
-            {/*contentFiles.push(<FileComponent key={2} url="http://eviajes.online/columbiaAPP/Info_APP_Sura.pdf" name="Info SUBE" style={styles.fileComponent}/>);*/}
-          // }
+          for(i = 0; i < items.length; i++){
+            contentFiles.push(<FileComponent key={i} url={url+items[i].file_name} name={items[i].name} style={styles.fileComponent}/>);
+          }
 
           return contentFiles;
-        })()
+        })(this.state.items)
       }
       </Div>
     );
@@ -65,3 +76,11 @@ const styles = StyleSheet.create({
     marginBottom: 6
   }
 });
+
+const mapStateToProps = state => {
+  return {
+    access_token: state.account.oauth.access_token
+  };
+};
+
+export default connect(mapStateToProps)(VoucherView);
