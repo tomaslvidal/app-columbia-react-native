@@ -1,7 +1,11 @@
 import { SET_LOGUED_ACCOUNT } from '../constants/ActionTypes';
 
 const initialState = {
-  account: {}
+  account: {
+    oauth: {
+      access_token: ""
+    }
+  }
 };
 
 const accountReducer = (state = initialState.account, action) => {
