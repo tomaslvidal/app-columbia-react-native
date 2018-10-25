@@ -19,11 +19,11 @@ class LayoutDefault extends Component{
   }
 
   componentDidMount(){
-    setTimeout( () => {
+    setTimeout(() => {
       this.setState({
         loading: false
       });
-    }, 300);
+    }, 200);
   }
 
   render(){
@@ -34,33 +34,45 @@ class LayoutDefault extends Component{
         (this.props.backleft != undefined && this.props.backleft == false)  ? null
         : (<BackLeft name={this.props.name} icon={this.props.icon} />)
         }
-        <View style={{display: 'flex', flex: 1}} onLayout={(event) => this.setState({heightParent: event.nativeEvent.layout.height})}>
-          <ScrollView style={{display: 'flex'}}>
-            <View style={[styles.childrenScrollView, {minHeight: this.state.heightParent!="" ? this.state.heightParent : null}]}>
-              <View style={this.state.loading ? [styles.loading, styles.container] : styles.container}>
-                <View>
-                  <Text>{this.props.title}</Text>
-                </View>
+        <View style={{display: 'flex', flex: 1, flexDirection: 'row', justifyContent: 'space-between'}} onLayout={(event) => this.setState({heightParent: event.nativeEvent.layout.height})}>
+          {
+          (this.props.loading!=undefined ? this.props.loading : this.state.loading) ? (function(){
+            const return_ = (
+              <View style={{display: 'flex', flex: 1}}>
+                <Preloader/>
+                <Footer/>
+              </View>
+            );
 
-                {
-                this.state.loading
-                  ?
-                    <Preloader/>
-                  :
-                    <View style={(this.props.container != undefined && this.props.container == false) ? [{}, styles.parentContainer] : [styles.propParentContainer, styles.parentContainer]}>
+            return return_
+          })() :
+          (function(this_, styles_){
+            const return_ = (
+              <ScrollView style={{display: 'flex'}}>
+                <View style={[styles_.childrenScrollView, {minHeight: this_.state.heightParent!="" ? this_.state.heightParent : null}]}>
+                  <View style={styles_.container}>
+                    <View>
+                      <Text>{this_.props.title}</Text>
+                    </View>
+
+                    <View style={(this_.props.container != undefined && this_.props.container == false) ? [{}, styles_.parentContainer] : [styles_.propParentContainer, styles_.parentContainer]}>
                       {
-                      this.props.children
+                      this_.props.children
                       }
                     </View>
-                }
-              </View>
+                  </View>
 
-              {
-              (this.props.footer != undefined && this.props.footer == false) ? null
-              : (<Footer/>)
-              }
-            </View>
-          </ScrollView>
+                  {
+                  (this_.props.footer != undefined && this_.props.footer == false) ? null
+                  : (<Footer/>)
+                  }
+                </View>
+              </ScrollView>        
+            );
+
+            return return_;
+          })(this, styles)
+          }
         </View>
       </View>
     );
