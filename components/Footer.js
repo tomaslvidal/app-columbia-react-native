@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-import {Scene,Router, Actions} from 'react-native-router-flux';
-
 export default class Footer extends Component{
   render(){
     return(

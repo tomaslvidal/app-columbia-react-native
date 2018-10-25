@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-import {Text, View, StyleSheet, Image, ImageBackground, TouchableOpacity, Linking, ScrollView} from 'react-native';
+import { Text, View, StyleSheet, Image, ImageBackground, TouchableOpacity, Linking, ScrollView } from 'react-native';
 
-import {MaterialIndicator} from 'react-native-indicators';
+import { MaterialIndicator } from 'react-native-indicators';
 
 export default class Preloader extends Component{
   constructor(props){

@@ -1,8 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-import {Text, View, StyleSheet, Image, ScrollView, TouchableOpacity, TouchableHighlight, Linking} from 'react-native';
-
-import {Scene,Router, Actions} from 'react-native-router-flux';
+import { Text, View, StyleSheet, Image, ScrollView, TouchableOpacity, TouchableHighlight, Linking } from 'react-native';
 
 import Div from '../layouts/default';
 

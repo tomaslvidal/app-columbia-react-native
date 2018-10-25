@@ -50,7 +50,7 @@ export default class App extends Component{
 
         <View style={[styles.row1, {flexDirection: 'row'}]}>
           <View style={[styles.row1, styles.separation]}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Pools')}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Polls')}>
             <ImageBackground style={styles.imageBackground} source={require(img_path+'encuestas.jpg')}>
               <View style={[styles.viewText]}>
                 <Text style={[styles.text]}>
@@ -76,7 +76,7 @@ export default class App extends Component{
 
         <View style={[styles.row1, {flexDirection: 'row'}]}>
           <View style={[styles.row1, styles.separation]}>
-            <TouchableOpacity onPress={() => this.props.navigation.push('Claims')}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Claims')}>
               <ImageBackground style={styles.imageBackground} source={require(img_path+'reclamos.jpg')}>
                 <View style={[styles.viewText]}>
                   <Text style={[styles.text]}>

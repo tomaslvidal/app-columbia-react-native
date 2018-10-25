@@ -27,25 +27,23 @@ export default class DestinationList extends Component {
   }
 
   componentDidMount(){
-    setTimeout( () => {
-      this.setState({
-        artists: [
-        {
-          id: 1,
-          name: 'Buenos Aires',
-          img: 'https://images2.listindiario.com/imagen/2016/12/28/448/448427/680x460/201612280055381/argentina-crea-dos-ministerios-de-economia.jpeg'
-        },
-        {
-          id: 2,
-          name: 'Info SUBE',
-          img: 'http://municipiosarmiento.gob.ar/wp-content/uploads/2017/04/FACESUBE-01-800x445.jpg',
-          url: 'http://eviajes.online/columbiaAPP/Info_APP_Sura.pdf'
-        }
-        ]}, () => {
-          this.updateDataSource(this.state.artists)
-        }
-      );
-    }, 500);
+    this.setState({
+      artists: [
+      {
+        id: 1,
+        name: 'Buenos Aires',
+        img: 'https://images2.listindiario.com/imagen/2016/12/28/448/448427/680x460/201612280055381/argentina-crea-dos-ministerios-de-economia.jpeg'
+      },
+      {
+        id: 2,
+        name: 'Info SUBE',
+        img: 'http://municipiosarmiento.gob.ar/wp-content/uploads/2017/04/FACESUBE-01-800x445.jpg',
+        url: 'http://eviajes.online/columbiaAPP/Info_APP_Sura.pdf'
+      }
+      ]}, () => {
+        this.updateDataSource(this.state.artists)
+      }
+    );
   }
 
   handlePress(destination){

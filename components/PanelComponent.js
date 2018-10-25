@@ -1,8 +1,6 @@
-import {StyleSheet, Text, View, Image, TouchableHighlight, Animated} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableHighlight, Animated } from 'react-native';
 
-import React, {Component} from 'react';
-
-import {Scene, Router, Actions} from 'react-native-router-flux';
+import React, { Component } from 'react';
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
