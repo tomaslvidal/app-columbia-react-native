@@ -1,8 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-import {Text, StatusBar, View, StyleSheet, Image, ImageBackground, TouchableOpacity, Linking, ScrollView} from 'react-native';
-
-import {Scene, Router, Actions} from 'react-native-router-flux';
+import { Text, StatusBar, View, StyleSheet, Image, ImageBackground, TouchableOpacity, Linking, ScrollView } from 'react-native';
 
 import BackLeft from '../../components/BackLeft.js';
 
@@ -10,7 +8,7 @@ import Footer from '../../components/Footer.js';
 
 import Preloader from '../../components/Preloader.js';
 
-export default class PollsContainer extends Component{
+class LayoutDefault extends Component{
   constructor(props){
     super(props);
 
@@ -25,7 +23,7 @@ export default class PollsContainer extends Component{
       this.setState({
         loading: false
       });
-    }, 350);
+    }, 300);
   }
 
   render(){
@@ -91,3 +89,5 @@ const styles = StyleSheet.create({
     padding: 10
   }
 });
+
+export default LayoutDefault;
