@@ -48,7 +48,7 @@ export default class PollsView extends Component{
       isSignedIn()
       .then(res => {
         if(res==false){
-          this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_');
+          this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_', {routeName: this.props.navigation.state.routeName});
         }
         else{
           this.setState({
@@ -57,7 +57,7 @@ export default class PollsView extends Component{
         }
       })
       .catch(res => {
-        this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_');
+        this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_', {routeName: this.props.navigation.state.routeName});
       });
     }, 300);
   }
