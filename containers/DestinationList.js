@@ -44,8 +44,6 @@ class DestinationList extends Component {
         this.setState({
           items: response.data
         }, () => {
-          console.log("data: ", response.data);
-
           this.updateDataSource(this.state.items);
         });
     });
