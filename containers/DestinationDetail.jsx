@@ -1,18 +1,18 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image, Dimensions } from 'react-native';
 
-import {Icon} from 'react-native-elements'
+import { Icon } from 'react-native-elements'
 
-import SwipeableParallaxCarousel, {ScrollView, SwipeableCarousel} from 'react-native-swipeable-parallax-carousel';
+import BackLeft from '../components/BackLeft'
 
-import BackLeft from '../components/BackLeft.js'
-
-import Footer from '../components/Footer.js'
+import Footer from '../components/Footer'
 
 import Div from '../layouts/default';
 
-export default class DestinationDetail extends Component{
+import HTML from 'react-native-render-html';
+
+export default class DestinationDetail extends Component {
   constructor(props){
     super(props);
 
@@ -27,14 +27,16 @@ export default class DestinationDetail extends Component{
     return (
       <Div name="Formulario de Reclamos" icon="wpforms">
         <View>
-          <View style={{marginLeft: -20, marginRight: -20}}>
-            <Image source={{uri: url+this.state.item.image1}} style={[styles.footerImage, {height: 200, width: '100%', marginTop: -27}]} />
+          <View style={{ marginLeft: -20, marginRight: -20 }}>
+            <Image source={{uri: url+this.state.item.image1}} style={[styles.footerImage, { height: 200, width: '100%', marginTop: -27 }]} />
           </View>
 
           <View style={styles.box}>
             <Text style={styles.textTitle}>{this.state.item.title}</Text>
 
-            <Text style={styles.text}>{this.state.item.description}</Text>
+            <ScrollView style={{ flex: 1 }}>
+                <HTML html={this.state.item.description} tagsStyles={tagsStyles} />
+            </ScrollView>
           </View>
         </View>
 
@@ -153,6 +155,16 @@ export default class DestinationDetail extends Component{
     );
   }
 }
+
+const tagsStyles = {
+  img: {
+    flex: 1,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    width: '100%',
+    height: 300,
+  }
+};
 
 const styles = StyleSheet.create({
   text: {
