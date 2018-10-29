@@ -20,7 +20,8 @@ class DestinationList extends Component {
 
     this.state = {
       dataSource: ds,
-      items: {}
+      items: {},
+      loading: true
     };
   }
 
@@ -42,7 +43,8 @@ class DestinationList extends Component {
         });
 
         this.setState({
-          items: response.data
+          items: response.data,
+          loading: false
         }, () => {
           this.updateDataSource(this.state.items);
         });
@@ -60,7 +62,7 @@ class DestinationList extends Component {
 
   render() {
     return (
-      <Div name="Destinos" icon="wpforms">
+      <Div name="Destinos" icon="wpforms" loading={this.state.loading}>
         <ListView
           enableEmptySections={true}
           dataSource={this.state.dataSource}
