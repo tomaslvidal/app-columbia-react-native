@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 
 import {View, ListView, TouchableOpacity, StyleSheet, Linking} from 'react-native';
 
-import DestinationBox from '../components/DestinationBox.js'
+import DestinationBox from '../components/DestinationBox'
 
-import BackLeft from '../components/BackLeft.js'
+import BackLeft from '../components/BackLeft'
 
 import Div from '../layouts/default';
 

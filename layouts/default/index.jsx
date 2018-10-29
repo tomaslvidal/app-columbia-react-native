@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 import { Text, StatusBar, View, StyleSheet, Image, ImageBackground, TouchableOpacity, Linking, ScrollView } from 'react-native';
 
-import BackLeft from '../../components/BackLeft.js';
+import BackLeft from '../../components/BackLeft';
 
-import Footer from '../../components/Footer.js';
+import Footer from '../../components/Footer';
 
-import Preloader from '../../components/Preloader.js';
+import Preloader from '../../components/Preloader';
 
 class LayoutDefault extends Component{
   constructor(props){

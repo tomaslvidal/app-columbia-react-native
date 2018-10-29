@@ -1,2 +1,3 @@
-import LoginContainer from './Login.js';
+import LoginContainer from './Login';
+
 export default LoginContainer;

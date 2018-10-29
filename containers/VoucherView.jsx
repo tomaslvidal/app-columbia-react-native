@@ -6,7 +6,7 @@ import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 
 import Div from '../layouts/default';
 
-import FileComponent from '../components/FileComponent.js';
+import FileComponent from '../components/FileComponent';
 
 import { isSignedIn } from '../auth';
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { View, Text, Image, StyleSheet,KeyboardAvoidingView } from 'react-native';
 
-import LoginForm from './LoginForm.js';
+import LoginForm from './LoginForm';
 	
 export default class Login extends Component {
     constructor(props){

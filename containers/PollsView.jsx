@@ -8,7 +8,7 @@ import CollapsibleList from 'react-native-collapsible-list'
 
 import Div from '../layouts/default';
 
-import Panel from '../components/PanelComponent.js';
+import Panel from '../components/PanelComponent';
 
 import * as t from 'tcomb-form-native'
 
