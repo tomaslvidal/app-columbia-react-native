@@ -4,23 +4,23 @@ import { Platform, StatusBar } from "react-native";
 
 import { createStackNavigator, createBottomTabNavigator, createSwitchNavigator } from "react-navigation";
 
-import SignIn from "./containers/LoginContainer";
+import LoginContainer from "./containers/LoginContainer";
 
-import HomeView from './containers/HomeView';
+import HomeContainer from './containers/HomeContainer';
 
-import DestinationList from './containers/DestinationList';
+import DestinationListContainer from './containers/DestinationContainer/List';
 
-import DestinationDetail from './containers/DestinationDetail';
+import DestinationDetailContainer from './containers/DestinationContainer/Detail';
 
-import VoucherView from './containers/VoucherView';
+import VoucherContainer from './containers/VoucherContainer';
 
-import PollsView from './containers/PollsView';
+import PollsContainer from './containers/PollsContainer';
 
-import ClaimsView from './containers/ClaimsView';
+import ClaimsContainer from './containers/ClaimsContainer';
 
 export const SignedOut = createStackNavigator({
   SignIn: {
-    screen: HomeView
+    screen: HomeContainer
   }
 },
 {
@@ -33,25 +33,25 @@ export const SignedOut = createStackNavigator({
 
 export const SignedIn = createStackNavigator({
   Home: {
-    screen: HomeView
+    screen: HomeContainer
   },
   SignIn_: {
-    screen: SignIn
+    screen: LoginContainer
   },
   DestinationList: {
-    screen: DestinationList
+    screen: DestinationListContainer
   },
   DestinationDetail: {
-    screen: DestinationDetail
+    screen: DestinationDetailContainer
   },
   Voucher: {
-    screen: VoucherView
+    screen: VoucherContainer
   },
   Polls: {
-    screen: PollsView
+    screen: PollsContainer
   },
   Claims: {
-    screen: ClaimsView
+    screen: ClaimsContainer
   }
 },
 {

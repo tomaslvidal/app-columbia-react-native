@@ -6,7 +6,7 @@ export default class Footer extends Component{
   render(){
     return(
       <View style={styles.body}>
-        <Image source={require('../img/footer.jpg')} style={styles.footerImage} />
+        <Image source={require('../../img/footer.jpg')} style={styles.footerImage} />
       </View>
     );
   }

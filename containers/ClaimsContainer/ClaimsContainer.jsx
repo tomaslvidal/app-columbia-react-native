@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Text, View, StyleSheet, Image, ScrollView, TouchableOpacity, TouchableHighlight, Linking } from 'react-native';
 
-import Div from '../layouts/default';
+import Div from '../../layouts/default';
 
 import moment from 'moment';
 

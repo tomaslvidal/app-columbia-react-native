@@ -14,9 +14,9 @@ import _ from 'lodash';
 
 import { withNavigation } from 'react-navigation';
 
-import { onSignIn } from "../../auth";
+import { onSignIn } from "../../../auth";
 
-import { setLoguedAccount } from "../../actions";
+import { setLoguedAccount } from "../../../actions";
 
 const stylesheet = _.cloneDeep(t.form.Form.stylesheet);
 

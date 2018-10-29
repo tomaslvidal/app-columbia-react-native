@@ -1,14 +1,14 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-import {View, ListView, TouchableOpacity, StyleSheet, Linking} from 'react-native';
+import { View, ListView, TouchableOpacity, StyleSheet, Linking } from 'react-native';
 
-import DestinationBox from '../components/DestinationBox'
+import DestinationBox from '../../../components/DestinationBoxComponent'
 
-import BackLeft from '../components/BackLeft'
+import BackLeft from '../../../components/BackLeftComponent'
 
-import Div from '../layouts/default';
+import Div from '../../../layouts/default';
 
 import axios from 'axios';
 

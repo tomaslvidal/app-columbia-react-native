@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-import { isSignedIn } from '../auth';
+import { isSignedIn } from '../../auth';
 
-import {Text, View, StyleSheet, Image, ScrollView, ImageBackground, TouchableOpacity, TouchableHighlight, Linking} from 'react-native';
+import { Text, View, StyleSheet, Image, ScrollView, ImageBackground, TouchableOpacity, TouchableHighlight, Linking } from 'react-native';
 
 import CollapsibleList from 'react-native-collapsible-list'
 
-import Div from '../layouts/default';
+import Div from '../../layouts/default';
 
-import Panel from '../components/PanelComponent';
+import Panel from '../../components/PanelComponent';
 
 import * as t from 'tcomb-form-native'
 

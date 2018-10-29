@@ -4,11 +4,11 @@ import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image, Dimensions
 
 import { Icon } from 'react-native-elements'
 
-import BackLeft from '../components/BackLeft'
+import BackLeft from '../../../components/BackLeftComponent'
 
-import Footer from '../components/Footer'
+import Footer from '../../../components/FooterComponent'
 
-import Div from '../layouts/default';
+import Div from '../../../layouts/default';
 
 import HTML from 'react-native-render-html';
 
@@ -22,7 +22,7 @@ export default class DestinationDetail extends Component {
   }
 
   render() {
-    const img_path = '../img/', url = "http://columbiaapp.eviajes.online/destinations/download/";
+    const img_path = '../../img/', url = "http://columbiaapp.eviajes.online/destinations/download/";
 
     return (
       <Div name="Formulario de Reclamos" icon="wpforms">

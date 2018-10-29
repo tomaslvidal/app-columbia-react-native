@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-import {Text, View, StyleSheet, Image, ImageBackground, TouchableOpacity, Linking, StatusBar} from 'react-native';
+import { Text, View, StyleSheet, Image, ImageBackground, TouchableOpacity, Linking, StatusBar } from 'react-native';
 
 export default class App extends Component{
   render(){
-    const img_path = '../img/';
+    const img_path = '../../img/';
 
     return(
       <View style={styles.body}>
