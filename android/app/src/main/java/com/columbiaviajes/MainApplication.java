@@ -1,4 +1,4 @@
-package com.finishapp;
+package com.columbiaviajes;
 
 import android.app.Application;
 

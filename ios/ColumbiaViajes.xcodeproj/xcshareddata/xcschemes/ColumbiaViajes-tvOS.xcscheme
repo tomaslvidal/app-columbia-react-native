@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "FinishAPP-tvOS.app"
-               BlueprintName = "FinishAPP-tvOS"
-               ReferencedContainer = "container:FinishAPP.xcodeproj">
+               BuildableName = "ColumbiaViajes-tvOS.app"
+               BlueprintName = "ColumbiaViajes-tvOS"
+               ReferencedContainer = "container:ColumbiaViajes.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "FinishAPP-tvOSTests.xctest"
-               BlueprintName = "FinishAPP-tvOSTests"
-               ReferencedContainer = "container:FinishAPP.xcodeproj">
+               BuildableName = "ColumbiaViajes-tvOSTests.xctest"
+               BlueprintName = "ColumbiaViajes-tvOSTests"
+               ReferencedContainer = "container:ColumbiaViajes.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "FinishAPP-tvOSTests.xctest"
-               BlueprintName = "FinishAPP-tvOSTests"
-               ReferencedContainer = "container:FinishAPP.xcodeproj">
+               BuildableName = "ColumbiaViajes-tvOSTests.xctest"
+               BlueprintName = "ColumbiaViajes-tvOSTests"
+               ReferencedContainer = "container:ColumbiaViajes.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "FinishAPP-tvOS.app"
-            BlueprintName = "FinishAPP-tvOS"
-            ReferencedContainer = "container:FinishAPP.xcodeproj">
+            BuildableName = "ColumbiaViajes-tvOS.app"
+            BlueprintName = "ColumbiaViajes-tvOS"
+            ReferencedContainer = "container:ColumbiaViajes.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "FinishAPP-tvOS.app"
-            BlueprintName = "FinishAPP-tvOS"
-            ReferencedContainer = "container:FinishAPP.xcodeproj">
+            BuildableName = "ColumbiaViajes-tvOS.app"
+            BlueprintName = "ColumbiaViajes-tvOS"
+            ReferencedContainer = "container:ColumbiaViajes.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "FinishAPP-tvOS.app"
-            BlueprintName = "FinishAPP-tvOS"
-            ReferencedContainer = "container:FinishAPP.xcodeproj">
+            BuildableName = "ColumbiaViajes-tvOS.app"
+            BlueprintName = "ColumbiaViajes-tvOS"
+            ReferencedContainer = "container:ColumbiaViajes.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
