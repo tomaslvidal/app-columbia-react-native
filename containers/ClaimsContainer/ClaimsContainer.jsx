@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 
-import { Text, View, StyleSheet, Image, ScrollView, TouchableOpacity, TouchableHighlight, Linking } from 'react-native';
+import { Text, View, StyleSheet, Image, ScrollView, TouchableOpacity, TouchableHighlight, Linking, Alert } from 'react-native';
 
 import Div from '../../layouts/default';
 
 import moment from 'moment';
 
-import * as t from 'tcomb-form-native'
+import * as t from 'tcomb-form-native';
+
+import axios from 'axios';
 
 var Form = t.form.Form;
 
@@ -14,84 +16,128 @@ import * as tvalidation from 'tcomb-validation';
 
 var validate = tvalidation.validate;
 
-var motivos = t.enums({
-  1:"Demoras en las respuestas de los vendedores",
-  2:"Errores en el tarifario",
-  3:"Precio de un servicio distinto al acordado con los vendedores",
-  4:"Problemas con el hotel",
-  5:"Problemas con el traslado",
-  6:"Problemas con la línea aérea",
-  7:"Problemas con las excursiones",
-  8:"Servicio cancelado previamente y facturado",
-  9:"Problemas con compañías de cruceros"
-});
-
-var vendedores = t.enums({
-  1: "Gomez",
-  2: "Perez",
-  3: "Silva"
-})
-
-var date_now = new moment().format("DD MMM YYYY");
-
-var types_ = t.struct({
-  nombre_y_Apellido: t.String,
-  motivo: motivos,
-  descripcionDelReclamo: t.String,
-  prestadorDelServicio: t.String,
-  vendedor: vendedores,
-  fechaDelReclamo: t.String
-});
-
-let myFormatFunction = (format,date) => {
-  return moment(date).format(format);
-}
-
-var fechaDelReclamo = {
-    label: 'Fecha del reclamo',
-    mode:'date',
-    config:{
-        format:(date) => myFormatFunction("DD MMM YYYY",date)
-    }
-};
-
-let options = {
-  fields: {
-     fechaDelReclamo: {
-        editable : false
-     }
-  }
-};
-
-let value = {
-  "fechaDelReclamo" : date_now
-};
-
 export default class ClaimsView extends Component{
   constructor(props, context){
     super(props, context);
+
+    this.state = {
+      form: {},
+      loading: true,
+      types: null,
+      value: {},
+      options: {}
+    };
+  }
+
+  componentWillMount(){
+    axios.get('http://icolumbia.apteknet.com/services/getMotivos.php')
+    .then(response => {
+      let data = response.data, reasons = {};
+
+      for (var i = 0; i < data.length; i++) {
+        if(data[i].motivo!=null){
+          reasons[data[i].idMotivo] = data[i].motivo;
+        }
+      }
+
+      axios.get('http://icolumbia.apteknet.com/services/getVendedores.php')
+      .then(response => {
+        data = response.data;
+
+        let sellers = {};
+
+        for (var i = 0; i < data.length; i++) {
+          sellers[data[i].idVendedor] = data[i].nombre+" "+data[i].apellido;
+        }
+
+        this.setState({
+          types: t.struct({
+            nombre: t.String,
+            apellido: t.String,
+            motivo: t.enums(reasons),
+            descripcionDelReclamo: t.String,
+            prestadorDelServicio: t.String,
+            vendedor: t.enums(sellers),
+            fechaDelReclamo: t.String
+          }),
+          value: {
+            fechaDelReclamo: new moment().format("DD MMM YYYY")
+          },
+          options: {
+            fields: {
+              fechaDelReclamo: {
+                editable: false
+              }
+            }
+          }
+        }, () => {
+          this.setState({
+            loading: false
+          });
+        });
+      });
+    });
   }
 
   handleValueChange(values){
-    this.setState({ form: values });
+    this.setState({
+      form: values,
+    });
   }
   
   onPress(){
-    let value = this.refs.form.getValue();
+    let data = this.refs.form.getValue();
   
-    if(value){
-      console.log(value);
+    if(data){
+      this.setState({
+        loading: true
+      });
+
+      axios.post('http://icolumbia.apteknet.com/services/putReclamos.php', JSON.stringify(data))
+      .then(response => {
+        setTimeout(() => {
+          this.setState({
+            loading: false
+          });
+
+          Alert.alert('Mensaje', 'Reclamo enviado', [
+            {text: 'OK'}
+          ]);
+        }, 1500);
+      })
+      .catch( () => {
+        setTimeout(() => {
+          this.setState({
+            loading: false
+          });
+
+          Alert.alert('Mensaje', 'No se ha podido enviar', [
+            {text: 'OK'}
+          ]);
+        }, 1500);
+      });
     }
   }
 
   render(){
     return(
-      <Div name="Formulario de Reclamos" icon="wpforms">
-        <Form ref="form" type={types_} options={options} value={value}/>
+      <Div name="Formulario de Reclamos" icon="wpforms" loading={this.state.loading}>
+      {
+      this.state.loading ? null :
+      (function(this_, styles_){
+        const return_ =(
+          <View>
+            <Form ref="form" type={this_.state.types} options={this_.state.options} value={this_.state.value} />
 
-        <TouchableHighlight style={styles.button} onPress={ (e) => this.onPress(e) } underlayColor='#99d9f4'>
-          <Text style={styles.buttonText}>Enviar</Text>
-        </TouchableHighlight>
+            <TouchableHighlight style={styles_.button} onPress={ (e) => this_.onPress(e) } underlayColor='#99d9f4'>
+              <Text style={styles_.buttonText}>Enviar</Text>
+            </TouchableHighlight>
+          </View>
+        );
+
+        return return_;
+      })(this, styles)
+      }
       </Div>
     );
   }
