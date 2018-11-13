@@ -34,14 +34,6 @@ class DestinationList extends Component {
   componentDidMount(){
     axios.get('http://columbiaapp.eviajes.online/api/destinations')
     .then(response => {
-        response.data.unshift({
-          id: 2,
-          title: 'Info SUBE',
-          image1: 'http://municipiosarmiento.gob.ar/wp-content/uploads/2017/04/FACESUBE-01-800x445.jpg',
-          url: 'http://eviajes.online/columbiaAPP/Info_APP_Sura.pdf',
-          parseado: true
-        });
-
         this.setState({
           items: response.data,
           loading: false
