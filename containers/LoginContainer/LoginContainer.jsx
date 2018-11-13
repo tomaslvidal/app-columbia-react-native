@@ -14,14 +14,16 @@ export default class Login extends Component {
     }
 
     render() {
-        return (
-          <KeyboardAvoidingView style={[styles.container]}>
-            <View style={styles.loginContainer}>
-                <Image resizeMode="contain" style={styles.logo} source={require('./logo_columbia.png')} />
-            </View>
+        const img_path = '../../img/';
 
-            <LoginForm />
-          </KeyboardAvoidingView>
+        return (
+            <KeyboardAvoidingView style={[styles.container]}>
+                <View style={styles.loginContainer}>
+                    <Image resizeMode="contain" style={styles.logo} source={require(img_path+'logo/logo.png')} />
+                </View>
+
+                <LoginForm />
+            </KeyboardAvoidingView>
         );
     }
 }
@@ -29,7 +31,6 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#2d3436',
         padding: 30
     },
     loginContainer:{
@@ -38,7 +39,5 @@ const styles = StyleSheet.create({
         display: 'flex',
         flex: 1,
         marginLeft: 48
-    },
-    logo: {
     }
 });

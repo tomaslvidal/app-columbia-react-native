@@ -20,11 +20,11 @@ import { setLoguedAccount } from "../../../actions";
 
 const stylesheet = _.cloneDeep(t.form.Form.stylesheet);
 
-stylesheet.controlLabel.normal.color = '#D8D8D8';
+stylesheet.controlLabel.normal.color = '#616161';
 
-stylesheet.textbox.normal.color = '#D8D8D8';
+stylesheet.textbox.normal.color = '#003C6D';
 
-stylesheet.textbox.error.color = '#D8D8D8';
+stylesheet.textbox.error.color = '#6F6F6F';
 
 const colorError = '#E44545';
 
@@ -33,8 +33,6 @@ stylesheet.textbox.error.borderColor = colorError;
 stylesheet.controlLabel.error.color = colorError;
 
 stylesheet.helpBlock.error.color = colorError;
-
-// stylesheet.errorBlock.color = '#FFE6E6';
 
 const Form = t.form.Form;
 
@@ -140,7 +138,7 @@ const styles = StyleSheet.create({
       display: 'flex',
       flex: 2,
       flexDirection: 'column',
-      justifyContent: 'center',
+      justifyContent: 'center'
     },
     divPulseIndicator:{
       flex: 1,
