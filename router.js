@@ -14,7 +14,7 @@ import DestinationDetailContainer from './containers/DestinationContainer/Detail
 
 import VoucherContainer from './containers/VoucherContainer';
 
-import PollsContainer from './containers/PollsContainer';
+import SurveysContainer from './containers/SurveysContainer';
 
 import ClaimsContainer from './containers/ClaimsContainer';
 
@@ -47,8 +47,8 @@ export const SignedIn = createStackNavigator({
   Voucher: {
     screen: VoucherContainer
   },
-  Polls: {
-    screen: PollsContainer
+  Surveys: {
+    screen: SurveysContainer
   },
   Claims: {
     screen: ClaimsContainer

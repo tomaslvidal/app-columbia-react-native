@@ -31,7 +31,7 @@ class LayoutDefault extends Component{
       <View style={[{flex: 1, flexDirection: 'column'}, {}]}>
         <StatusBar backgroundColor='#2CAEE6' barStyle='light-content' />
         {
-        (this.props.backleft != undefined && this.props.backleft == false)  ? null
+        (this.props.backleft != undefined && this.props.backleft == false) ? null
         : (<BackLeft name={this.props.name} icon={this.props.icon} />)
         }
         <View style={{display: 'flex', flex: 1, flexDirection: 'row', justifyContent: 'space-between'}} onLayout={(event) => this.setState({heightParent: event.nativeEvent.layout.height})}>

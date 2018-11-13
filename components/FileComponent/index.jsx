@@ -1,3 +1,3 @@
-import FileComponentComponent from './FileComponentComponent.jsx';
+import FileComponent from './FileComponent.jsx';
 
-export default FileComponentComponent;
+export default FileComponent;

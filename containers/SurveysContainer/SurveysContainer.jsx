@@ -34,7 +34,7 @@ const options={
   }
 };
 
-export default class PollsView extends Component{
+export default class SurveysContainer extends Component{
   constructor(props){
     super(props);
     
