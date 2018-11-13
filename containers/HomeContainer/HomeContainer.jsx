@@ -1,8 +1,34 @@
 import React, { Component } from 'react';
 
-import { Text, View, StyleSheet, Image, ImageBackground, TouchableOpacity, Linking, StatusBar } from 'react-native';
+import { Text, View, StyleSheet, Image, ImageBackground, TouchableOpacity, Linking, StatusBar, Alert } from 'react-native';
+
+import axios from 'axios';
 
 export default class App extends Component{
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      version: "0.2"
+    };
+  }
+
+  componentWillMount(){
+    axios.get('http://icolumbia.apteknet.com/services/getUpdate.php')
+    .then(response => {
+      let data = response.data, reasons = {}, url = data.url ? data.url : 'http://www.columbiaviajes.com.ar/descarga/columbiaviajes.apk';
+
+      // http://icolumbia.apteknet.com/services/setUpdate.php?estado=0&version=0.2
+
+      if(data.estado=="1" && (this.state.version.toString()!=data.version)){
+        Alert.alert('Mensaje', 'Hay una nueva actualización, ¿quieres descargarla?', [
+            {text: 'No', onPress: () => null},
+            {text: 'Actualizar', onPress: () => Linking.openURL(url)}
+        ]);
+      }
+    });
+  }
+
   render(){
     const img_path = '../../img/';
 
@@ -50,7 +76,7 @@ export default class App extends Component{
 
         <View style={[styles.row1, {flexDirection: 'row'}]}>
           <View style={[styles.row1, styles.separation]}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Polls')}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Surveys')}>
             <ImageBackground style={styles.imageBackground} source={require(img_path+'encuestas.jpg')}>
               <View style={[styles.viewText]}>
                 <Text style={[styles.text]}>
