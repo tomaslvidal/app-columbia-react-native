@@ -57,13 +57,13 @@ class LayoutDefault extends Component{
 
                     <View style={(this_.props.container != undefined && this_.props.container == false) ? [{}, styles_.parentContainer] : [styles_.propParentContainer, styles_.parentContainer]}>
                       {
-                      this_.props.children
+                        this_.props.children
                       }
                     </View>
                   </View>
 
                   {
-                  (this_.props.footer != undefined && this_.props.footer == false) ? null
+                  (!this_.props.footer && this_.props.footer == false) ? null
                   : (<Footer/>)
                   }
                 </View>

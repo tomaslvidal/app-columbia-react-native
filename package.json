@@ -13,7 +13,6 @@
     "react": "16.5.0",
     "react-native": "0.57.1",
     "react-native-collapsible-list": "^1.0.0",
-    "react-native-elements": "^0.19.1",
     "react-native-indicators": "^0.13.0",
     "react-native-render-html": "^3.10.0",
     "react-native-swipeable-parallax-carousel": "^1.1.0",

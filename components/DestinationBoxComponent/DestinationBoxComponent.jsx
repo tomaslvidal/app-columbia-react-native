@@ -8,7 +8,7 @@ export default class DestinationBox extends Component{
   }
 
   render(){
-    const url = this.props.destination.parseado!= undefined ? this.props.destination.image1 : "http://columbiaapp.eviajes.online/destinations/download/"+this.props.destination.image1;
+    const url = this.props.destination.parseado!= undefined ? this.props.destination.image1 : "http://columbiaapp.eviajes.online/destinations_m/download/"+this.props.destination.image1;
 
     return(
       <View style={[styles.boxDefault]}>

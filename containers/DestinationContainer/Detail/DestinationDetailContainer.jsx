@@ -29,7 +29,7 @@ export default class DestinationDetail extends Component {
   }
 
   render() {
-    const img_path = '../../img/', url = "http://columbiaapp.eviajes.online/destinations/download/";
+    const img_path = '../../img/', url = "http://columbiaapp.eviajes.online/destinations_m/download/";
 
     return (
       <Div name="Formulario de Reclamos" icon="wpforms">
@@ -56,8 +56,6 @@ const tagsStyles = {
     flex: 1,
     alignSelf: 'center',
     justifyContent: 'space-between',
-    width: '100%',
-    maxHeight: 400
   }
 };
 
@@ -81,5 +79,6 @@ const styles = StyleSheet.create({
   box: {
     backgroundColor: 'white',
     marginTop: 6,
+    padding: 5
   },
 });

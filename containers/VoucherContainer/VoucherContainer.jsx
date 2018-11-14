@@ -35,7 +35,7 @@ class VoucherView extends Component{
               this.setState({
                 items: response.data,
                 run: true
-              }, () => console.log(this.state.items));
+              });
           });
         }
       })
@@ -53,7 +53,7 @@ class VoucherView extends Component{
         (function(items){
           let contentFiles = [];
 
-          let url = "http://columbiaapp.eviajes.online/vouchers/download/";
+          let url = "http://columbiaapp.eviajes.online/vouchers_m/download/";
 
           for(i = 0; i < items.length; i++){
             contentFiles.push(<FileComponent key={i} url={url+items[i].file_name} name={items[i].name} style={styles.fileComponent}/>);

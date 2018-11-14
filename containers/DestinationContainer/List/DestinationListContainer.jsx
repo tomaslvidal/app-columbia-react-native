@@ -59,18 +59,18 @@ class DestinationList extends Component {
           enableEmptySections={true}
           dataSource={this.state.dataSource}
           renderRow={ (item) => {
-            return (
-              <TouchableOpacity onPress={ () => this.handlePress(item) }>
-                <DestinationBox destination={item}/>
-              </TouchableOpacity>
-            )
+          return (
+            <TouchableOpacity onPress={ () => this.handlePress(item) }>
+              <DestinationBox destination={item}/>
+            </TouchableOpacity>
+          )
           }}
         />
       </Div>
     );
   }
 }
-
+  
 const styles = StyleSheet.create({
 
 });
