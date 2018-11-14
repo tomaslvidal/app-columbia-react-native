@@ -20,9 +20,9 @@ import { setLoguedAccount } from "../../../actions";
 
 const stylesheet = _.cloneDeep(t.form.Form.stylesheet);
 
-stylesheet.controlLabel.normal.color = '#616161';
+stylesheet.controlLabel.normal.color = '#545454';
 
-stylesheet.textbox.normal.color = '#003C6D';
+stylesheet.textbox.normal.color = '#2CAEE6';
 
 stylesheet.textbox.error.color = '#6F6F6F';
 
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center'
     },
     buttonContainer:{
-      backgroundColor: '#0F84CD',
+      backgroundColor: '#2CAEE6',
       paddingVertical: 15,
       borderRadius: 5
     },
