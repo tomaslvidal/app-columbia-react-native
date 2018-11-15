@@ -10,18 +10,13 @@ import * as t from 'tcomb-form-native';
 
 import axios from 'axios';
 
-var Form = t.form.Form;
+const Form = t.form.Form;
 
-import * as tvalidation from 'tcomb-validation';
-
-var validate = tvalidation.validate;
-
-export default class ClaimsView extends Component{
+export default class ClaimsContainer extends Component{
   constructor(props, context){
     super(props, context);
 
     this.state = {
-      form: {},
       loading: true,
       types: null,
       value: {},
@@ -79,12 +74,6 @@ export default class ClaimsView extends Component{
     });
   }
 
-  handleValueChange(values){
-    this.setState({
-      form: values,
-    });
-  }
-  
   onPress(){
     let data = this.refs.form.getValue();
   

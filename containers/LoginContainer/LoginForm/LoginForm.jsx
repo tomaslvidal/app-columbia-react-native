@@ -22,7 +22,7 @@ const stylesheet = _.cloneDeep(t.form.Form.stylesheet);
 
 stylesheet.controlLabel.normal.color = '#545454';
 
-stylesheet.textbox.normal.color = '#2CAEE6';
+stylesheet.textbox.normal.color = '#626262';
 
 stylesheet.textbox.error.color = '#6F6F6F';
 

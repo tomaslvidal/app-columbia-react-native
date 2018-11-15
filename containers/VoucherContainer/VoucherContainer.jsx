@@ -12,7 +12,7 @@ import { isSignedIn } from '../../auth';
 
 import axios from 'axios';
 
-class VoucherView extends Component{
+class VoucherContainer extends Component{
   constructor(props){
     super(props);
 
@@ -47,7 +47,7 @@ class VoucherView extends Component{
 
   render(){
     return(
-      <Div name="Voucher e Initerarios" icon='bar-chart' loading={!this.state.run}>
+      <Div name="Vouchers e Initerarios" icon='bar-chart' loading={!this.state.run}>
       {
         !this.state.run ? null :
         (function(items){
@@ -83,4 +83,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(VoucherView);
+export default connect(mapStateToProps)(VoucherContainer);
