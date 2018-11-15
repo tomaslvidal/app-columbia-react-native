@@ -17,7 +17,6 @@ export default class PanelComponent extends Component{
       title : props.title,
       expanded : false,
       animation : new Animated.Value(),
-      init: true
     };
   }
 
@@ -73,8 +72,8 @@ export default class PanelComponent extends Component{
           </TouchableHighlight>
         </View>
 
-        <View style={styles.body} onLayout={(e) => this._setMaxHeight(e)}>
-          <View>
+        <View style={styles.body} >
+          <View style={styles.parent} onLayout={(e) => this._setMaxHeight(e)}>
             {this.props.children}
           </View>
         </View>
@@ -96,15 +95,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 10,
-    minHeight: 40
+    minHeight: 40,
   },
   title:{
     flex: 1,
     color: '#2a2f43',
+    fontSize: 16,
     fontWeight: 'bold',
   },
   body: {
-    padding: 18,
-    paddingTop: 0
+    padding: 8,
+    paddingTop: 0,
+  },
+  parent: {
+    backgroundColor: '#FFFFFF',
+    padding: 15,
+    borderRadius: 3
   }
 });
