@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+
 import { isSignedIn } from '../../auth';
 
 import { Text, View, StyleSheet, Image, ScrollView, ImageBackground, TouchableOpacity, TouchableHighlight, Linking } from 'react-native';
@@ -10,37 +12,45 @@ import Div from '../../layouts/default';
 
 import Panel from '../../components/PanelComponent';
 
+import MultiSelect from '../../components/MultiSelectComponent';
+
 import * as t from 'tcomb-form-native'
 
-import * as tvalidation from 'tcomb-validation';
+import axios from 'axios';
 
-const Form = t.form.Form, validate = tvalidation.validate;
+import _ from 'lodash';
 
-const Person = t.struct({
-  '¿Lorem ipsum dolor sit amet?': t.String,
-  '¿Lorem ipsum dolor sit amet2?': t.String,
-  '¿Lorem ipsum dolor sit amet3?': t.String,
-  '¿Lorem ipsum dolor sit amet4?': t.String,
-  '¿Lorem ipsum dolor sit amet5?': t.String,
-  '¿Lorem ipsum dolor sit amet6?': t.String,
-});
+const Form = t.form.Form;
 
-const myFormatFunction = (format,date) => {
-  return moment(date).format(format);
+const stylesheet = _.cloneDeep(Form.stylesheet);
+
+stylesheet.controlLabel.normal = {
+  color: '#343434',
+  fontSize: 15,
+  fontWeight: 'bold',
 }
 
-const options={
-  fields:{
-  }
-};
+stylesheet.select.normal = {
+  color: undefined,
+}
 
-export default class SurveysContainer extends Component{
+stylesheet.textbox.normal.color = 'black';
+
+const colorError = '#E44545';
+
+stylesheet.controlLabel.error.color = colorError;
+
+stylesheet.helpBlock.error.color = colorError;
+
+class SurveysContainer extends Component{
   constructor(props){
     super(props);
     
-    this.state={
-      run: false
+    this.state = {
+      run: false,
     };
+
+    this.onPress = this.onPress.bind(this);
   }
 
   componentWillMount(){
@@ -51,20 +61,85 @@ export default class SurveysContainer extends Component{
           this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_', {routeName: this.props.navigation.state.routeName});
         }
         else{
-          this.setState({
-            run: true
+          axios.get('http://columbiaapp.eviajes.online/api/surveys', { headers: {"Authorization" : `Bearer ${this.props.access_token}`} })
+          .then(response => {
+            let items = response.data, forms = [];
+
+            for(i = 0; i < items.length; i++){
+              forms[i] = {
+                id: items[i].id,
+                name: items[i].name,
+                types: {},
+                options: {
+                  fields: {
+
+                  }
+                }
+              }
+
+              for (var d = 0; d < items[i].survey_fields.length; d++) {
+                let item_options = {};
+
+                if(items[i].survey_fields[d].type.toString() == "2"){
+                  for (var f = 0; f < items[i].survey_fields[d].survey_options.length; f++) {
+                    item_options[items[i].survey_fields[d].survey_options[f].id] = items[i].survey_fields[d].survey_options[f].value;
+                  }
+
+                  forms[i].options.fields[items[i].survey_fields[d].name] = {
+                    label: items[i].survey_fields[d].name,
+                    stylesheet: stylesheet,
+                  };
+
+                  forms[i].types[items[i].survey_fields[d].name] = t.enums(item_options);
+                }
+                else if(items[i].survey_fields[d].type.toString() == "1"){
+                  forms[i].options.fields[items[i].survey_fields[d].name] = {
+                    label: items[i].survey_fields[d].name,
+                    stylesheet: stylesheet,
+                    factory: MultiSelect,
+                    options: [],
+                  };
+
+                  for (var f = 0; f < items[i].survey_fields[d].survey_options.length; f++) {
+                    forms[i].options.fields[items[i].survey_fields[d].name].options.push({
+                      value: items[i].survey_fields[d].survey_options[f].id,
+                      text: items[i].survey_fields[d].survey_options[f].value
+                    });
+                  }
+
+                  forms[i].types[items[i].survey_fields[d].name] = t.list(t.String);
+                }
+                else if(items[i].survey_fields[d].type.toString() == "3"){
+                  forms[i].options.fields[items[i].survey_fields[d].name] = {
+                    label: items[i].survey_fields[d].name,
+                    stylesheet: stylesheet,
+                  };
+
+                  forms[i].types[items[i].survey_fields[d].name] = t.String;
+                }
+              }
+
+              forms[i].types = t.struct(forms[i].types);
+            }
+
+            this.setState({
+              forms: forms,
+              run: true
+            });
+          })
+          .catch(res => {
+            this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_', {routeName: this.props.navigation.state.routeName});
           });
-        }
-      })
-      .catch(res => {
-        this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_', {routeName: this.props.navigation.state.routeName});
-      });
+      }
+
+    });
+
     }, 300);
   }
 
-  onPress(){
-    let value = this.refs.form.getValue();
-  
+  onPress(id){
+    let value = this.refs["form"+id.toString()].getValue();
+
     if(value){
       console.log(value);
     }
@@ -72,32 +147,20 @@ export default class SurveysContainer extends Component{
 
   render(){
     return(
-      <Div name="Encuesta" icon="bar-chart" container={false} loading={!this.state.run}>
+      <Div name="Encuestas" icon='bar-chart' container={false} loading={!this.state.run}>
       {
-        !this.state.run ? null :
-        (function(){
-          const return_ = (
-          <View>
-            <Panel title="Encuesta de calidad 1">
-              <Form ref="form" type={Person} options={options}/>
+      !this.state.run ? null :
+      this.state.forms.map( (item, key) => {
+        return (
+          <Panel key={key} title={item.name}>
+            <Form key={key+"f"} ref={"form"+item.id} type={item.types} options={item.options}/>
 
-              <TouchableHighlight style={styles.button} onPress={() => this.onPress()} underlayColor={attributes.underlayColor}>
-                <Text style={[styles.buttonText, {}]}>Enviar</Text>
-              </TouchableHighlight>
-            </Panel>
-
-            <Panel title="Encuesta de calidad 2">
-              <Form ref="form" type={Person} options={options}/>
-
-              <TouchableHighlight style={styles.button} onPress={() => this.onPress()} underlayColor={attributes.underlayColor}>
-                <Text style={[styles.buttonText, {}]}>Enviar</Text>
-              </TouchableHighlight>
-            </Panel>
-          </View>
-          );
-
-          return return_;
-        })()
+            <TouchableHighlight key={key+"th"} style={styles.button} onPress={() => this.onPress(item.id)} underlayColor={attributes.underlayColor}>
+              <Text key={key+"t"} style={[styles.buttonText, {}]}>Enviar</Text>
+            </TouchableHighlight>
+          </Panel>
+        );
+      })
       }
       </Div>
     );
@@ -125,3 +188,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   }
 });
+
+const mapStateToProps = state => {
+  return {
+    access_token: state.account.oauth.access_token
+  };
+};
+
+export default connect(mapStateToProps)(SurveysContainer);

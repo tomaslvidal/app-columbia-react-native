@@ -10,8 +10,6 @@ import { setLoguedAccount } from './actions';
 
 import store from './store';
 
-// store.dispatch(setLoguedAccount({name: "Tomás", last_name: "Vidal", description: "asd"}));
-
 export default class App extends React.Component {
   constructor(props) {
     super(props);
