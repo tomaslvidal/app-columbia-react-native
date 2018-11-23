@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { isSignedIn } from '../../auth';
 
-import { Text, View, StyleSheet, Image, ScrollView, ImageBackground, TouchableOpacity, TouchableHighlight, Linking } from 'react-native';
+import { Text, View, Alert, StyleSheet, Image, ScrollView, ImageBackground, TouchableOpacity, TouchableHighlight, Linking } from 'react-native';
 
 import CollapsibleList from 'react-native-collapsible-list'
 
@@ -48,6 +48,7 @@ class SurveysContainer extends Component{
     
     this.state = {
       run: false,
+      loading: false
     };
 
     this.onPress = this.onPress.bind(this);
@@ -85,15 +86,19 @@ class SurveysContainer extends Component{
                     item_options[items[i].survey_fields[d].survey_options[f].id] = items[i].survey_fields[d].survey_options[f].value;
                   }
 
-                  forms[i].options.fields[items[i].survey_fields[d].name] = {
+                  forms[i].options.fields[items[i].survey_fields[d].id] = {
                     label: items[i].survey_fields[d].name,
                     stylesheet: stylesheet,
+                    transformer: {
+                      format: value => (value!="" ? value : null),
+                      parse: value => [value] || null,
+                    },
                   };
 
-                  forms[i].types[items[i].survey_fields[d].name] = t.enums(item_options);
+                  forms[i].types[items[i].survey_fields[d].id] = t.enums(item_options);
                 }
                 else if(items[i].survey_fields[d].type.toString() == "1"){
-                  forms[i].options.fields[items[i].survey_fields[d].name] = {
+                  forms[i].options.fields[items[i].survey_fields[d].id] = {
                     label: items[i].survey_fields[d].name,
                     stylesheet: stylesheet,
                     factory: MultiSelect,
@@ -101,21 +106,21 @@ class SurveysContainer extends Component{
                   };
 
                   for (var f = 0; f < items[i].survey_fields[d].survey_options.length; f++) {
-                    forms[i].options.fields[items[i].survey_fields[d].name].options.push({
+                    forms[i].options.fields[items[i].survey_fields[d].id].options.push({
                       value: items[i].survey_fields[d].survey_options[f].id,
                       text: items[i].survey_fields[d].survey_options[f].value
                     });
                   }
 
-                  forms[i].types[items[i].survey_fields[d].name] = t.list(t.String);
+                  forms[i].types[items[i].survey_fields[d].id] = t.list(t.String);
                 }
                 else if(items[i].survey_fields[d].type.toString() == "3"){
-                  forms[i].options.fields[items[i].survey_fields[d].name] = {
+                  forms[i].options.fields[items[i].survey_fields[d].id] = {
                     label: items[i].survey_fields[d].name,
                     stylesheet: stylesheet,
                   };
 
-                  forms[i].types[items[i].survey_fields[d].name] = t.String;
+                  forms[i].types[items[i].survey_fields[d].id] = t.String;
                 }
               }
 
@@ -138,29 +143,55 @@ class SurveysContainer extends Component{
   }
 
   onPress(id){
-    let value = this.refs["form"+id.toString()].getValue();
+    let data = this.refs["form"+id.toString()].getValue();
 
-    if(value){
-      console.log(value);
+    if(data){
+      this.setState({
+        loading: true
+      });
+
+      axios.post('http://columbiaapp.eviajes.online/api/surveysmade', { headers: {"Authorization" : `Bearer ${this.props.access_token}`} }, JSON.stringify(data))
+      .then(response => {
+        setTimeout(() => {
+          this.setState({
+            loading: false
+          });
+
+          Alert.alert('Mensaje', 'Encuesta realizada', [
+            {text: 'OK'}
+          ]);
+        }, 1500);
+      })
+      .catch( () => {
+        setTimeout(() => {
+          this.setState({
+            loading: false
+          });
+
+          Alert.alert('Mensaje', 'No se ha podido enviar la encuesta', [
+            {text: 'OK'}
+          ]);
+        }, 1500);
+      });
     }
   }
 
   render(){
     return(
-      <Div name="Encuestas" icon='bar-chart' container={false} loading={!this.state.run}>
+      <Div name="Encuestas" icon='bar-chart' container={false} loading={!this.state.run || this.state.loading}>
       {
       !this.state.run ? null :
-      this.state.forms.map( (item, key) => {
-        return (
-          <Panel key={key} title={item.name}>
-            <Form key={key+"f"} ref={"form"+item.id} type={item.types} options={item.options}/>
+        this.state.forms.map( (item, key) => {
+          return (
+            <Panel key={key} title={item.name}>
+              <Form key={key+"f"} ref={"form"+item.id} type={item.types} options={item.options}/>
 
-            <TouchableHighlight key={key+"th"} style={styles.button} onPress={() => this.onPress(item.id)} underlayColor={attributes.underlayColor}>
-              <Text key={key+"t"} style={[styles.buttonText, {}]}>Enviar</Text>
-            </TouchableHighlight>
-          </Panel>
-        );
-      })
+              <TouchableHighlight key={key+"th"} style={styles.button} onPress={() => this.onPress(item.id)} underlayColor={attributes.underlayColor}>
+                <Text key={key+"t"} style={[styles.buttonText, {}]}>Enviar</Text>
+              </TouchableHighlight>
+            </Panel>
+          );
+        })
       }
       </Div>
     );
