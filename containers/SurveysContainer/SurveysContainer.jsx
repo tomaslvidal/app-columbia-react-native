@@ -48,7 +48,8 @@ class SurveysContainer extends Component{
     
     this.state = {
       run: false,
-      loading: false
+      loading: false,
+      state_surveys: {}
     };
 
     this.onPress = this.onPress.bind(this);
@@ -62,7 +63,7 @@ class SurveysContainer extends Component{
           this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_', {routeName: this.props.navigation.state.routeName});
         }
         else{
-          axios.get('http://columbiaapp.eviajes.online/api/surveys', { headers: {"Authorization" : `Bearer ${this.props.access_token}`} })
+          axios.get('http://columbiaapp.eviajes.online/api/surveys/user', { headers: {"Authorization" : `Bearer ${this.props.access_token}`} })
           .then(response => {
             let items = response.data, forms = [];
 
@@ -72,9 +73,7 @@ class SurveysContainer extends Component{
                 name: items[i].name,
                 types: {},
                 options: {
-                  fields: {
-
-                  }
+                  fields: {}
                 }
               }
 
@@ -150,11 +149,21 @@ class SurveysContainer extends Component{
         loading: true
       });
 
-      axios.post('http://columbiaapp.eviajes.online/api/surveysmade', { headers: {"Authorization" : `Bearer ${this.props.access_token}`} }, JSON.stringify(data))
+      data = JSON.parse(JSON.stringify(data));
+
+      data.id = id;
+
+      axios.post('http://columbiaapp.eviajes.online/api/surveysmade', data, { headers: {"Authorization" : `Bearer ${this.props.access_token}`} })
       .then(response => {
         setTimeout(() => {
           this.setState({
-            loading: false
+            state_surveys: {
+              [id]: true
+            }
+          }, () => {
+            this.setState({
+              loading: false
+            });
           });
 
           Alert.alert('Mensaje', 'Encuesta realizada', [
@@ -162,12 +171,8 @@ class SurveysContainer extends Component{
           ]);
         }, 1500);
       })
-      .catch( () => {
+      .catch( (err) => {
         setTimeout(() => {
-          this.setState({
-            loading: false
-          });
-
           Alert.alert('Mensaje', 'No se ha podido enviar la encuesta', [
             {text: 'OK'}
           ]);
@@ -182,15 +187,18 @@ class SurveysContainer extends Component{
       {
       !this.state.run ? null :
         this.state.forms.map( (item, key) => {
-          return (
-            <Panel key={key} title={item.name}>
-              <Form key={key+"f"} ref={"form"+item.id} type={item.types} options={item.options}/>
 
-              <TouchableHighlight key={key+"th"} style={styles.button} onPress={() => this.onPress(item.id)} underlayColor={attributes.underlayColor}>
-                <Text key={key+"t"} style={[styles.buttonText, {}]}>Enviar</Text>
-              </TouchableHighlight>
-            </Panel>
-          );
+          if(this.state.state_surveys[item.id]!=true) {
+            return (
+              <Panel key={key} title={item.name}>
+                <Form key={key+"f"} ref={"form"+item.id} type={item.types} options={item.options}/>
+
+                <TouchableHighlight key={key+"th"} style={styles.button} onPress={() => this.onPress(item.id)} underlayColor={attributes.underlayColor}>
+                  <Text key={key+"t"} style={[styles.buttonText, {}]}>Enviar</Text>
+                </TouchableHighlight>
+              </Panel>
+            );
+          }
         })
       }
       </Div>
