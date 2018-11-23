@@ -41,7 +41,7 @@ export default class App extends Component{
               <ImageBackground style={styles.imageBackground} source={require(img_path+'vouchers.jpg')}>
                 <View style={[styles.viewText]}>
                   <Text style={[styles.text]}>
-                    Vouchers
+                    Mis Viajes
                   </Text>
                 </View>
               </ImageBackground>
