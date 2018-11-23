@@ -7,9 +7,9 @@ import thunk from 'redux-thunk';
 import reducer from '../reducers';
 
 const store = createStore(
-  reducer,
-  {},
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__(applyMiddleware(logger, thunk))
+	reducer,
+	{},
+	applyMiddleware(logger, thunk)
 );
 
 export default store;

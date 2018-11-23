@@ -9,7 +9,7 @@ export default class App extends Component{
     super(props);
 
     this.state = {
-      version: "0.3"
+      version: "3.0"
     };
   }
 
