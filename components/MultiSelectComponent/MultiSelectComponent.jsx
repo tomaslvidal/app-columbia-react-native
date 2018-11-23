@@ -18,8 +18,9 @@ class MultiSelectComponent extends t.form.Select {
 
     const { options, value } = locals;
 
-    options &&
-    options.map(item => (isChecked[item.text] = !!_.find(value, _value => _value === item.text)));
+    if(options){
+      options.map(item => (isChecked[item.value] = !!_.find(value, _value => _value === item.value)));
+    }
 
     this.state = {
       isChecked,
@@ -71,10 +72,10 @@ class MultiSelectComponent extends t.form.Select {
       locals.options.map((item, index) =>
         viewArr.push(<Checkbox
             key={index}
-            ref={item.text}
+            ref={item.value}
             label={item.text}
             labelStyle={{color: 'black'}}
-            checked={this.state.isChecked[item.text]}
+            checked={this.state.isChecked[item.value]}
             onChange={(checked) => {
               this._onChange(item, locals, !checked);
             }}
@@ -106,7 +107,7 @@ class MultiSelectComponent extends t.form.Select {
   _onChange(item, locals, checked) {
     const { isChecked } = this.state;
 
-    isChecked[item.text] = checked;
+    isChecked[item.value] = checked;
 
     const changeArr = [];
 
