@@ -30,7 +30,7 @@ class VoucherContainer extends Component{
           this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_', {routeName: this.props.navigation.state.routeName});
         }
         else{
-          axios.get('http://columbiaapp.eviajes.online/api/vouchers', { headers: {"Authorization" : `Bearer ${this.props.access_token}`} })
+          axios.get('http://columbiaapp.eviajes.online/api/vouchers/user', { headers: {"Authorization" : `Bearer ${this.props.access_token}`} })
           .then(response => {
               this.setState({
                 items: response.data,
