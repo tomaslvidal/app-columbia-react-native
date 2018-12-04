@@ -76,7 +76,7 @@ class LoginForm extends Component {
 
       let data = {
         client_id: 2,
-        client_secret: 'YdDDU3QNKu290Uf4qoat5FQcBiseLXrI4fJD33aw',
+        client_secret: 'BXFEgz2HtEm2Im2awNgiF8sGmmbIojK2JsiLaYqi',
         grant_type: 'password',
         username: user.email,
         password: user.contraseña,
