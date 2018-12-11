@@ -9,7 +9,7 @@ export default class App extends Component{
     super(props);
 
     this.state = {
-      version: "4.0"
+      version: "5.0"
     };
   }
 
@@ -18,7 +18,7 @@ export default class App extends Component{
     .then(response => {
       let data = response.data, reasons = {}, url = data.url ? data.url : 'http://www.columbiaviajes.com.ar/descarga/columbiaviajes.apk';
 
-      // http://icolumbia.apteknet.com/services/setUpdate.php?estado=1&version=4.0
+      // http://icolumbia.apteknet.com/services/setUpdate.php?estado=1&version=5.0
 
       if(data.estado=="1" && (this.state.version.toString()!=data.version)){
         Alert.alert('Mensaje', 'Hay una nueva actualización, ¿quieres descargarla?', [
@@ -66,7 +66,7 @@ export default class App extends Component{
             <ImageBackground style={styles.imageBackground} source={require(img_path+'checkin.jpg')}>
               <View style={[styles.viewText]}>
                 <Text style={[styles.text]}>
-                  Check In
+                  Web Check In
                 </Text>
               </View>
             </ImageBackground>
