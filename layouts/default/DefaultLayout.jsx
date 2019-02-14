@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Text, StatusBar, View, StyleSheet, Image, ImageBackground, TouchableOpacity, Linking, ScrollView } from 'react-native';
+import { Text, StatusBar, View, StyleSheet, ScrollView } from 'react-native';
 
 import BackLeft from '../../components/BackLeftComponent';
 
@@ -39,7 +39,7 @@ class LayoutDefault extends Component{
           (this.props.loading!=undefined ? this.props.loading : this.state.loading) ? (function(){
             const return_ = (
               <View style={{display: 'flex', flex: 1}}>
-                <Preloader/>
+                    <Preloader/>
                 <Footer/>
               </View>
             );
