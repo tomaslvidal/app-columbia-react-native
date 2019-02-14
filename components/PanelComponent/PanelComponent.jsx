@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Image, TouchableHighlight, Animated } from 'rea
 
 import React, { Component } from 'react';
 
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class PanelComponent extends Component{
   constructor(props){
@@ -68,7 +68,7 @@ export default class PanelComponent extends Component{
           <Text style={styles.title}>{this.state.title}</Text>
 
           <TouchableHighlight style={styles.button} onPress={(e) => this.toggle(e)} underlayColor="#f1f1f1">
-            <FontAwesome5 name={icon} size={27} color={'#009EE0'} solid />
+            <Icon name={icon} size={27} color={'#009EE0'}  />
           </TouchableHighlight>
         </View>
 

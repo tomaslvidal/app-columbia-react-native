@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Text, View, StyleSheet, Image, TouchableOpacity, Linking } from 'react-native';
 
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class FileComponent extends Component{
   constructor(props){
@@ -21,7 +21,7 @@ export default class FileComponent extends Component{
         </View>
         
         <TouchableOpacity onPress={() => this.handlePress(this.props.url)} style={styles.icon}>
-          <FontAwesome5 name={'file-download'} size={20} color={attributes.color} solid />
+          <Icon name={'cloud-download'} size={20} color={attributes.color}  />
         </TouchableOpacity>
       </View>
     );

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import { Text, View, StyleSheet, Image, ImageBackground, TouchableOpacity, Linking, ScrollView } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
-import { MaterialIndicator } from 'react-native-indicators';
+import { BallIndicator } from 'react-native-indicators';
 
 export default class Preloader extends Component{
   constructor(props){
@@ -15,7 +15,7 @@ export default class Preloader extends Component{
   render(){
     return(
 		<View style={styles.body}>
-			<MaterialIndicator size={70} color={"#404447"}/>
+			<BallIndicator size={40} color={"#404447"}/>
 		</View>
     )
   }
@@ -26,6 +26,6 @@ const styles = StyleSheet.create({
 		display: 'flex',
 		flex: 1,
 		justifyContent: 'center',
-		alignItems: 'center'
+		alignItems: 'center',
 	}
 });
