@@ -11,7 +11,7 @@
 		00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
-		00E356F31AD99517003FC87E /* ColumbiaViajesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ColumbiaViajesTests.m */; };
+		00E356F31AD99517003FC87E /* ColumbiaViajes2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ColumbiaViajes2Tests.m */; };
 		11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
@@ -33,27 +33,27 @@
 		2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E941DF850E9000B6D8A /* libRCTText-tvOS.a */; };
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
-		2DCD954D1E0B4F2C00145EB5 /* ColumbiaViajesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ColumbiaViajesTests.m */; };
+		2DCD954D1E0B4F2C00145EB5 /* ColumbiaViajes2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ColumbiaViajes2Tests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		03930EDE261745AC96A59C1A /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB3609E977145FAB774BA32 /* libRNVectorIcons.a */; };
-		373E4EAC057442C6AD103962 /* libRNVectorIcons-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C383A656BBDC429AAA8FA2F3 /* libRNVectorIcons-tvOS.a */; };
-		378CD5D55FE64A448E1F725B /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02F3C16D745D4F61A9C49E3C /* AntDesign.ttf */; };
-		B3F863EDF87C472AADD1E2CA /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80BF14EF3AFC4A72914987D0 /* Entypo.ttf */; };
-		87476F7DDC164A80B1D445AE /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB496D9DDB8F415CB803C901 /* EvilIcons.ttf */; };
-		2079E9B6E33C4511A304F739 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12040B5CAEC34E7A968665EC /* Feather.ttf */; };
-		9535B067200C4B929F2C1758 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CE4F853D54D4D0D965F29A8 /* FontAwesome.ttf */; };
-		EA270FCC0FA44B3297F0544B /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 574AD8EC09814C50A61D180D /* FontAwesome5_Brands.ttf */; };
-		CBD59D34C511442980032EBC /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20D0295095C140AA90015082 /* FontAwesome5_Regular.ttf */; };
-		7A8166E8CE5E49FC8BC638CA /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3B4BE2DC31A46339EFFBB4F /* FontAwesome5_Solid.ttf */; };
-		228C8AD6DC074813B1BE5921 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C9A40B041A944F397E10B43 /* Foundation.ttf */; };
-		93E9907725684C708DE97B48 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84CD20627A144D67950C798D /* Ionicons.ttf */; };
-		CF87018C4A5B4201A02F0178 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA4497C893794C5C97919A8B /* MaterialCommunityIcons.ttf */; };
-		DB0CD57BCD7F460AABD3EDD0 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2F5324314FA4111BD5B7890 /* MaterialIcons.ttf */; };
-		4580E0B9FF454C388CC616A4 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABD238CEEFF24175918CEB50 /* Octicons.ttf */; };
-		1C2A8954054D46E390121428 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E063F992032148E5B8E96030 /* SimpleLineIcons.ttf */; };
-		DC7F05707D8446339B39D01F /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31A93BE6665044DD884C478C /* Zocial.ttf */; };
+		973BC6EA157448AEB252DA1D /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0098DBA27C214FC1973CF7E2 /* libRNVectorIcons.a */; };
+		7D2E7127368E4BF3A53CB0D6 /* libRNVectorIcons-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62284214DE0F44288E5519FB /* libRNVectorIcons-tvOS.a */; };
+		64B5547D50FE46BAA878BB22 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 487E935F93F645528CE2C7EE /* AntDesign.ttf */; };
+		6951D901F93843F3A4E165D1 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72653339893D423F9FC3DA06 /* Entypo.ttf */; };
+		18B7A5BCA30B4177A9361C2D /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4329386B0854ACC91C89874 /* EvilIcons.ttf */; };
+		AF29F8D681AC447D8C86FE38 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 99D461DADC6645018E02B464 /* Feather.ttf */; };
+		EDB2D7DD1C794C289C7E5277 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30F9277F8A90422AA7421E3E /* FontAwesome.ttf */; };
+		87256F7D573C4C20A77119A2 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE682F56696C48F1A417C93D /* FontAwesome5_Brands.ttf */; };
+		DFE627317DFF46BEBC23FF4C /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B644FD3854A495280A0FA38 /* FontAwesome5_Regular.ttf */; };
+		1EB1E426DD5B4F15BBC66C1B /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C96EE632DCF243199367061A /* FontAwesome5_Solid.ttf */; };
+		9F47B6201E004EFFB35CB67A /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D6969B5A7CB4268A63F46ED /* Foundation.ttf */; };
+		EFA41E0F498A44F4901B5287 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9692A2B72BFC439CA6EEE851 /* Ionicons.ttf */; };
+		9CB9828C2A834EFA8CA550B8 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D837776324143848325B9BA /* MaterialCommunityIcons.ttf */; };
+		C6C6C7FBEF57485DBFBAECBA /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 46CBA339A57346F8AF6243D4 /* MaterialIcons.ttf */; };
+		657F936BF01D48BDB25AB6FD /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6E5485A90D740D3ACFFBEFB /* Octicons.ttf */; };
+		8B7E2AE704DE44B1894D0221 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88BA96B95BF34481A83CE3E6 /* SimpleLineIcons.ttf */; };
+		071A8319E9474D4383E3F40F /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4B90F0C0B70468AB0A6E6CC /* Zocial.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,7 +97,7 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = ColumbiaViajes;
+			remoteInfo = ColumbiaViajes2;
 		};
 		139105C01AF99BAD00B5F7CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -125,7 +125,7 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "ColumbiaViajes-tvOS";
+			remoteInfo = "ColumbiaViajes2-tvOS";
 		};
 		2D16E6711FA4F8DC00B85C8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -339,44 +339,44 @@
 		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
 		00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTNetwork.xcodeproj; path = "../node_modules/react-native/Libraries/Network/RCTNetwork.xcodeproj"; sourceTree = "<group>"; };
 		00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* ColumbiaViajesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColumbiaViajesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* ColumbiaViajes2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColumbiaViajes2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* ColumbiaViajesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColumbiaViajesTests.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* ColumbiaViajes2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColumbiaViajes2Tests.m; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* ColumbiaViajes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColumbiaViajes.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ColumbiaViajes/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ColumbiaViajes/AppDelegate.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* ColumbiaViajes2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColumbiaViajes2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ColumbiaViajes2/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ColumbiaViajes2/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ColumbiaViajes/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ColumbiaViajes/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ColumbiaViajes/main.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ColumbiaViajes2/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ColumbiaViajes2/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ColumbiaViajes2/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* ColumbiaViajes-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ColumbiaViajes-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* ColumbiaViajes-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ColumbiaViajes-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E47B1E0B4A5D006451C7 /* ColumbiaViajes2-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ColumbiaViajes2-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* ColumbiaViajes2-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ColumbiaViajes2-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
-		99C6938984AE49108D32C769 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; name = "RNVectorIcons.xcodeproj"; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		5BB3609E977145FAB774BA32 /* libRNVectorIcons.a */ = {isa = PBXFileReference; name = "libRNVectorIcons.a"; path = "libRNVectorIcons.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
-		C383A656BBDC429AAA8FA2F3 /* libRNVectorIcons-tvOS.a */ = {isa = PBXFileReference; name = "libRNVectorIcons-tvOS.a"; path = "libRNVectorIcons-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
-		02F3C16D745D4F61A9C49E3C /* AntDesign.ttf */ = {isa = PBXFileReference; name = "AntDesign.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		80BF14EF3AFC4A72914987D0 /* Entypo.ttf */ = {isa = PBXFileReference; name = "Entypo.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		BB496D9DDB8F415CB803C901 /* EvilIcons.ttf */ = {isa = PBXFileReference; name = "EvilIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		12040B5CAEC34E7A968665EC /* Feather.ttf */ = {isa = PBXFileReference; name = "Feather.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		5CE4F853D54D4D0D965F29A8 /* FontAwesome.ttf */ = {isa = PBXFileReference; name = "FontAwesome.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		574AD8EC09814C50A61D180D /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Brands.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		20D0295095C140AA90015082 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Regular.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		C3B4BE2DC31A46339EFFBB4F /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Solid.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		1C9A40B041A944F397E10B43 /* Foundation.ttf */ = {isa = PBXFileReference; name = "Foundation.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		84CD20627A144D67950C798D /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		BA4497C893794C5C97919A8B /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; name = "MaterialCommunityIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		E2F5324314FA4111BD5B7890 /* MaterialIcons.ttf */ = {isa = PBXFileReference; name = "MaterialIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		ABD238CEEFF24175918CEB50 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		E063F992032148E5B8E96030 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		31A93BE6665044DD884C478C /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D6EF97D606394372A1342CCF /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; name = "RNVectorIcons.xcodeproj"; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		0098DBA27C214FC1973CF7E2 /* libRNVectorIcons.a */ = {isa = PBXFileReference; name = "libRNVectorIcons.a"; path = "libRNVectorIcons.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		62284214DE0F44288E5519FB /* libRNVectorIcons-tvOS.a */ = {isa = PBXFileReference; name = "libRNVectorIcons-tvOS.a"; path = "libRNVectorIcons-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		487E935F93F645528CE2C7EE /* AntDesign.ttf */ = {isa = PBXFileReference; name = "AntDesign.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		72653339893D423F9FC3DA06 /* Entypo.ttf */ = {isa = PBXFileReference; name = "Entypo.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C4329386B0854ACC91C89874 /* EvilIcons.ttf */ = {isa = PBXFileReference; name = "EvilIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		99D461DADC6645018E02B464 /* Feather.ttf */ = {isa = PBXFileReference; name = "Feather.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		30F9277F8A90422AA7421E3E /* FontAwesome.ttf */ = {isa = PBXFileReference; name = "FontAwesome.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AE682F56696C48F1A417C93D /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Brands.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9B644FD3854A495280A0FA38 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Regular.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C96EE632DCF243199367061A /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Solid.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9D6969B5A7CB4268A63F46ED /* Foundation.ttf */ = {isa = PBXFileReference; name = "Foundation.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9692A2B72BFC439CA6EEE851 /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8D837776324143848325B9BA /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; name = "MaterialCommunityIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		46CBA339A57346F8AF6243D4 /* MaterialIcons.ttf */ = {isa = PBXFileReference; name = "MaterialIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C6E5485A90D740D3ACFFBEFB /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		88BA96B95BF34481A83CE3E6 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E4B90F0C0B70468AB0A6E6CC /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -404,7 +404,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				03930EDE261745AC96A59C1A /* libRNVectorIcons.a in Frameworks */,
+				973BC6EA157448AEB252DA1D /* libRNVectorIcons.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,7 +420,7 @@
 				2D02E4C61E0B4AEC006451C7 /* libRCTSettings-tvOS.a in Frameworks */,
 				2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */,
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
-				373E4EAC057442C6AD103962 /* libRNVectorIcons-tvOS.a in Frameworks */,
+				7D2E7127368E4BF3A53CB0D6 /* libRNVectorIcons-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,13 +477,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		00E356EF1AD99517003FC87E /* ColumbiaViajesTests */ = {
+		00E356EF1AD99517003FC87E /* ColumbiaViajes2Tests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* ColumbiaViajesTests.m */,
+				00E356F21AD99517003FC87E /* ColumbiaViajes2Tests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = ColumbiaViajesTests;
+			path = ColumbiaViajes2Tests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -514,7 +514,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* ColumbiaViajes */ = {
+		13B07FAE1A68108700A75B9A /* ColumbiaViajes2 */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -525,7 +525,7 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = ColumbiaViajes;
+			name = ColumbiaViajes2;
 			sourceTree = "<group>";
 		};
 		146834001AC3E56700842450 /* Products */ = {
@@ -592,7 +592,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
-				99C6938984AE49108D32C769 /* RNVectorIcons.xcodeproj */,
+				D6EF97D606394372A1342CCF /* RNVectorIcons.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -609,12 +609,12 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* ColumbiaViajes */,
+				13B07FAE1A68108700A75B9A /* ColumbiaViajes2 */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* ColumbiaViajesTests */,
+				00E356EF1AD99517003FC87E /* ColumbiaViajes2Tests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				619D082A02CC4F31BCC128AD /* Resources */,
+				C93FA40341E9473CAE73AE63 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -624,10 +624,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* ColumbiaViajes.app */,
-				00E356EE1AD99517003FC87E /* ColumbiaViajesTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* ColumbiaViajes-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* ColumbiaViajes-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* ColumbiaViajes2.app */,
+				00E356EE1AD99517003FC87E /* ColumbiaViajes2Tests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* ColumbiaViajes2-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* ColumbiaViajes2-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -641,24 +641,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		619D082A02CC4F31BCC128AD /* Resources */ = {
+		C93FA40341E9473CAE73AE63 /* Resources */ = {
 			isa = "PBXGroup";
 			children = (
-				02F3C16D745D4F61A9C49E3C /* AntDesign.ttf */,
-				80BF14EF3AFC4A72914987D0 /* Entypo.ttf */,
-				BB496D9DDB8F415CB803C901 /* EvilIcons.ttf */,
-				12040B5CAEC34E7A968665EC /* Feather.ttf */,
-				5CE4F853D54D4D0D965F29A8 /* FontAwesome.ttf */,
-				574AD8EC09814C50A61D180D /* FontAwesome5_Brands.ttf */,
-				20D0295095C140AA90015082 /* FontAwesome5_Regular.ttf */,
-				C3B4BE2DC31A46339EFFBB4F /* FontAwesome5_Solid.ttf */,
-				1C9A40B041A944F397E10B43 /* Foundation.ttf */,
-				84CD20627A144D67950C798D /* Ionicons.ttf */,
-				BA4497C893794C5C97919A8B /* MaterialCommunityIcons.ttf */,
-				E2F5324314FA4111BD5B7890 /* MaterialIcons.ttf */,
-				ABD238CEEFF24175918CEB50 /* Octicons.ttf */,
-				E063F992032148E5B8E96030 /* SimpleLineIcons.ttf */,
-				31A93BE6665044DD884C478C /* Zocial.ttf */,
+				487E935F93F645528CE2C7EE /* AntDesign.ttf */,
+				72653339893D423F9FC3DA06 /* Entypo.ttf */,
+				C4329386B0854ACC91C89874 /* EvilIcons.ttf */,
+				99D461DADC6645018E02B464 /* Feather.ttf */,
+				30F9277F8A90422AA7421E3E /* FontAwesome.ttf */,
+				AE682F56696C48F1A417C93D /* FontAwesome5_Brands.ttf */,
+				9B644FD3854A495280A0FA38 /* FontAwesome5_Regular.ttf */,
+				C96EE632DCF243199367061A /* FontAwesome5_Solid.ttf */,
+				9D6969B5A7CB4268A63F46ED /* Foundation.ttf */,
+				9692A2B72BFC439CA6EEE851 /* Ionicons.ttf */,
+				8D837776324143848325B9BA /* MaterialCommunityIcons.ttf */,
+				46CBA339A57346F8AF6243D4 /* MaterialIcons.ttf */,
+				C6E5485A90D740D3ACFFBEFB /* Octicons.ttf */,
+				88BA96B95BF34481A83CE3E6 /* SimpleLineIcons.ttf */,
+				E4B90F0C0B70468AB0A6E6CC /* Zocial.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -667,9 +667,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* ColumbiaViajesTests */ = {
+		00E356ED1AD99517003FC87E /* ColumbiaViajes2Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ColumbiaViajesTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ColumbiaViajes2Tests" */;
 			buildPhases = (
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
@@ -680,14 +680,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = ColumbiaViajesTests;
-			productName = ColumbiaViajesTests;
-			productReference = 00E356EE1AD99517003FC87E /* ColumbiaViajesTests.xctest */;
+			name = ColumbiaViajes2Tests;
+			productName = ColumbiaViajes2Tests;
+			productReference = 00E356EE1AD99517003FC87E /* ColumbiaViajes2Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* ColumbiaViajes */ = {
+		13B07F861A680F5B00A75B9A /* ColumbiaViajes2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ColumbiaViajes" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ColumbiaViajes2" */;
 			buildPhases = (
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
@@ -698,14 +698,14 @@
 			);
 			dependencies = (
 			);
-			name = ColumbiaViajes;
+			name = ColumbiaViajes2;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* ColumbiaViajes.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* ColumbiaViajes2.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* ColumbiaViajes-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* ColumbiaViajes2-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ColumbiaViajes-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ColumbiaViajes2-tvOS" */;
 			buildPhases = (
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -716,14 +716,14 @@
 			);
 			dependencies = (
 			);
-			name = "ColumbiaViajes-tvOS";
-			productName = "ColumbiaViajes-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* ColumbiaViajes-tvOS.app */;
+			name = "ColumbiaViajes2-tvOS";
+			productName = "ColumbiaViajes2-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* ColumbiaViajes2-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* ColumbiaViajes-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* ColumbiaViajes2-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ColumbiaViajes-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ColumbiaViajes2-tvOSTests" */;
 			buildPhases = (
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
@@ -734,9 +734,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "ColumbiaViajes-tvOSTests";
-			productName = "ColumbiaViajes-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* ColumbiaViajes-tvOSTests.xctest */;
+			name = "ColumbiaViajes2-tvOSTests";
+			productName = "ColumbiaViajes2-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* ColumbiaViajes2-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -763,7 +763,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ColumbiaViajes" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ColumbiaViajes2" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -826,10 +826,10 @@
 			);
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* ColumbiaViajes */,
-				00E356ED1AD99517003FC87E /* ColumbiaViajesTests */,
-				2D02E47A1E0B4A5D006451C7 /* ColumbiaViajes-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* ColumbiaViajes-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* ColumbiaViajes2 */,
+				00E356ED1AD99517003FC87E /* ColumbiaViajes2Tests */,
+				2D02E47A1E0B4A5D006451C7 /* ColumbiaViajes2-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* ColumbiaViajes2-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1110,21 +1110,21 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				378CD5D55FE64A448E1F725B /* AntDesign.ttf in Resources */,
-				B3F863EDF87C472AADD1E2CA /* Entypo.ttf in Resources */,
-				87476F7DDC164A80B1D445AE /* EvilIcons.ttf in Resources */,
-				2079E9B6E33C4511A304F739 /* Feather.ttf in Resources */,
-				9535B067200C4B929F2C1758 /* FontAwesome.ttf in Resources */,
-				EA270FCC0FA44B3297F0544B /* FontAwesome5_Brands.ttf in Resources */,
-				CBD59D34C511442980032EBC /* FontAwesome5_Regular.ttf in Resources */,
-				7A8166E8CE5E49FC8BC638CA /* FontAwesome5_Solid.ttf in Resources */,
-				228C8AD6DC074813B1BE5921 /* Foundation.ttf in Resources */,
-				93E9907725684C708DE97B48 /* Ionicons.ttf in Resources */,
-				CF87018C4A5B4201A02F0178 /* MaterialCommunityIcons.ttf in Resources */,
-				DB0CD57BCD7F460AABD3EDD0 /* MaterialIcons.ttf in Resources */,
-				4580E0B9FF454C388CC616A4 /* Octicons.ttf in Resources */,
-				1C2A8954054D46E390121428 /* SimpleLineIcons.ttf in Resources */,
-				DC7F05707D8446339B39D01F /* Zocial.ttf in Resources */,
+				64B5547D50FE46BAA878BB22 /* AntDesign.ttf in Resources */,
+				6951D901F93843F3A4E165D1 /* Entypo.ttf in Resources */,
+				18B7A5BCA30B4177A9361C2D /* EvilIcons.ttf in Resources */,
+				AF29F8D681AC447D8C86FE38 /* Feather.ttf in Resources */,
+				EDB2D7DD1C794C289C7E5277 /* FontAwesome.ttf in Resources */,
+				87256F7D573C4C20A77119A2 /* FontAwesome5_Brands.ttf in Resources */,
+				DFE627317DFF46BEBC23FF4C /* FontAwesome5_Regular.ttf in Resources */,
+				1EB1E426DD5B4F15BBC66C1B /* FontAwesome5_Solid.ttf in Resources */,
+				9F47B6201E004EFFB35CB67A /* Foundation.ttf in Resources */,
+				EFA41E0F498A44F4901B5287 /* Ionicons.ttf in Resources */,
+				9CB9828C2A834EFA8CA550B8 /* MaterialCommunityIcons.ttf in Resources */,
+				C6C6C7FBEF57485DBFBAECBA /* MaterialIcons.ttf in Resources */,
+				657F936BF01D48BDB25AB6FD /* Octicons.ttf in Resources */,
+				8B7E2AE704DE44B1894D0221 /* SimpleLineIcons.ttf in Resources */,
+				071A8319E9474D4383E3F40F /* Zocial.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1181,7 +1181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* ColumbiaViajesTests.m in Sources */,
+				00E356F31AD99517003FC87E /* ColumbiaViajes2Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1207,7 +1207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* ColumbiaViajesTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* ColumbiaViajes2Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1216,12 +1216,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* ColumbiaViajes */;
+			target = 13B07F861A680F5B00A75B9A /* ColumbiaViajes2 */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* ColumbiaViajes-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* ColumbiaViajes2-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1233,7 +1233,7 @@
 				13B07FB21A68108700A75B9A /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = ColumbiaViajes;
+			path = ColumbiaViajes2;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1247,7 +1247,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = ColumbiaViajesTests/Info.plist;
+				INFOPLIST_FILE = ColumbiaViajes2Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1256,7 +1256,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColumbiaViajes.app/ColumbiaViajes";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColumbiaViajes2.app/ColumbiaViajes2";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1274,7 +1274,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = ColumbiaViajesTests/Info.plist;
+				INFOPLIST_FILE = ColumbiaViajes2Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1283,7 +1283,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColumbiaViajes.app/ColumbiaViajes";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColumbiaViajes2.app/ColumbiaViajes2";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1302,7 +1302,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				INFOPLIST_FILE = ColumbiaViajes/Info.plist;
+				INFOPLIST_FILE = ColumbiaViajes2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1310,7 +1310,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = ColumbiaViajes;
+				PRODUCT_NAME = ColumbiaViajes2;
 				VERSIONING_SYSTEM = "apple-generic";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1324,7 +1324,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = ColumbiaViajes/Info.plist;
+				INFOPLIST_FILE = ColumbiaViajes2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1332,7 +1332,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = ColumbiaViajes;
+				PRODUCT_NAME = ColumbiaViajes2;
 				VERSIONING_SYSTEM = "apple-generic";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1353,13 +1353,13 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "ColumbiaViajes-tvOS/Info.plist";
+				INFOPLIST_FILE = "ColumbiaViajes2-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.ColumbiaViajes-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.ColumbiaViajes2-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1388,13 +1388,13 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "ColumbiaViajes-tvOS/Info.plist";
+				INFOPLIST_FILE = "ColumbiaViajes2-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.ColumbiaViajes-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.ColumbiaViajes2-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1422,16 +1422,16 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "ColumbiaViajes-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "ColumbiaViajes2-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.ColumbiaViajes-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.ColumbiaViajes2-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColumbiaViajes-tvOS.app/ColumbiaViajes-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColumbiaViajes2-tvOS.app/ColumbiaViajes2-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1456,16 +1456,16 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "ColumbiaViajes-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "ColumbiaViajes2-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.ColumbiaViajes-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.ColumbiaViajes2-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColumbiaViajes-tvOS.app/ColumbiaViajes-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColumbiaViajes2-tvOS.app/ColumbiaViajes2-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1581,7 +1581,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ColumbiaViajesTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ColumbiaViajes2Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -1590,7 +1590,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ColumbiaViajes" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ColumbiaViajes2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1599,7 +1599,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ColumbiaViajes-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ColumbiaViajes2-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -1608,7 +1608,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ColumbiaViajes-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ColumbiaViajes2-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -1617,7 +1617,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ColumbiaViajes" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ColumbiaViajes2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
