@@ -12,7 +12,7 @@ class BackLeft extends Component{
       <View style={styles.body}>
         <TouchableOpacity style={styles.container} onPress={() => this.props.navigation.goBack()}>
           <View>
-            <FontAwesome5 name={"arrow-alt-circle-left"} size={30} color="white" solid />
+            <FontAwesome5 name={"arrow-alt-circle-left"} size={30} color="white" regular />
           </View>
 
           <View>
