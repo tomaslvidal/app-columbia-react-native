@@ -102,11 +102,11 @@ export default class App extends Component{
 
         <View style={[styles.row1, {flexDirection: 'row'}]}>
           <View style={[styles.row1, styles.separation]}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Claims')}>
-              <ImageBackground style={styles.imageBackground} source={require(img_path+'reclamos.jpg')}>
+            <TouchableOpacity onPress={() => Linking.openURL('https://www.columbiaviajes.com.ar/paquetes.php?action=busqueda&destino=&tipo_paquete=9&salidas=&tarifaMax')}>
+              <ImageBackground style={styles.imageBackground} source={require(img_path+'ofertas.jpg')}>
                 <View style={[styles.viewText]}>
                   <Text style={[styles.text]}>
-                    Reclamo
+                    Ofertas
                   </Text>
                 </View>
               </ImageBackground>
