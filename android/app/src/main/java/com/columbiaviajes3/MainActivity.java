@@ -1,4 +1,4 @@
-package com.columbiaviajes;
+package com.columbiaviajes3;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "ColumbiaViajes";
+        return "ColumbiaViajes3";
     }
 }

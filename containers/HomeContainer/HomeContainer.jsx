@@ -9,14 +9,14 @@ export default class App extends Component{
     super(props);
 
     this.state = {
-      version: "6.0"
+      version: "2.0"
     };
   }
 
   componentWillMount(){
     axios.get('http://icolumbia.apteknet.com/services/getUpdate.php')
     .then(response => {
-      let data = response.data, reasons = {}, url = data.url ? data.url : 'https://play.google.com/store/apps/details?id=com.columbiaviajes';
+      let data = response.data, reasons = {}, url = data.url ? data.url : 'https://play.google.com/store/apps/details?id=com.columbiaviajes3';
 
       // http://icolumbia.apteknet.com/services/setUpdate.php?estado=1&version=5.0
 
