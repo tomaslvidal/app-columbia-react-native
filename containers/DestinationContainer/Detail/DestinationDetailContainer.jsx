@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image, Dimensions } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image, Dimensions, Linking } from 'react-native';
 
 import HTML from 'react-native-render-html';
 
@@ -9,6 +9,10 @@ import BackLeft from '../../../components/BackLeftComponent';
 import Footer from '../../../components/FooterComponent';
 
 import Div from '../../../layouts/default';
+
+const DEFAULT_PROPS = {
+    onLinkPress: (evt, href) => { Linking.openURL(href); }
+};
 
 export default class DestinationDetail extends Component {
   constructor(props){
@@ -42,7 +46,7 @@ export default class DestinationDetail extends Component {
             <Text style={styles.textTitle}>{this.state.item.title}</Text>
 
             <ScrollView style={{ flex: 1 }}>
-              <HTML imagesMaxWidth={this.state.maxWidth ? this.state.maxWidth : null} staticContentMaxWidth={this.state.maxWidth ? this.state.maxWidth : null} html={this.state.item.description!=undefined ? this.state.item.description : '<div></div>'} tagsStyles={tagsStyles} />
+              <HTML {...DEFAULT_PROPS} imagesMaxWidth={this.state.maxWidth ? this.state.maxWidth : null} staticContentMaxWidth={this.state.maxWidth ? this.state.maxWidth : null} html={this.state.item.description!=undefined ? this.state.item.description : '<div></div>'} tagsStyles={tagsStyles} />
             </ScrollView>
           </View>
         </View>
