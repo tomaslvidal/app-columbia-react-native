@@ -46,7 +46,28 @@ export default class DestinationDetail extends Component {
             <Text style={styles.textTitle}>{this.state.item.title}</Text>
 
             <ScrollView style={{ flex: 1 }}>
-              <HTML {...DEFAULT_PROPS} imagesMaxWidth={this.state.maxWidth ? this.state.maxWidth : null} staticContentMaxWidth={this.state.maxWidth ? this.state.maxWidth : null} html={this.state.item.description!=undefined ? this.state.item.description : '<div></div>'} tagsStyles={tagsStyles} />
+              <HTML {...DEFAULT_PROPS} imagesMaxWidth={this.state.maxWidth ? this.state.maxWidth : null} staticContentMaxWidth={this.state.maxWidth ? this.state.maxWidth : null} html={this.state.item.description!=undefined ? this.state.item.description : '<div></div>'} tagsStyles={tagsStyles} alterChildren = { (node) => {
+                        if(node.name === 'p'){
+                            if(typeof node.attribs['style'] != "undefined"){
+                                let arrayProperties = node.attribs['style'].split(';').map(item => item.trim());
+
+                                if(arrayProperties.length>0){
+                                    ['start', 'end'].forEach(value => {
+                                        let find_index = arrayProperties.findIndex(item => typeof item != 'undefined' ? (item.indexOf(value) != -1 && item.indexOf('text-align') != -1) : false);
+
+                                        if(find_index != -1){
+                                            delete arrayProperties[find_index];
+                                        }
+                                    });
+
+                                    node.attribs['style'] = arrayProperties.join(';');
+                                }
+                            }
+                        }
+
+                        return node.children;
+                    }
+                }/>
             </ScrollView>
           </View>
         </View>
