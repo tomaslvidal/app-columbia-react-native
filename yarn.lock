@@ -4935,6 +4935,11 @@ react-lifecycles-compat@^3, react-lifecycles-compat@^3.0.0, react-lifecycles-com
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-native-async-image-animated@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-async-image-animated/-/react-native-async-image-animated-4.3.0.tgz#692569ab237f409d21f3dca2929c4adaf4bd4f59"
+  integrity sha512-UOwjuWu7qyD8T1AkWqOe1TRV8Wm21udQZ/7HkGODJ4gW9kpLq8ymh6NBOFw8zpGcXZRxT73rmf+y69WxIjO+og==
+
 react-native-checkbox@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-native-checkbox/-/react-native-checkbox-2.0.0.tgz#453bbfd2e055a21e69ebe7842414a055d50ff449"

@@ -4,6 +4,8 @@ import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image, Dimensions
 
 import HTML from 'react-native-render-html';
 
+import AsyncImageAnimated from 'react-native-async-image-animated';
+
 import BackLeft from '../../../components/BackLeftComponent';
 
 import Footer from '../../../components/FooterComponent';
@@ -31,6 +33,8 @@ export default class DestinationDetail extends Component {
       maxWidth: e.nativeEvent.layout.width
     });
   }
+
+
 
   render() {
     const img_path = '../../img/', url = "http://columbiaapp.eviajes.online/destinations_m/download/";
@@ -67,7 +71,25 @@ export default class DestinationDetail extends Component {
 
                         return node.children;
                     }
-                }/>
+                }
+                renderers = {{
+                    img: (parameters) => {
+                        return(
+                            <AsyncImageAnimated
+                                source={{
+                                    uri: parameters.src
+                                }}
+                                key={parameters.src}
+                                placeholderColor={'#404447'}
+                                style={{
+                                    height: 180,
+                                    width: '100%'
+                                }}
+                            />
+                        );
+                    }
+                }}
+                />
             </ScrollView>
           </View>
         </View>
