@@ -17,7 +17,7 @@
     "react-native-checkbox": "^2.0.0",
     "react-native-collapsible-list": "^1.0.0",
     "react-native-indicators": "^0.13.0",
-    "react-native-render-html": "^3.10.0",
+    "react-native-render-html": "cheqeeh/react-native-render-html",
     "react-native-swipeable-parallax-carousel": "^1.1.0",
     "react-native-vector-icons": "^6.0.1",
     "react-navigation": "^2.18.2",

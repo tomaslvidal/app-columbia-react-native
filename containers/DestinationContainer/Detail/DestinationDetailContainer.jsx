@@ -12,35 +12,43 @@ import Footer from '../../../components/FooterComponent';
 
 import Div from '../../../layouts/default';
 
-const DEFAULT_PROPS = {
-    onLinkPress: (evt, href) => { Linking.openURL(href); }
-};
+const COORDINATES = {};
 
 export default class DestinationDetail extends Component {
   constructor(props){
     super(props);
 
     this.state = { 
-      item: this.props.navigation.state.params.item,
-      maxWidth: 0
+        item: this.props.navigation.state.params.item,
+        maxWidth: 0
     };
 
     this._setMaxHeight = this._setMaxHeight.bind(this);
+
+    this.scrollView = this.scrollView.bind(this);
+
+    this.onLinkPress = this.onLinkPress.bind(this);
   }
 
   _setMaxHeight(e){
     this.setState({
-      maxWidth: e.nativeEvent.layout.width
+        maxWidth: e.nativeEvent.layout.width
     });
   }
 
+  scrollView(e){
+    this.div.scroll_view.scrollTo({ x: 0, y: COORDINATES[e]-80});
+  }
 
+    onLinkPress(href){
+        Linking.openURL(href);
+    }
 
   render() {
     const img_path = '../../img/', url = "http://columbiaapp.eviajes.online/destinations_m/download/";
 
     return (
-      <Div name="Formulario de Reclamos" icon="wpforms">
+      <Div ref={(ref) => this.div = ref} name="Formulario de Reclamos" icon="wpforms">
         <View onLayout={(e) => this._setMaxHeight(e)}>
           <View style={{ marginLeft: -20, marginRight: -20 }}>
             <Image source={{uri: url+this.state.item.image1}} style={[styles.footerImage]} />
@@ -49,8 +57,8 @@ export default class DestinationDetail extends Component {
           <View style={styles.box}>
             <Text style={styles.textTitle}>{this.state.item.title}</Text>
 
-            <ScrollView style={{ flex: 1 }}>
-              <HTML {...DEFAULT_PROPS} imagesMaxWidth={this.state.maxWidth ? this.state.maxWidth : null} staticContentMaxWidth={this.state.maxWidth ? this.state.maxWidth : null} html={this.state.item.description!=undefined ? this.state.item.description : '<div></div>'} tagsStyles={tagsStyles} alterChildren = { (node) => {
+            <ScrollView ref={(scroll_view) => this.scroll_view = scroll_view} style={{ flex: 1 }}>
+              <HTML imagesMaxWidth={this.state.maxWidth ? this.state.maxWidth : null} staticContentMaxWidth={this.state.maxWidth ? this.state.maxWidth : null} html={this.state.item.description!=undefined ? this.state.item.description : '<div></div>'} tagsStyles={tagsStyles} alterChildren = { (node) => {
                         if(node.name === 'p'){
                             if(typeof node.attribs['style'] != "undefined"){
                                 let arrayProperties = node.attribs['style'].split(';').map(item => item.trim());
@@ -87,6 +95,47 @@ export default class DestinationDetail extends Component {
                                 }}
                             />
                         );
+                    },
+                    a: (parameters, two, three, four) => {
+                        let key = Math.random().toString(36).substr(2, 5);
+
+                        if(typeof parameters.href != "undefined"){
+                            if(parameters.href == "#"){
+                                if(typeof parameters.id != "undefined"){
+                                    if(parameters.id.length != 0){
+                                            return(
+                                                <View key={key} ref={ (ref) => this[parameters.id] = ref } onLayout={ ({nativeEvent}) => {
+                                                    if(this[parameters.id]) {
+                                                        this[parameters.id].measure((x, y, width, height, pageX, pageY) => {
+                                                            COORDINATES[parameters.id] = pageY;
+                                                        });
+                                                    }
+                                                }}>
+                                                    <Text >
+                                                        {two[0]}
+                                                    </Text>
+                                                </View>
+                                            );
+                                    }
+                                }
+                            }
+                            else if(parameters.href.indexOf('#')==0){
+                                return(
+                                    <TouchableOpacity key={key} onPress={() => { this.scrollView(parameters.href.slice(1)) } }>
+                                        <Text>{two[0]}</Text>
+                                    </TouchableOpacity>
+                                );
+                            }
+                            else{
+                                return(
+                                    <TouchableOpacity key={key} onPress={() => { this.onLinkPress(parameters.href) } }>
+                                        {two}
+                                    </TouchableOpacity>
+                                );
+                            }
+                        }
+
+                        return(two);
                     }
                 }}
                 />
