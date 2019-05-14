@@ -98,7 +98,7 @@ class LoginForm extends Component {
             this.props.navigation.replace('Home');
 
             this.props.navigation.navigate(this.props.navigation.state.params.routeName!=undefined ? this.props.navigation.state.params.routeName : 'Home');
-          }, 4000);
+          }, 500);
 
           this.props.onSetLoguedAccount({
             oauth: responseData
