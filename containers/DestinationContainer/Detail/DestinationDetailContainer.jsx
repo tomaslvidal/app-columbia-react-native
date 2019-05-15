@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image, Dimensions, Linking } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Dimensions, Linking } from 'react-native';
 
 import HTML from 'react-native-render-html';
 
-import AsyncImageAnimated from 'react-native-async-image-animated';
+import Image from 'react-native-image-progress';
+
+import Progress from 'react-native-progress/Bar';
 
 import BackLeft from '../../../components/BackLeftComponent';
 
@@ -82,18 +84,46 @@ export default class DestinationDetail extends Component {
                 }
                 renderers = {{
                     img: (parameters) => {
+                        let key = Math.random().toString(36).substr(2, 5);
+
                         return(
-                            <AsyncImageAnimated
-                                source={{
-                                    uri: parameters.src
+                            <Image 
+                                source={{ uri: parameters.src.replace('https', 'http') }}
+                                indicator={Progress}
+                                indicatorProps={{
+                                    size: 80,
+                                    borderWidth: 0,
+                                    color: 'rgba(150, 150, 150, 1)',
+                                    unfilledColor: 'rgba(200, 200, 200, 0.2)'
                                 }}
-                                key={parameters.src}
-                                placeholderColor={'#404447'}
+                                key={key}
                                 style={{
-                                    height: 180,
-                                    width: '100%'
-                                }}
-                            />
+                                    width: '100%',
+                                    height: ((parameters) => {
+                                        if(typeof parameters.height != "undefined"){
+                                            return !isNaN(Number(parameters.height)) ? Number(parameters.height) : 180;
+                                        }
+
+                                        if(typeof parameters.style != "undefined"){
+                                            let array = parameters.style.split(';');
+
+                                            array = array.map(item => item.trim());
+
+                                            array = array.filter(item => item.indexOf('height')!=-1);
+
+                                            if(array.length>0){
+                                                array = array[0].split('height:');
+
+                                                array = array.map(item => item.trim());
+
+                                                return !isNaN(Number(array[0].slice(0, 3))) ? Number(array[0].slice(0, 3)) : 180;
+                                            }
+                                        }
+
+                                        return 180
+                                    })(parameters),
+                                }
+                            }/>
                         );
                     },
                     a: (parameters, two, three, four) => {
