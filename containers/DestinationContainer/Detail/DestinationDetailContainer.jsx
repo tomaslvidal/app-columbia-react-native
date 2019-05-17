@@ -53,13 +53,19 @@ export default class DestinationDetail extends Component {
       <Div ref={(ref) => this.div = ref} name="Formulario de Reclamos" icon="wpforms">
         <View onLayout={(e) => this._setMaxHeight(e)}>
           <View style={{ marginLeft: -20, marginRight: -20 }}>
-            <Image source={{uri: url+this.state.item.image1}} style={[styles.footerImage]} />
+            <Image indicatorProps={{
+                size: 80,
+                key: this.state.item.image1,
+                borderWidth: 0,
+                color: 'rgba(150, 150, 150, 1)',
+                unfilledColor: 'rgba(200, 200, 200, 0.2)'
+            }} indicator={Progress} resizeMethod="resize" source={{uri: url+this.state.item.image1}} style={[styles.footerImage]} />
           </View>
 
           <View style={styles.box}>
             <Text style={styles.textTitle}>{this.state.item.title}</Text>
 
-            <ScrollView ref={(scroll_view) => this.scroll_view = scroll_view} style={{ flex: 1 }}>
+            <ScrollView removeClippedSubviews={true} ref={(scroll_view) => this.scroll_view = scroll_view} style={{ flex: 1 }}>
               <HTML imagesMaxWidth={this.state.maxWidth ? this.state.maxWidth : null} staticContentMaxWidth={this.state.maxWidth ? this.state.maxWidth : null} html={this.state.item.description!=undefined ? this.state.item.description : '<div></div>'} tagsStyles={tagsStyles} alterChildren = { (node) => {
                         if(node.name === 'p'){
                             if(typeof node.attribs['style'] != "undefined"){
@@ -84,21 +90,44 @@ export default class DestinationDetail extends Component {
                 }
                 renderers = {{
                     img: (parameters) => {
-                        let key = Math.random().toString(36).substr(2, 5);
+                        let key = Math.random().toString(36).substr(2, 8);
 
                         return(
                             <Image 
                                 source={{ uri: parameters.src.replace('https', 'http') }}
                                 indicator={Progress}
+                                resizeMethod="resize"
                                 indicatorProps={{
                                     size: 80,
                                     borderWidth: 0,
                                     color: 'rgba(150, 150, 150, 1)',
                                     unfilledColor: 'rgba(200, 200, 200, 0.2)'
                                 }}
-                                key={key}
+                                key={key+'-'+parameters.src}
                                 style={{
-                                    width: '100%',
+                                    width: ((parameters) => {
+                                        if(typeof parameters.width != "undefined"){
+                                            return !isNaN(Number(parameters.width)) ? Number(parameters.width) : '100%';
+                                        }
+
+                                        if(typeof parameters.style != "undefined"){
+                                            let array = parameters.style.split(';');
+
+                                            array = array.map(item => item.trim());
+
+                                            array = array.filter(item => item.indexOf('width')!=-1);
+
+                                            if(array.length>0){
+                                                array = array[0].split('width:');
+
+                                                array = array.map(item => item.trim());
+
+                                                return !isNaN(Number(array[1].slice(0, -2))) ? Number(array[1].slice(0, -2)) : '100%';
+                                            }
+                                        }
+
+                                        return '100%';
+                                    })(parameters),
                                     height: ((parameters) => {
                                         if(typeof parameters.height != "undefined"){
                                             return !isNaN(Number(parameters.height)) ? Number(parameters.height) : 180;
@@ -116,7 +145,7 @@ export default class DestinationDetail extends Component {
 
                                                 array = array.map(item => item.trim());
 
-                                                return !isNaN(Number(array[0].slice(0, 3))) ? Number(array[0].slice(0, 3)) : 180;
+                                                return !isNaN(Number(array[1].slice(0, -2))) ? Number(array[1].slice(0, -2)) : 180;
                                             }
                                         }
 

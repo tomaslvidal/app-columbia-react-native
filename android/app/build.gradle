@@ -101,8 +101,8 @@ android {
         applicationId "com.columbiaviajes3"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 2311
-        versionName "2.3.11"
+        versionCode 2312
+        versionName "2.3.12"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }

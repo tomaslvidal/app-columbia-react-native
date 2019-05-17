@@ -49,7 +49,7 @@ class LayoutDefault extends Component{
           })() :
           (function(this_, styles_){
             const return_ = (
-              <ScrollView style={{display: 'flex'}} ref={ (scroll_view) => { this_.scroll_view = scroll_view } }>
+              <ScrollView removeClippedSubviews={true} style={{display: 'flex'}} ref={ (scroll_view) => { this_.scroll_view = scroll_view } }>
                 <View style={[styles_.childrenScrollView, {minHeight: this_.state.heightParent!="" ? this_.state.heightParent : null}]}>
                   <View style={styles_.container}>
                     <View>
