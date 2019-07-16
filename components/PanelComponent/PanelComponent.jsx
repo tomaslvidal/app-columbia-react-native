@@ -73,7 +73,7 @@ export default class PanelComponent extends Component{
         </View>
 
         <View style={styles.body} >
-          <View style={styles.parent} onLayout={(e) => this._setMaxHeight(e)}}>
+          <View style={styles.parent} onLayout={e => this._setMaxHeight(e)}>
             {this.props.children}
           </View>
         </View>
