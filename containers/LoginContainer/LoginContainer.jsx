@@ -21,7 +21,6 @@ export default class Login extends Component {
                 <View style={styles.loginContainer}>
                     <Image resizeMode="contain" style={styles.logo} source={require(img_path+'logo/logo.png')} />
                 </View>
-
                 <LoginForm />
             </KeyboardAvoidingView>
         );
