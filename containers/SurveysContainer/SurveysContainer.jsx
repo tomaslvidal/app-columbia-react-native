@@ -55,7 +55,8 @@ class SurveysContainer extends Component{
     this.onPress = this.onPress.bind(this);
   }
 
-  componentWillMount(){
+  componentDidMount(){
+
     setTimeout( () => {
       isSignedIn()
       .then(res => {

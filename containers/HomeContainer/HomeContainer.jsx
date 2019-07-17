@@ -13,7 +13,7 @@ export default class App extends Component{
     };
   }
 
-  componentWillMount(){
+  componentDidMount(){
     axios.get('http://icolumbia.apteknet.com/services/getUpdate.php')
     .then(response => {
       let data = response.data, reasons = {}, url = data.url ? data.url : 'https://play.google.com/store/apps/details?id=com.columbiaviajes3';

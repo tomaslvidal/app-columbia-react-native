@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+// import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import { withNavigation } from 'react-navigation';
 
@@ -12,7 +12,7 @@ class BackLeft extends Component{
       <View style={styles.body}>
         <TouchableOpacity style={styles.container} onPress={() => this.props.navigation.goBack()}>
           <View>
-            <FontAwesome5 name={"arrow-alt-circle-left"} size={30} color="white" regular />
+            {/* <FontAwesome5 name={"arrow-alt-circle-left"} size={30} color="white" regular /> */}
           </View>
 
           <View>

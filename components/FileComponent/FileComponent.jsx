@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Text, View, StyleSheet, Image, TouchableOpacity, Linking } from 'react-native';
 
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome';
+// import FontAwesome5 from 'react-native-vector-icons/FontAwesome';
 
 export default class FileComponent extends Component{
   constructor(props){
@@ -21,7 +21,7 @@ export default class FileComponent extends Component{
                 <Text style={styles.name}>{this.props.name}</Text>
             </View>
         
-            <FontAwesome5 name={'download'} size={20} color="white" />
+            {/* <FontAwesome5 name={'download'} size={20} color="white" /> */}
         </View>
     </TouchableOpacity>
     );

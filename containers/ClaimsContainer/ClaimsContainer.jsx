@@ -24,7 +24,7 @@ export default class ClaimsContainer extends Component{
     };
   }
 
-  componentWillMount(){
+  componentDidMount(){
     axios.get('http://icolumbia.apteknet.com/services/getMotivos.php')
     .then(response => {
       let data = response.data, reasons = {};

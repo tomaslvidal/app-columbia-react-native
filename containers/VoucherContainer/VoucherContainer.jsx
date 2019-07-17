@@ -22,7 +22,7 @@ class VoucherContainer extends Component{
     };
   }
 
-  componentWillMount(){
+  componentDidMount(){
     setTimeout( () => {
       isSignedIn()
       .then(res => {
