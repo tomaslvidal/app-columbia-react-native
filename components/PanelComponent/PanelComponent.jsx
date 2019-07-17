@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image, TouchableHighlight, Animated } from 'react-native';
 
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 
@@ -69,6 +69,7 @@ export default class PanelComponent extends Component{
     }
 
     return(
+    <Fragment>
       <Animated.View style={[styles.container, {height: this.state.animation}]}>
         <View ref="viewMinHeight" style={styles.titleContainer} onLayout={(e) => this._setMinHeight(e)}>
           <Text style={styles.title}>{this.state.title}</Text>
@@ -84,6 +85,7 @@ export default class PanelComponent extends Component{
           </View>
         </View>
       </Animated.View>
+    </Fragment>
     );
   }
 }
