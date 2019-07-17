@@ -6,8 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-import { fab } from '@fortawesome/free-brands-svg-icons';
-
 import { faArrowCircleLeft} from '@fortawesome/free-solid-svg-icons';
  
 library.add(faArrowCircleLeft);
