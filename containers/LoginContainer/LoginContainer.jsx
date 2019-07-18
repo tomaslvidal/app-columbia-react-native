@@ -30,16 +30,19 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 38
+        padding: 38,
+        width: '75%',
+        justifyContent: 'center',
+        alignSelf: 'center'
     },
     logo: {
-        maxWidth: 380
+        maxWidth: 270
     },
     loginContainer:{
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-end',
         display: 'flex',
         flex: 1,
-        marginLeft: 15
+        marginLeft: 48
     }
 });

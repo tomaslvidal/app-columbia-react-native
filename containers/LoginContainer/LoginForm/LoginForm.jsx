@@ -136,7 +136,7 @@ class LoginForm extends Component {
 const styles = StyleSheet.create({
     container:{
       display: 'flex',
-      flex: 2,
+      flex: 3,
       flexDirection: 'column',
       justifyContent: 'center'
     },
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems : 'center',
       bottom: '45%',
-      right: '38%'
+      right: '31%'
     },
     form:{
       display: 'flex', 
