@@ -14,7 +14,7 @@ import Footer from '../../../components/FooterComponent';
 
 import Div from '../../../layouts/default';
 
-const COORDINATES = {};
+let COORDINATES = {};
 
 export default class DestinationDetail extends Component {
   constructor(props){
@@ -59,7 +59,7 @@ export default class DestinationDetail extends Component {
                 borderWidth: 0,
                 color: 'rgba(150, 150, 150, 1)',
                 unfilledColor: 'rgba(200, 200, 200, 0.2)'
-            }} indicator={Progress} resizeMethod="resize" source={{uri: url+this.state.item.image1}} style={[styles.footerImage]} />
+            }} indicator={Progress} source={{uri: url+this.state.item.image1}} style={[styles.footerImage]} />
           </View>
 
           <View style={styles.box}>
