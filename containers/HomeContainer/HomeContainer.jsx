@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
   body:{
     flex: 1, 
     flexDirection: 'column', 
-    backgroundColor: '#252525'
+    backgroundColor: '#0E0E0E'
   },
   row1: {
     flex: 1
@@ -182,6 +182,6 @@ const styles = StyleSheet.create({
     textShadowOffset: { height: 1, width: -0 },
     textAlign: 'right', 
     paddingRight: 22, 
-    fontSize: 22
+    fontSize: 19
   }
 });
