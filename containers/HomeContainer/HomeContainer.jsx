@@ -34,7 +34,7 @@ export default class App extends Component{
 
     return(
       <View style={styles.body}>
-        <StatusBar backgroundColor={attributes.statusBarColor} />
+        <StatusBar backgroundColor={attributes.statusBarColor} barStyle='light-content' />
 
         <View style={[styles.row1, styles.separation]}>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Voucher')}>
@@ -153,7 +153,6 @@ const styles = StyleSheet.create({
   footer: {
     height: 85, 
     marginTop: 'auto', 
-    backgroundColor: '#48BBEC',
     borderRadius: 1
   },
   footerImage:{
@@ -175,13 +174,14 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end'
   },
   text: {
-    color: '#FFF', 
+    color: '#FFF',
+    fontWeight: '700',
     paddingBottom: 18, 
     textShadowColor: "#000", 
-    textShadowRadius: 7, 
-    textShadowOffset: { height: 2, width: -0 },
+    textShadowRadius: 2, 
+    textShadowOffset: { height: 1, width: -0 },
     textAlign: 'right', 
     paddingRight: 22, 
-    fontSize: 25
+    fontSize: 22
   }
 });
