@@ -13,21 +13,21 @@ export default class App extends Component{
         };
     }
 
-    componentDidMount(){
-        axios.get('http://icolumbia.apteknet.com/services/getUpdate.php')
-        .then(response => {
-            let data = response.data, reasons = {}, url = data.url ? data.url : 'https://play.google.com/store/apps/details?id=com.columbiaviajes3';
+    // componentDidMount(){
+    //     axios.get('http://icolumbia.apteknet.com/services/getUpdate.php')
+    //     .then(response => {
+    //         let data = response.data, reasons = {}, url = data.url ? data.url : 'https://play.google.com/store/apps/details?id=com.columbiaviajes3';
 
-            // http://icolumbia.apteknet.com/services/setUpdate.php?estado=1&version=5.0
+    //         // // http://icolumbia.apteknet.com/services/setUpdate.php?estado=1&version=5.0
 
-            if(data.estado=="1" && (this.state.version.toString()!=data.version)){
-                Alert.alert('Mensaje', 'Hay una nueva actualización, ¿quieres descargarla?', [
-                    {text: 'No', onPress: () => null},
-                    {text: 'Actualizar', onPress: () => Linking.openURL(url)}
-                ]);
-            }
-        });
-    }
+    //         if(data.estado=="1" && (this.state.version.toString()!=data.version)){
+    //             Alert.alert('Mensaje', 'Hay una nueva actualización, ¿quieres descargarla?', [
+    //                 {text: 'No', onPress: () => null},
+    //                 {text: 'Actualizar', onPress: () => Linking.openURL(url)}
+    //             ]);
+    //         }
+    //     });
+    // }
 
     render(){
         const img_path = '../../img/';
@@ -40,9 +40,9 @@ export default class App extends Component{
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Voucher')}>
                         <ImageBackground style={styles.imageBackground} source={require(img_path+'vouchers.jpg')}>
                             <View style={[styles.viewText]}>
-                            <Text style={[styles.text]}>
-                                Mi Viaje
-                            </Text>
+                                <Text style={[styles.text]}>
+                                    Mi Viaje
+                                </Text>
                             </View>
                         </ImageBackground>
                     </TouchableOpacity>
@@ -53,9 +53,9 @@ export default class App extends Component{
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('DestinationList')}>
                             <ImageBackground style={styles.imageBackground} source={require(img_path+'destinos.jpg')}>
                                 <View style={[styles.viewText]}>
-                                <Text style={[styles.text]}>
-                                    Destinos
-                                </Text>
+                                    <Text style={[styles.text]}>
+                                        Destinos
+                                    </Text>
                                 </View>
                             </ImageBackground>
                         </TouchableOpacity>
@@ -63,14 +63,14 @@ export default class App extends Component{
 
                     <View style={[styles.row1, styles.separation]}>
                         <TouchableOpacity onPress={() => Linking.openURL('https://www.columbiaviajes.com.ar/landing/3/Web-Check-in/')}>
-                        <ImageBackground style={styles.imageBackground} source={require(img_path+'checkin.jpg')}>
-                        <View style={[styles.viewText]}>
-                            <Text style={[styles.text]}>
-                            Web Check In
-                            </Text>
-                        </View>
-                        </ImageBackground>
-                    </TouchableOpacity>
+                            <ImageBackground style={styles.imageBackground} source={require(img_path+'checkin.jpg')}>
+                                <View style={[styles.viewText]}>
+                                    <Text style={[styles.text]}>
+                                        Web Check In
+                                    </Text>
+                                </View>
+                            </ImageBackground>
+                        </TouchableOpacity>
                     </View>
                 </View>
 
@@ -78,11 +78,11 @@ export default class App extends Component{
                     <View style={[styles.row1, styles.separation]}>
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('Surveys')}>
                             <ImageBackground style={styles.imageBackground} source={require(img_path+'encuestas.jpg')}>
-                            <View style={[styles.viewText]}>
-                                <Text style={[styles.text]}>
-                                Encuesta
-                                </Text>
-                            </View>
+                                <View style={[styles.viewText]}>
+                                    <Text style={[styles.text]}>
+                                        Encuesta
+                                    </Text>
+                                </View>
                             </ImageBackground>
                         </TouchableOpacity>
                     </View>
@@ -90,11 +90,11 @@ export default class App extends Component{
                     <View style={[styles.row1, styles.separation]}>
                         <TouchableOpacity onPress={() => Linking.openURL('https://www.columbiaviajes.com.ar')}>
                             <ImageBackground style={styles.imageBackground} source={require(img_path+'web.jpg')}>
-                            <View style={[styles.viewText]}>
-                                <Text style={[styles.text]}>
-                                Web
-                                </Text>
-                            </View>
+                                <View style={[styles.viewText]}>
+                                    <Text style={[styles.text]}>
+                                        Web
+                                    </Text>
+                                </View>
                             </ImageBackground>
                         </TouchableOpacity>
                     </View>
