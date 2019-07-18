@@ -14,6 +14,8 @@ import { createAppContainer } from 'react-navigation';
 
 import store from './store';
 
+console.disableYellowBox = true;
+
 export default class App extends React.Component {
     constructor(props) {
         super(props);

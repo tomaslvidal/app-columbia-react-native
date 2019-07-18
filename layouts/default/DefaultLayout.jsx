@@ -57,7 +57,7 @@ class LayoutDefault extends Component {
                                     : null
                                 }
                             </View>
-                        </ScrollView>        
+                        </ScrollView>
                     )
                 }
                 </View>
