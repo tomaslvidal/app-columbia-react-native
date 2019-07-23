@@ -14,11 +14,6 @@ export default class PanelComponent extends Component{
     constructor(props){
         super(props);
 
-        this.icons = {
-            'up'    : 'caret-up',
-            'down'  : 'caret-down'
-        };
-
         this.state = {
             title : props.title,
             expanded : false,
@@ -58,12 +53,6 @@ export default class PanelComponent extends Component{
     }
 
     render(){
-        let icon = this.icons.down;
-
-        if(this.state.expanded){
-            icon = this.icons.up;
-        }
-
         return(
             <Fragment>
                 <Animated.View style={[styles.container, {height: this.state.animation}]}>
@@ -71,7 +60,7 @@ export default class PanelComponent extends Component{
                         <Text style={styles.title}>{this.state.title}</Text>
 
                         <TouchableHighlight style={styles.button} onPress={(e) => this.toggle(e)} underlayColor="#f1f1f1">
-                            <FontAwesomeIcon size={27} color={"#009EE0"} icon={['fas', icon]} />
+                            <FontAwesomeIcon size={27} color={"#009EE0"} icon={['fas', this.state.expanded ? 'caret-up' : 'caret-down']} />
                         </TouchableHighlight>
                     </View>
 
