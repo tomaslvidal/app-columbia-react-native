@@ -47,7 +47,7 @@ export default class DestinationDetail extends Component {
     }
 
   render() {
-    const img_path = '../../img/', url = "http://columbiaapp.eviajes.online/destinations_m/download/";
+    const img_path = '../../img/', url = "https://columbiaapp.eviajes.online/destinations_m/download/";
 
     return (
       <Div ref={(ref) => this.div = ref} name="Formulario de Reclamos" icon="wpforms">

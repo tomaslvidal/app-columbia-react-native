@@ -23,7 +23,7 @@ class DestinationList extends Component {
     }
 
     componentDidMount(){
-        axios.get('http://columbiaapp.eviajes.online/api/destinations')
+        axios.get('https://columbiaapp.eviajes.online/api/destinations')
         .then(response => {
             this.setState({
                 items: response.data,

@@ -64,7 +64,7 @@ class SurveysContainer extends Component{
           this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_', {routeName: this.props.navigation.state.routeName});
         }
         else{
-          axios.get('http://columbiaapp.eviajes.online/api/surveys/user', { headers: {"Authorization" : `Bearer ${this.props.access_token}`} })
+          axios.get('https://columbiaapp.eviajes.online/api/surveys/user', { headers: {"Authorization" : `Bearer ${this.props.access_token}`} })
           .then(response => {
             let items = response.data, forms = [];
 
@@ -154,7 +154,7 @@ class SurveysContainer extends Component{
 
       data.id = id;
 
-      axios.post('http://columbiaapp.eviajes.online/api/surveysmade', data, { headers: {"Authorization" : `Bearer ${this.props.access_token}`} })
+      axios.post('https://columbiaapp.eviajes.online/api/surveysmade', data, { headers: {"Authorization" : `Bearer ${this.props.access_token}`} })
       .then(response => {
         setTimeout(() => {
           this.setState({

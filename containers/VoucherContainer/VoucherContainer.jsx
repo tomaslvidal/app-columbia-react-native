@@ -30,7 +30,7 @@ class VoucherContainer extends Component{
           this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_', {routeName: this.props.navigation.state.routeName});
         }
         else{
-          axios.get('http://columbiaapp.eviajes.online/api/vouchers/user', { headers: {"Authorization" : `Bearer ${this.props.access_token}`} })
+          axios.get('https://columbiaapp.eviajes.online/api/vouchers/user', { headers: {"Authorization" : `Bearer ${this.props.access_token}`} })
           .then(response => {
               this.setState({
                 items: response.data,
@@ -53,7 +53,7 @@ class VoucherContainer extends Component{
         (function(items){
           let contentFiles = [];
 
-          let url = "http://columbiaapp.eviajes.online/vouchers_m/download/";
+          let url = "https://columbiaapp.eviajes.online/vouchers_m/download/";
 
           for(i = 0; i < items.length; i++){
             contentFiles.push(<FileComponent key={i} url={url+items[i].file_name} name={items[i].name} style={styles.fileComponent}/>);

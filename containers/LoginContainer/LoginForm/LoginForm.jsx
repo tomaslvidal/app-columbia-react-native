@@ -82,7 +82,7 @@ class LoginForm extends Component {
         password: user.contraseña,
       };
 
-      axios.post('http://columbiaapp.eviajes.online/oauth/token', data)
+      axios.post('https://columbiaapp.eviajes.online/oauth/token', data)
       .then(response => {
           let responseData = response.data;
 
