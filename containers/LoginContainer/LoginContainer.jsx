@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import { View, Text, Image, StyleSheet,KeyboardAvoidingView } from 'react-native';
 
@@ -18,10 +18,13 @@ export default class Login extends Component {
 
         return (
             <KeyboardAvoidingView style={[styles.container]}>
-                <View style={styles.loginContainer}>
-                    <Image resizeMode="contain" style={styles.logo} source={require(img_path+'logo/logo.png')} />
-                </View>
-                <LoginForm />
+                <Fragment>
+                    <View style={styles.loginContainer}>
+                        <Image resizeMode="contain" style={styles.logo} source={require(img_path+'logo/logo.png')} />
+                    </View>
+
+                    <LoginForm />
+                </Fragment>
             </KeyboardAvoidingView>
         );
     }

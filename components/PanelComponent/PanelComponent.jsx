@@ -56,17 +56,19 @@ export default class PanelComponent extends Component{
         return(
             <Fragment>
                 <Animated.View style={[styles.container, {height: this.state.animation}]}>
-                    <View ref="viewMinHeight" style={styles.titleContainer} onLayout={(e) => this._setMinHeight(e)}>
-                        <Text style={styles.title}>{this.state.title}</Text>
+                    <TouchableHighlight style={styles.button} onPress={(e) => this.toggle(e)} underlayColor="#f1f1f1">
+                        <View ref="viewMinHeight" style={styles.titleContainer} onLayout={(e) => this._setMinHeight(e)}>
+                            <Text style={styles.title}>{this.state.title}</Text>
 
-                        <TouchableHighlight style={styles.button} onPress={(e) => this.toggle(e)} underlayColor="#f1f1f1">
-                            <FontAwesomeIcon size={27} color={"#009EE0"} icon={['fas', this.state.expanded ? 'caret-up' : 'caret-down']} />
-                        </TouchableHighlight>
-                    </View>
+                                <FontAwesomeIcon size={27} color={"#009EE0"} icon={['fas', this.state.expanded ? 'caret-up' : 'caret-down']} />
+                        </View>
+                    </TouchableHighlight>
 
                     <View style={styles.body} >
-                        <View style={styles.parent} onLayout={e => this._setMaxHeight(e)}>
-                            {this.props.children}
+                        <View style={styles.parent}>
+                            <View onLayout={e => this._setMaxHeight(e)}>
+                                {this.props.children}
+                            </View>
                         </View>
                     </View>
                 </Animated.View>
