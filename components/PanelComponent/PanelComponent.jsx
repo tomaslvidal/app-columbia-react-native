@@ -28,16 +28,16 @@ export default class PanelComponent extends Component{
 
         this.setState({
             expanded : !this.state.expanded
+        }, () => {
+            this.state.animation.setValue(initialValue);
+
+            Animated.spring(
+                this.state.animation,
+                {
+                    toValue: finalValue + (this.state.expanded ? 42 : 0)
+                }
+            ).start();
         });
-
-        this.state.animation.setValue(initialValue);
-
-        Animated.spring(
-            this.state.animation,
-            {
-                toValue: finalValue + 11
-            }
-        ).start();
     }
 
     _setMaxHeight(event){
