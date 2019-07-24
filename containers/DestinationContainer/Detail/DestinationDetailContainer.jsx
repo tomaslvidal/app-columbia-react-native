@@ -65,7 +65,6 @@ export default class DestinationDetail extends Component {
           <View style={styles.box}>
             <Text style={styles.textTitle}>{this.state.item.title}</Text>
 
-            <ScrollView removeClippedSubviews={true} ref={(scroll_view) => this.scroll_view = scroll_view} style={{ flex: 1 }}>
               <HTML imagesMaxWidth={this.state.maxWidth ? this.state.maxWidth : null} staticContentMaxWidth={this.state.maxWidth ? this.state.maxWidth : null} html={this.state.item.description!=undefined ? this.state.item.description : '<div></div>'} tagsStyles={tagsStyles} alterChildren = { (node) => {
                         if(node.name === 'p'){
                             if(typeof node.attribs['style'] != "undefined"){
@@ -198,7 +197,6 @@ export default class DestinationDetail extends Component {
                     }
                 }}
                 />
-            </ScrollView>
           </View>
         </View>
       </Div>
