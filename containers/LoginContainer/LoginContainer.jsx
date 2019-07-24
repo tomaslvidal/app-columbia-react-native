@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 
-import { View, Text, Image, StyleSheet,KeyboardAvoidingView } from 'react-native';
+import { View, Text, Image, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
 
 import LoginForm from './LoginForm';
-	
+
 export default class Login extends Component {
     constructor(props){
       super(props);
@@ -17,14 +17,12 @@ export default class Login extends Component {
         const img_path = '../../img/';
 
         return (
-            <KeyboardAvoidingView style={[styles.container]}>
-                <Fragment>
-                    <View style={styles.loginContainer}>
-                        <Image resizeMode="contain" style={styles.logo} source={require(img_path+'logo/logo.png')} />
-                    </View>
+            <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null} style={[styles.container]}>
+                <View style={styles.loginContainer}>
+                    <Image resizeMode="contain" style={styles.logo} source={require(img_path+'logo/logo.png')} />
+                </View>
 
-                    <LoginForm />
-                </Fragment>
+                <LoginForm />
             </KeyboardAvoidingView>
         );
     }
