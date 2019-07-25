@@ -165,7 +165,7 @@ class SurveysContainer extends Component{
                     }
                 }, () => {
                     this.setState({
-                    loading: false
+                        loading: false
                     });
                 });
 
@@ -179,6 +179,10 @@ class SurveysContainer extends Component{
                 Alert.alert('Mensaje', 'No se ha podido enviar la encuesta', [
                     {text: 'OK'}
                 ]);
+
+                this.setState({
+                    loading: false
+                });
             }, 1500);
         });
         }
