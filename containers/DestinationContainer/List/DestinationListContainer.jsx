@@ -47,6 +47,7 @@ class DestinationList extends Component {
                 <FlatList
                     data={this.state.items}
                     keyExtractor={(item, index) => index.toString()}
+                    initialNumToRender={10}
                     renderItem={ ({item}) => (
                         <TouchableOpacity onPress={ () => this.handlePress(item) }>
                             <DestinationBox destination={item}/>
