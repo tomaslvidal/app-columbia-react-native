@@ -20,6 +20,10 @@ class DestinationList extends Component {
             items: {},
             loading: true
         };
+
+        this.renderItem = this.renderItem.bind(this);
+
+        this.handlePress = this.handlePress.bind(this);
     }
 
     componentDidMount(){
@@ -30,6 +34,14 @@ class DestinationList extends Component {
                 loading: false
             });
         });
+    }
+
+    renderItem({item}){
+        return(
+            <TouchableOpacity onPress={() => this.handlePress(item)}>
+                <DestinationBox destination={item}/>
+            </TouchableOpacity>
+        );
     }
 
     handlePress(item){
@@ -48,11 +60,7 @@ class DestinationList extends Component {
                     data={this.state.items}
                     keyExtractor={(item, index) => index.toString()}
                     initialNumToRender={10}
-                    renderItem={ ({item}) => (
-                        <TouchableOpacity onPress={ () => this.handlePress(item) }>
-                            <DestinationBox destination={item}/>
-                        </TouchableOpacity>
-                    )}
+                    renderItem={this.renderItem}
                 />
             </Div>
         );
