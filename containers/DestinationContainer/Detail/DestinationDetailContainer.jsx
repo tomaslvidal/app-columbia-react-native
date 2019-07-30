@@ -64,7 +64,7 @@ export default class DestinationDetail extends Component {
     }
 
     render() {
-        const img_path = '../../img/', url = "https://columbiaapp.eviajes.online/destinations_m/download/";
+        const url = "https://columbiaapp.eviajes.online/destinations_m/download/";
 
         return (
         <Div ref={(ref) => this.div = ref} name="Formulario de Reclamos" icon="wpforms" loading={this.state.loading}>
@@ -89,7 +89,13 @@ export default class DestinationDetail extends Component {
                 <View style={styles.box}>
                     <Text style={styles.textTitle}>{this.state.item.title}</Text>
 
-                    <HTML imagesMaxWidth={this.state.maxWidth ? this.state.maxWidth : null} staticContentMaxWidth={this.state.maxWidth ? this.state.maxWidth : null} html={this.state.item.description!=undefined ? this.state.item.description : '<div></div>'} tagsStyles={tagsStyles} alterChildren = { (node) => {
+                    <HTML 
+                        imagesMaxWidth={this.state.maxWidth ? this.state.maxWidth : null}
+                        staticContentMaxWidth={this.state.maxWidth ? this.state.maxWidth : null}
+                        html={this.state.item.description!=undefined ? this.state.item.description : '<div></div>'}
+                        tagsStyles={tagsStyles}
+                        textSelectable={true}
+                        alterChildren = { (node) => {
                                 if(node.name === 'p'){
                                     if(typeof node.attribs['style'] != "undefined"){
                                         let arrayProperties = node.attribs['style'].split(';').map(item => item.trim());
@@ -114,12 +120,12 @@ export default class DestinationDetail extends Component {
                         renderers = {{
                             img: (parameters) => {
                                 let key = Math.random().toString(36).substr(2, 8);
-
+                                
                                 return(
                                     <Image 
                                         source={{
-                                            uri: parameters.src.replace('https', 'http'),
-                                            cache: FastImage.cacheControl.immutable,
+                                            uri: parameters.src,
+                                            cache: FastImage.cacheControl.web,
                                             priority: FastImage.priority.normal
                                         }}
                                         indicatorProps={{
@@ -128,16 +134,15 @@ export default class DestinationDetail extends Component {
                                             unfilledColor: 'rgba(200, 200, 200, 0.2)'
                                         }} 
                                         indicator={Progress} 
-                                        resizeMethod="resize"
                                         key={key+'-'+parameters.src}
                                         style={{
                                             backgroundColor: "#F2F2F2",
-                                            width: ((parameters) => {
-                                                if(typeof parameters.width != "undefined"){
+                                            width: (parameters => {
+                                                if(typeof parameters.width !== "undefined"){
                                                     return !isNaN(Number(parameters.width)) ? Number(parameters.width) : '100%';
                                                 }
 
-                                                if(typeof parameters.style != "undefined"){
+                                                if(typeof parameters.style !== "undefined"){
                                                     let array = parameters.style.split(';');
 
                                                     array = array.map(item => item.trim());
@@ -156,11 +161,11 @@ export default class DestinationDetail extends Component {
                                                 return '100%';
                                             })(parameters),
                                             height: ((parameters) => {
-                                                if(typeof parameters.height != "undefined"){
+                                                if(typeof parameters.height !== "undefined"){
                                                     return !isNaN(Number(parameters.height)) ? Number(parameters.height) : 180;
                                                 }
 
-                                                if(typeof parameters.style != "undefined"){
+                                                if(typeof parameters.style !== "undefined"){
                                                     let array = parameters.style.split(';');
 
                                                     array = array.map(item => item.trim());
@@ -185,10 +190,10 @@ export default class DestinationDetail extends Component {
                             a: (parameters, two, three, four) => {
                                 let key = Math.random().toString(36).substr(2, 5);
 
-                                if(typeof parameters.href != "undefined"){
-                                    if(parameters.href == "#"){
-                                        if(typeof parameters.id != "undefined"){
-                                            if(parameters.id.length != 0){
+                                if(typeof parameters.href !== "undefined"){
+                                    if(parameters.href === "#"){
+                                        if(typeof parameters.id !== "undefined"){
+                                            if(parameters.id.length !== 0){
                                                     return(
                                                         <View key={key} ref={ (ref) => this[parameters.id] = ref } onLayout={ ({nativeEvent}) => {
                                                             if(this[parameters.id]) {
@@ -198,24 +203,24 @@ export default class DestinationDetail extends Component {
                                                             }
                                                         }}>
                                                             <Text >
-                                                                {two[0]}
+                                                                {two}
                                                             </Text>
                                                         </View>
                                                     );
                                             }
                                         }
                                     }
-                                    else if(parameters.href.indexOf('#')==0){
+                                    else if(parameters.href.indexOf('#')===0){
                                         return(
                                             <TouchableOpacity key={key} onPress={() => { this.scrollView(parameters.href.slice(1)) } }>
-                                                <Text>{two[0]}</Text>
+                                                <Text>{two}</Text>
                                             </TouchableOpacity>
                                         );
                                     }
                                     else{
                                         return(
                                             <TouchableOpacity key={key} onPress={() => { this.onLinkPress(parameters.href) } }>
-                                                {two}
+                                                <Text>{two}</Text>
                                             </TouchableOpacity>
                                         );
                                     }
@@ -224,7 +229,7 @@ export default class DestinationDetail extends Component {
                                 return(two);
                             }
                         }}
-                        />
+                    />
                 </View>
             </View>
         </Div>

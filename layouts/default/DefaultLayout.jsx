@@ -32,7 +32,9 @@ class LayoutDefault extends Component {
                     typeof this.props.backleft !== 'undefined' && !this.props.backleft ? null :
                     <BackLeft name={this.props.name} icon={this.props.icon} />
                 }
-                <View style={{ display: 'flex', flex: 1, flexDirection: 'row', justifyContent: 'space-between' }} onLayout={ event => this.setState({ heightParent: event.nativeEvent.layout.height })}>
+                <View 
+                    style={{ display: 'flex', flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}
+                    onLayout={ event => this.setState({ heightParent: event.nativeEvent.layout.height })}>
                 {
                     (typeof this.props.loading !== 'undefined' ? this.props.loading : this.state.loading) ? (
                         <View style={{ display: 'flex', flex: 1 }}>
@@ -42,7 +44,7 @@ class LayoutDefault extends Component {
                         </View>
                     ) :
                     (
-                        <ScrollView removeClippedSubviews={true} style={{ display: 'flex' }} ref={ (scroll_view) => { this.scroll_view = scroll_view } }>
+                        <ScrollView style={{ display: 'flex' }} ref={ (scroll_view) => { this.scroll_view = scroll_view } }>
                             <View style={[styles.childrenScrollView, { minHeight: this.state.heightParent > 0 ? this.state.heightParent : null }]}>
                                 <View style={styles.container}>
                                     <View style={typeof this.props.container !== 'undefined' && !this.props.container ? styles.parentContainer : [styles.propParentContainer, styles.parentContainer]}>

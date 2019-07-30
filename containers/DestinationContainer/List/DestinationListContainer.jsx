@@ -21,8 +21,6 @@ class DestinationList extends Component {
             loading: true
         };
 
-        this.renderItem = this.renderItem.bind(this);
-
         this.handlePress = this.handlePress.bind(this);
     }
 
@@ -40,14 +38,6 @@ class DestinationList extends Component {
         });
     }
 
-    renderItem({item}){
-        return(
-            <TouchableOpacity onPress={() => this.handlePress(item)}>
-                <DestinationBox destination={item}/>
-            </TouchableOpacity>
-        );
-    }
-
     handlePress(item){
         if(item.url==undefined){
             this.props.navigation.navigate('DestinationDetail', { item: item });
@@ -58,13 +48,20 @@ class DestinationList extends Component {
     }
 
     render() {
+        const renderItem = ({item}) => (
+            <TouchableOpacity onPress={() => this.handlePress(item)}>
+                <DestinationBox destination={item}/>
+            </TouchableOpacity>
+        );
+
         return (
             <Div name="Destinos" icon="wpforms" loading={this.state.loading}>
                 <FlatList
                     data={this.state.items}
                     keyExtractor={(item, index) => index.toString()}
+                    renderItem={renderItem}
                     initialNumToRender={10}
-                    renderItem={this.renderItem}
+                    windowSize={3}
                 />
             </Div>
         );

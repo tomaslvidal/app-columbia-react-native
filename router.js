@@ -16,8 +16,6 @@ import VoucherContainer from './containers/VoucherContainer';
 
 import SurveysContainer from './containers/SurveysContainer';
 
-import ClaimsContainer from './containers/ClaimsContainer';
-
 export const SignedOut = createStackNavigator(
     {
         SignIn: {
@@ -51,9 +49,6 @@ export const SignedIn = createStackNavigator(
         },
         Surveys: {
             screen: SurveysContainer
-        },
-        Claims: {
-            screen: ClaimsContainer
         }
     },
     {
