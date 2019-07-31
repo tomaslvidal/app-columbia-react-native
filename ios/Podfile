@@ -3,6 +3,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 target 'ColumbiaViajes3' do
   # Pods for ColumbiaViajes3
+  pod 'React-ART', :path => '../node_modules/react-native/Libraries/ART'
   pod 'React', :path => '../node_modules/react-native/'
   pod 'React-Core', :path => '../node_modules/react-native/React'
   pod 'React-DevSupport', :path => '../node_modules/react-native/React'
