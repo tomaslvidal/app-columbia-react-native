@@ -8,7 +8,17 @@ import Footer from 'ColumbiaViajes3/components/FooterComponent';
 
 import Preloader from 'ColumbiaViajes3/components/PreloaderComponent';
 
+import PropTypes from 'prop-types';
+
 class LayoutDefault extends Component {
+    static propTypes = {
+        state_scroll_view: PropTypes.bool,
+    }
+
+    static defaultProps = {
+        state_scroll_view: true,
+    }
+
     constructor(props){
         super(props);
 
@@ -25,6 +35,8 @@ class LayoutDefault extends Component {
     }
 
     render(){
+        const Fragment_ = this.props.state_scroll_view ? ScrollView : View;
+
         return(
             <View style={[{ flex: 1, flexDirection: 'column' }, {}]}>
                 <StatusBar backgroundColor='#2CAEE6' barStyle='light-content' />
@@ -44,7 +56,7 @@ class LayoutDefault extends Component {
                         </View>
                     ) :
                     (
-                        <ScrollView style={{ display: 'flex' }} ref={ (scroll_view) => { this.scroll_view = scroll_view } }>
+                        <Fragment_ style={{ display: 'flex' }} ref={ (scroll_view) => { this.scroll_view = scroll_view } }>
                             <View style={[styles.childrenScrollView, { minHeight: this.state.heightParent > 0 ? this.state.heightParent : null }]}>
                                 <View style={styles.container}>
                                     <View style={typeof this.props.container !== 'undefined' && !this.props.container ? styles.parentContainer : [styles.propParentContainer, styles.parentContainer]}>
@@ -59,7 +71,7 @@ class LayoutDefault extends Component {
                                     : null
                                 }
                             </View>
-                        </ScrollView>
+                        </Fragment_>
                     )
                 }
                 </View>
@@ -73,7 +85,8 @@ const styles = StyleSheet.create({
         display: 'flex',
     },
     container:{
-        padding: 10
+        padding: 10,
+        flex: 1
     },
     loading: {
         flex: 1
