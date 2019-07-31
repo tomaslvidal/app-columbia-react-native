@@ -296,7 +296,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 25SQ49H8ST;
+						DevelopmentTeam = SL5GDQJ4PG;
 						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -640,7 +640,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = 25SQ49H8ST;
+				DEVELOPMENT_TEAM = SL5GDQJ4PG;
 				INFOPLIST_FILE = ColumbiaViajes3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -648,7 +648,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.ColumbiaViajes3;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.ColumbiaViajes33;
 				PRODUCT_NAME = ColumbiaViajes3;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -664,7 +664,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 25SQ49H8ST;
+				DEVELOPMENT_TEAM = SL5GDQJ4PG;
 				INFOPLIST_FILE = ColumbiaViajes3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -672,7 +672,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.ColumbiaViajes3;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.ColumbiaViajes33;
 				PRODUCT_NAME = ColumbiaViajes3;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;

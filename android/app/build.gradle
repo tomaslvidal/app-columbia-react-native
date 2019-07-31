@@ -131,8 +131,8 @@ android {
         applicationId "com.columbiaviajes3"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3237981
-        versionName "2.5.6"
+        versionCode 3237982
+        versionName "2.6"
     }
     splits {
         abi {
