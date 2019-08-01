@@ -16,7 +16,7 @@ export default class DestinationBox extends Component{
     }
 
     render(){
-        const url = this.props.destination.parseado!= undefined ? this.props.destination.image1 : "https://columbiaapp.eviajes.online/destinations_m/download/"+this.props.destination.image1;
+        const url = typeof this.props.destination.parseado !== "undefined" ? this.props.destination.image1 : "https://columbiaapp.eviajes.online/destinations_m/download/"+this.props.destination.image1;
 
         return(
             <View style={[styles.boxDefault]}>
@@ -26,7 +26,7 @@ export default class DestinationBox extends Component{
                         color: 'rgba(150, 150, 150, 1)',
                         unfilledColor: 'rgba(200, 200, 200, 0.2)'
                     }} 
-                    indicator={Progress} 
+                    indicator={ Progress } 
                     source={{
                         uri: url,
                         cache: FastImage.cacheControl.immutable,
@@ -40,7 +40,7 @@ export default class DestinationBox extends Component{
                 >
                     <View style={{flex: 1}}>
                         <Text style={[styles.text]}>
-                        {this.props.destination.title}
+                            {this.props.destination.title}
                         </Text>
                     </View>
                 </Image>

@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 
 import { Text, View, StyleSheet, Image, ImageBackground, TouchableOpacity, Linking, StatusBar, Alert } from 'react-native';
 
+import { withNavigation } from 'react-navigation';
+
 import axios from 'axios';
 
-export default class App extends Component{
+class HomeContainer extends Component {
     constructor(props) {
         super(props);
 
@@ -12,22 +14,6 @@ export default class App extends Component{
             version: "2.0"
         };
     }
-
-    // componentDidMount(){
-    //     axios.get('http://icolumbia.apteknet.com/services/getUpdate.php')
-    //     .then(response => {
-    //         let data = response.data, reasons = {}, url = data.url ? data.url : 'https://play.google.com/store/apps/details?id=com.columbiaviajes3';
-
-    //         // // http://icolumbia.apteknet.com/services/setUpdate.php?estado=1&version=5.0
-
-    //         if(data.estado=="1" && (this.state.version.toString()!=data.version)){
-    //             Alert.alert('Mensaje', 'Hay una nueva actualización, ¿quieres descargarla?', [
-    //                 {text: 'No', onPress: () => null},
-    //                 {text: 'Actualizar', onPress: () => Linking.openURL(url)}
-    //             ]);
-    //         }
-    //     });
-    // }
 
     render(){
         const img_path = '../../img/';
@@ -185,3 +171,5 @@ const styles = StyleSheet.create({
         fontSize: 19
     }
 });
+
+export default withNavigation(HomeContainer);
