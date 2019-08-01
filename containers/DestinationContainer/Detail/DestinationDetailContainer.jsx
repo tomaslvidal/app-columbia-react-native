@@ -36,6 +36,7 @@ class DestinationDetail extends Component {
             item: this.props.destinations[this.props.navigation.state.params.key],
             maxWidth: 0,
             loading: true,
+            is_refreshing: false
         };
 
         this._setMaxHeight = this._setMaxHeight.bind(this);
@@ -68,10 +69,22 @@ class DestinationDetail extends Component {
         });
     }
 
-        .then(response => {
-            this.setState({
-                item: response.data,
-                loading: false
+    onRefresh(){
+        this.setState({
+            is_refreshing: true
+        }, () => {
+            axios.get(`https://columbiaapp.eviajes.online/api/destinations/${this.state.item.id}`)
+            .then(res => {
+                this.props.updateDestination({
+                    key: this.props.navigation.state.params.key,
+                    data: res.data
+                })
+                .then(() => {
+                    this.setState({
+                        is_refreshing: false,
+                        item: this.props.destinations[this.props.navigation.state.params.key]
+                    });
+                });
             });
         });
     }
@@ -94,7 +107,7 @@ class DestinationDetail extends Component {
         const url = "https://columbiaapp.eviajes.online/destinations_m/download/";
 
         return (
-        <Div ref={(ref) => this.div = ref} name="Formulario de Reclamos" icon="wpforms" loading={this.state.loading}>
+        <Div onRefresh={this.onRefresh} is_refreshing={this.state.is_refreshing} ref={(ref) => this.div = ref} name="Formulario de Reclamos" icon="wpforms" loading={this.state.loading}>
             <View onLayout={(e) => this._setMaxHeight(e)}>
                 <View style={{ marginLeft: -20, marginRight: -20 }}>
                     <Image

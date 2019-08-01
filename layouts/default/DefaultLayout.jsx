@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Text, StatusBar, View, StyleSheet, Image, ImageBackground, TouchableOpacity, Linking, ScrollView } from 'react-native';
+import { Text, StatusBar, View, StyleSheet, Image, ImageBackground, TouchableOpacity, Linking, ScrollView, RefreshControl } from 'react-native';
 
 import BackLeft from 'ColumbiaViajes3/components/BackLeftComponent';
 
@@ -56,7 +56,16 @@ class LayoutDefault extends Component {
                         </View>
                     ) :
                     (
-                        <Fragment_ style={{ display: 'flex' }} ref={ (scroll_view) => { this.scroll_view = scroll_view } }>
+                        <Fragment_ 
+                            style={{ flex: 1}}
+                            ref={ (scroll_view) => { this.scroll_view = scroll_view } }
+                            refreshControl={
+                                <RefreshControl
+                                    refreshing={this.props.is_refreshing}
+                                    onRefresh={this.props.onRefresh}
+                                />
+                            }
+                        >
                             <View style={[styles.childrenScrollView, { minHeight: this.state.heightParent > 0 ? this.state.heightParent : null }]}>
                                 <View style={styles.container}>
                                     <View style={typeof this.props.container !== 'undefined' && !this.props.container ? styles.parentContainer : [styles.propParentContainer, styles.parentContainer]}>
