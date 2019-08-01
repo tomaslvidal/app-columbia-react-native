@@ -159,13 +159,14 @@ class DestinationDetail extends Component {
                         }
                         renderers = {{
                             img: (parameters) => {
-                                let key = Math.random().toString(36).substr(2, 8);
-                                
+                                const key = Math.random().toString(36).substr(2, 5);
+
                                 return(
-                                    <Image 
+                                    <Image
+                                        key={key}
                                         source={{
                                             uri: parameters.src,
-                                            cache: FastImage.cacheControl.web,
+                                            cache: FastImage.cacheControl.immutable,
                                             priority: FastImage.priority.normal
                                         }}
                                         indicatorProps={{
@@ -174,7 +175,6 @@ class DestinationDetail extends Component {
                                             unfilledColor: 'rgba(200, 200, 200, 0.2)'
                                         }} 
                                         indicator={ Progress } 
-                                        key={key+'-'+parameters.src}
                                         style={{
                                             backgroundColor: "#F2F2F2",
                                             width: (parameters => {
@@ -221,10 +221,10 @@ class DestinationDetail extends Component {
                                                     }
                                                 }
 
-                                                return 180
+                                                return 180;
                                             })(parameters),
-                                        }
-                                    }/>
+                                        }}
+                                    />
                                 );
                             },
                             a: (parameters, two, three, four) => {
