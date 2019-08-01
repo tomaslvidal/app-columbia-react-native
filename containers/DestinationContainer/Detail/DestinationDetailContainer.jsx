@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Dimensions, Linking } from 'react-native';
+import { connect } from 'react-redux';
+
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Dimensions, Linking, RefreshControl } from 'react-native';
 
 import HTML from 'react-native-render-html';
 
@@ -16,20 +18,24 @@ import axios from 'axios';
 
 import { createImageProgress } from 'react-native-image-progress';
 
+import { updateDestination } from "ColumbiaViajes3/actions";
+
+import { withNavigation } from 'react-navigation';
+
 import FastImage from 'react-native-fast-image';
 
 const Image = createImageProgress(FastImage);
 
 let COORDINATES = {};
 
-export default class DestinationDetail extends Component {
+class DestinationDetail extends Component {
     constructor(props){
         super(props);
 
         this.state = { 
-            item: this.props.navigation.state.params.item,
+            item: this.props.destinations[this.props.navigation.state.params.key],
             maxWidth: 0,
-            loading: true
+            loading: true,
         };
 
         this._setMaxHeight = this._setMaxHeight.bind(this);
@@ -37,10 +43,31 @@ export default class DestinationDetail extends Component {
         this.scrollView = this.scrollView.bind(this);
 
         this.onLinkPress = this.onLinkPress.bind(this);
+
+        this.onRefresh = this.onRefresh.bind(this);
     }
 
-    componentDidMount(){
-        axios.get(`https://columbiaapp.eviajes.online/api/destinations/${this.state.item.id}`)
+    async componentDidMount(){
+        if(typeof this.state.item.description === "undefined"){
+            await axios.get(`https://columbiaapp.eviajes.online/api/destinations/${this.state.item.id}`)
+            .then(res => {
+                this.props.updateDestination({
+                    key: this.props.navigation.state.params.key,
+                    data: res.data
+                })
+                .then(() => {
+                    this.setState({
+                        item: this.props.destinations[this.props.navigation.state.params.key]
+                    });
+                });
+            });
+        }
+
+        this.setState({
+            loading: false
+        });
+    }
+
         .then(response => {
             this.setState({
                 item: response.data,
@@ -70,7 +97,7 @@ export default class DestinationDetail extends Component {
         <Div ref={(ref) => this.div = ref} name="Formulario de Reclamos" icon="wpforms" loading={this.state.loading}>
             <View onLayout={(e) => this._setMaxHeight(e)}>
                 <View style={{ marginLeft: -20, marginRight: -20 }}>
-                    <Image 
+                    <Image
                         source={{
                             uri: url+this.state.item.image1, 
                             cache: FastImage.cacheControl.cacheOnly,
@@ -133,7 +160,7 @@ export default class DestinationDetail extends Component {
                                             color: 'rgba(150, 150, 150, 1)',
                                             unfilledColor: 'rgba(200, 200, 200, 0.2)'
                                         }} 
-                                        indicator={Progress} 
+                                        indicator={ Progress } 
                                         key={key+'-'+parameters.src}
                                         style={{
                                             backgroundColor: "#F2F2F2",
@@ -269,3 +296,9 @@ const styles = StyleSheet.create({
         padding: 5
     },
 });
+
+const mapStateToProps = state => ({
+    destinations: state.destinations.items
+});
+
+export default connect(mapStateToProps, { updateDestination })(withNavigation(DestinationDetail));
