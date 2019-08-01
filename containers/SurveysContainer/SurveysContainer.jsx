@@ -2,50 +2,54 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-import { isSignedIn } from '../../auth';
+import { isSignedIn } from 'ColumbiaViajes3/auth';
 
 import { Text, View, Alert, StyleSheet, Image, ScrollView, ImageBackground, TouchableOpacity, TouchableHighlight, Linking } from 'react-native';
 
 import CollapsibleList from 'react-native-collapsible-list'
 
-import Div from '../../layouts/default';
+import Div from 'ColumbiaViajes3/layouts/default';
 
-import Panel from '../../components/PanelComponent';
+import Panel from 'ColumbiaViajes3/components/PanelComponent';
 
-import MultiSelect from '../../components/MultiSelectComponent';
+import MultiSelect from 'ColumbiaViajes3/components/MultiSelectComponent';
 
 import * as t from 'tcomb-form-native'
 
 import axios from 'axios';
 
-import _ from 'lodash';
+import { merge } from 'lodash';
 
 const Form = t.form.Form;
 
-const stylesheet = _.cloneDeep(Form.stylesheet);
-
-stylesheet.controlLabel.normal = {
-    color: '#343434',
-    fontSize: 15,
-    fontWeight: 'bold'
-}
-
-stylesheet.select.normal = {
-    color: undefined,
-}
-
-stylesheet.textbox.normal.color = 'black';
-
-const colorError = '#E44545';
-
-stylesheet.controlLabel.error.color = colorError;
-
-stylesheet.helpBlock.error.color = colorError;
+let stylesheet = merge(Form.stylesheet, {
+    controlLabel: {
+        normal: {
+            color: '#343434',
+            fontSize: 15,
+            fontWeight: 'bold'
+        },
+        error: {
+            color: '#E44545'
+        }
+    },
+    textbox: {
+        normal: {
+            color: 'black'
+        }
+    },
+    helpBlock: {
+        error: {
+            color: '#E44545'
+        }
+    },
+    select: {}
+});
 
 class SurveysContainer extends Component{
     constructor(props){
         super(props);
-        
+
         this.state = {
             run: false,
             loading: false,
@@ -56,12 +60,13 @@ class SurveysContainer extends Component{
     }
 
     componentDidMount(){
-
         setTimeout( () => {
             isSignedIn()
             .then(res => {
-                if(res==false){
-                    this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_', {routeName: this.props.navigation.state.routeName});
+                if(!res){
+                    this.props.navigation.replace('Home');
+                    
+                    this.props.navigation.navigate('SignIn_', { routeName: this.props.navigation.state.routeName });
                 }
                 else{
                     axios.get('https://columbiaapp.eviajes.online/api/surveys/user', { headers: {"Authorization" : `Bearer ${this.props.access_token}`} })
@@ -137,7 +142,9 @@ class SurveysContainer extends Component{
                         });
                     })
                     .catch(res => {
-                        this.props.navigation.replace('Home'); this.props.navigation.navigate('SignIn_', {routeName: this.props.navigation.state.routeName});
+                        this.props.navigation.replace('Home');
+                        
+                        this.props.navigation.navigate('SignIn_', { routeName: this.props.navigation.state.routeName });
                     });
                 }
             });
@@ -145,67 +152,66 @@ class SurveysContainer extends Component{
     }
 
     onPress(id){
-        let data = this.refs["form"+id.toString()].getValue();
+        let data = this[`form${id}`].getValue();
 
         if(data){
-        this.setState({
-            loading: true
-        });
+            this.setState({
+                loading: true
+            });
 
-        data = JSON.parse(JSON.stringify(data));
+            data = JSON.parse(JSON.stringify(data));
 
-        data.id = id;
+            data.id = id;
 
-        axios.post('https://columbiaapp.eviajes.online/api/surveysmade', data, { headers: {"Authorization" : `Bearer ${this.props.access_token}`} })
-        .then(response => {
-            setTimeout(() => {
-                this.setState({
-                    state_surveys: {
-                    [id]: true
-                    }
-                }, () => {
+            axios.post('https://columbiaapp.eviajes.online/api/surveysmade', data, { headers: {"Authorization" : `Bearer ${this.props.access_token}`} })
+            .then(response => {
+                setTimeout(() => {
+                    this.setState({
+                        state_surveys: {
+                            [id]: true
+                        }
+                    }, () => {
+                        this.setState({
+                            loading: false
+                        });
+                    });
+
+                    Alert.alert('Mensaje', 'Encuesta realizada', [
+                        {text: 'OK'}
+                    ]);
+                }, 1500);
+            })
+            .catch( (err) => {
+                setTimeout(() => {
+                    Alert.alert('Mensaje', 'No se ha podido enviar la encuesta', [
+                        {text: 'OK'}
+                    ]);
+
                     this.setState({
                         loading: false
                     });
-                });
-
-                Alert.alert('Mensaje', 'Encuesta realizada', [
-                    {text: 'OK'}
-                ]);
-            }, 1500);
-        })
-        .catch( (err) => {
-            setTimeout(() => {
-                Alert.alert('Mensaje', 'No se ha podido enviar la encuesta', [
-                    {text: 'OK'}
-                ]);
-
-                this.setState({
-                    loading: false
-                });
-            }, 1500);
-        });
+                }, 1500);
+            });
         }
     }
 
     render(){
         return(
-            <Div name="Encuestas" icon='bar-chart' container={false} loading={!this.state.run || this.state.loading}>
+            <Div name="Encuestas" icon='bar-chart' container={ false } loading={!this.state.run || this.state.loading}>
             {
-            !this.state.run ? null :
+                !this.state.run ? null :
                 this.state.forms.map( (item, key) => {
+                    if(this.state.state_surveys[item.id]!=true) {
+                        return(
+                            <Panel key={key} title={item.name}>
+                                <Form key={key} ref={r => this[`form${item.id}`] = r} type={item.types} options={item.options}/>
 
-                if(this.state.state_surveys[item.id]!=true) {
-                    return (
-                    <Panel key={key} title={item.name}>
-                        <Form key={key+"f"} ref={"form"+item.id} type={item.types} options={item.options}/>
-
-                        <TouchableHighlight key={key+"th"} style={styles.button} onPress={() => this.onPress(item.id)} underlayColor={attributes.underlayColor}>
-                        <Text key={key+"t"} style={[styles.buttonText, {}]}>Enviar</Text>
-                        </TouchableHighlight>
-                    </Panel>
-                    );
-                }
+                                <TouchableHighlight key={key+"th"} style={styles.button} onPress={() => this.onPress(item.id)} underlayColor={attributes.underlayColor}>
+                                    <Text key={key+"t"} style={[styles.buttonText, {}]}>Enviar</Text>
+                                </TouchableHighlight>
+                            </Panel>
+                        );
+                    }
                 })
             }
             </Div>
@@ -215,9 +221,9 @@ class SurveysContainer extends Component{
 
 const attributes = {
     underlayColor: '#99d9f4'
-    };
+};
 
-    const styles = StyleSheet.create({
+const styles = StyleSheet.create({
     buttonText: {
         fontSize: 18,
         color: 'white',
