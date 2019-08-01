@@ -5,11 +5,21 @@ const setLoguedAccount = item => ({
     payload: item
 });
 
-const setDestinations = item => {
-    return({
+const setDestinations = item => async dispatch => {
+    dispatch({
         type: types.SET_DESTINATIONS,
         payload: item
     });
 };
 
-export { setLoguedAccount, setDestinations };
+const updateDestination = item => async dispatch => {
+    dispatch({
+        type: types.UPDATE_DESTINATION,
+        payload: {
+            key: item.key,
+            data: item.data
+        }
+    });
+};
+
+export { setLoguedAccount, setDestinations, updateDestination };
