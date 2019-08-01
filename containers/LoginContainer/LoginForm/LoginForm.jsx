@@ -72,49 +72,51 @@ class LoginForm extends Component {
         };
     }
 
-    enterAccount() {
-        const user = this.form.getValue();
+    enterAccount(){
+        if(!this.state.loading){
+            const user = this.form.getValue();
 
-        if(user){
-            this.setState({
-                loading: true
-            });
+            if(user){
+                this.setState({
+                    loading: true
+                });
 
-            let data = {
-                client_id: 2,
-                client_secret: 'BXFEgz2HtEm2Im2awNgiF8sGmmbIojK2JsiLaYqi',
-                grant_type: 'password',
-                username: user.email,
-                password: user.contraseña,
-            };
+                let data = {
+                    client_id: 2,
+                    client_secret: 'BXFEgz2HtEm2Im2awNgiF8sGmmbIojK2JsiLaYqi',
+                    grant_type: 'password',
+                    username: user.email,
+                    password: user.contraseña,
+                };
 
-            axios.post('https://columbiaapp.eviajes.online/oauth/token', data)
-            .then(res => {
-                const now = Date.now();
+                axios.post('https://columbiaapp.eviajes.online/oauth/token', data)
+                .then(res => {
+                    const now = Date.now();
 
-                let responseData = res.data;
+                    let responseData = res.data;
 
-                responseData.expires_in = responseData.expires_in + now;
+                    responseData.expires_in = responseData.expires_in + now;
 
-                setTimeout(() => {
+                    setTimeout(() => {
+                        this.setState({
+                            loading: false
+                        });
+
+                        this.props.navigation.replace('Home');
+
+                        typeof this.props.navigation.navigate(this.props.navigation.state.params.routeName !== "undefined" ? this.props.navigation.state.params.routeName : 'Home');
+                    }, 500);
+
+                    this.props.onSetLoguedAccount({
+                        oauth: responseData
+                    });
+                })
+                .catch( () => {
                     this.setState({
                         loading: false
                     });
-
-                    this.props.navigation.replace('Home');
-
-                    typeof this.props.navigation.navigate(this.props.navigation.state.params.routeName !== "undefined" ? this.props.navigation.state.params.routeName : 'Home');
-                }, 500);
-
-                this.props.onSetLoguedAccount({
-                    oauth: responseData
                 });
-            })
-            .catch( () => {
-                this.setState({
-                    loading: false
-                });
-            });
+            }
         }
     }
 
@@ -151,7 +153,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems : 'center',
         bottom: '45%',
-        right: '31%'
+        right: '32%'
     },
     form: {
         display: 'flex', 
