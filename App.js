@@ -8,8 +8,6 @@ import { isSignedIn } from "./auth";
 
 import { Provider } from 'react-redux';
 
-import { setLoguedAccount } from './actions';
-
 import { createAppContainer } from 'react-navigation';
 
 import store from './store';

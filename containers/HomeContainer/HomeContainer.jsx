@@ -6,17 +6,15 @@ import { withNavigation } from 'react-navigation';
 
 import axios from 'axios';
 
+import FooterComponent from 'ColumbiaViajes3/components/FooterComponent';
+
 class HomeContainer extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            version: "2.0"
-        };
     }
 
     render(){
-        const img_path = '../../img/';
+        const img_path = 'ColumbiaViajes3/img/';
 
         return(
             <View style={styles.body}>
@@ -112,9 +110,7 @@ class HomeContainer extends Component {
                     </View>
                 </View>
 
-                <View style={styles.footer}>
-                    <Image source={require(img_path+'footer.jpg')} style={styles.footerImage} />
-                </View>
+                <FooterComponent />
             </View>
         );
     }
