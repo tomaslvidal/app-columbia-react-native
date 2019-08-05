@@ -58,6 +58,7 @@ class LoginForm extends Component {
                     fields: {
                         email: {
                             stylesheet: stylesheet,
+                            keyboardType: 'email-address',
                             error: 'Ingresar email'
                         },
                         contraseña: {

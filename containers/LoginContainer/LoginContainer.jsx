@@ -17,9 +17,16 @@ export default class Login extends Component {
         const img_path = 'ColumbiaViajes3/img/';
 
         return (
-            <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null} style={[styles.container]}>
+            <KeyboardAvoidingView 
+                behavior={Platform.OS === 'ios' ? 'padding' : null} 
+                style={[styles.container]}
+            >
                 <View style={styles.loginContainer}>
-                    <Image resizeMode="contain" style={styles.logo} source={require(img_path+'logo/logo.png')} />
+                    <Image 
+                        resizeMode="contain" 
+                        style={styles.logo} 
+                        source={require(img_path+'logo/logo.png')} 
+                    />
                 </View>
 
                 <LoginForm />
