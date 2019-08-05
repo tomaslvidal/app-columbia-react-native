@@ -6,15 +6,15 @@ import LoginForm from './LoginForm';
 
 export default class Login extends Component {
     constructor(props){
-      super(props);
-      
-      this.state = {
-        open : false
-      };
+        super(props);
+        
+        this.state = {
+            open : false
+        };
     }
 
     render() {
-        const img_path = '../../img/';
+        const img_path = 'ColumbiaViajes3/img/';
 
         return (
             <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null} style={[styles.container]}>

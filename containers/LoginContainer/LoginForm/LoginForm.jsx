@@ -97,19 +97,19 @@ class LoginForm extends Component {
 
                     responseData.expires_in = responseData.expires_in + now;
 
-                    setTimeout(() => {
+                    this.props.setLoguedAccount({
+                        oauth: responseData
+                    })
+                    .then(() => {
                         this.setState({
                             loading: false
+                        }, () => {
+                            this.props.navigation.replace('Home');
+
+                            typeof this.props.navigation.navigate(this.props.navigation.state.params.routeName !== "undefined" ? this.props.navigation.state.params.routeName : 'Home');
                         });
-
-                        this.props.navigation.replace('Home');
-
-                        typeof this.props.navigation.navigate(this.props.navigation.state.params.routeName !== "undefined" ? this.props.navigation.state.params.routeName : 'Home');
-                    }, 500);
-
-                    this.props.onSetLoguedAccount({
-                        oauth: responseData
                     });
+
                 })
                 .catch( () => {
                     this.setState({
@@ -173,12 +173,4 @@ const styles = StyleSheet.create({
     }
 });
 
-const mapDispathToProps = dispath => {
-    return {
-        onSetLoguedAccount: item => {
-            dispath(setLoguedAccount(item));
-        }
-    };
-};
-
-export default connect(null, mapDispathToProps)(withNavigation(LoginForm));
+export default connect(null, { setLoguedAccount })(withNavigation(LoginForm));

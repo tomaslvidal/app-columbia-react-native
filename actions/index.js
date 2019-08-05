@@ -1,9 +1,11 @@
-import * as types from '../constants/ActionTypes';
+import * as types from 'ColumbiaViajes3/constants/ActionTypes';
 
-const setLoguedAccount = item => ({
-    type: types.SET_LOGUED_ACCOUNT,
-    payload: item
-});
+const setLoguedAccount = item => async dispatch => {
+    dispatch({
+        type: types.SET_LOGUED_ACCOUNT,
+        payload: item
+    });
+};
 
 const setDestinations = item => async dispatch => {
     dispatch({
