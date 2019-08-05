@@ -14,6 +14,13 @@ const setDestinations = item => async dispatch => {
     });
 };
 
+const setVouchers = item => async dispatch => {
+    dispatch({
+        type: types.SET_VOUCHERS,
+        payload: item
+    });
+};
+
 const setSurveys = item => async dispatch => {
     dispatch({
         type: types.SET_SURVEYS,

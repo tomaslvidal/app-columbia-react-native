@@ -4,10 +4,13 @@ import accountReducer from './account';
 
 import destinationsReducer from './destinations';
 
+import vouchersReducer from './vouchers';
+
 import surveysReducer from './surveys';
 
 export default combineReducers({
     account: accountReducer,
     destinations: destinationsReducer,
+    vouchers: vouchersReducer,
     surveys: surveysReducer
 });
