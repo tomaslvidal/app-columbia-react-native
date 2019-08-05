@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import {View, Text, StyleSheet, ImageBackground} from 'react-native';
+import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 
 import { createImageProgress } from 'react-native-image-progress';
 
@@ -40,7 +40,7 @@ export default class DestinationBox extends Component{
                 >
                     <View style={{flex: 1}}>
                         <Text style={[styles.text]}>
-                            {this.props.destination.title}
+                            { this.props.destination.title }
                         </Text>
                     </View>
                 </Image>

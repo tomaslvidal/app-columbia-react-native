@@ -1,3 +1,3 @@
-import PanelComponent from './PanelComponent.jsx';
+import PanelComponent from './PanelComponent';
 
 export default PanelComponent;

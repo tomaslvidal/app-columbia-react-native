@@ -1,3 +1,3 @@
-import SurveysContainer from './SurveysContainer.jsx';
+import SurveysContainer from './SurveysContainer';
 
 export default SurveysContainer;

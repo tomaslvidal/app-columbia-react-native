@@ -1,3 +1,3 @@
-import MultiSelectComponent from './MultiSelectComponent.jsx';
+import MultiSelectComponent from './MultiSelectComponent';
 
 export default MultiSelectComponent;

@@ -4,7 +4,7 @@ import logger from 'redux-logger';
 
 import thunk from 'redux-thunk';
 
-import reducer from '../reducers';
+import reducer from 'ColumbiaViajes3/reducers';
 
 const store = createStore(
     reducer,

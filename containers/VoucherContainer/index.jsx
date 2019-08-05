@@ -1,3 +1,3 @@
-import VoucherContainer from './VoucherContainer.jsx';
+import VoucherContainer from './VoucherContainer';
 
 export default VoucherContainer;

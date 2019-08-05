@@ -1,3 +1,3 @@
-import DestinationListContainer from './DestinationListContainer.jsx';
+import DestinationListContainer from './DestinationListContainer';
 
 export default DestinationListContainer;

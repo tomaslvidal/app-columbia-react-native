@@ -1,3 +1,3 @@
-import DestinationBoxComponent from './DestinationBoxComponent.jsx';
+import DestinationBoxComponent from './DestinationBoxComponent';
 
 export default DestinationBoxComponent;

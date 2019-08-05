@@ -34,8 +34,11 @@ export default class App extends React.Component {
         const AppContainer = createAppContainer(AppNavigator);
 
         return (
-            <Provider store={store}>
-                <SafeAreaView style={{ flex: 1, backgroundColor: '#2CAEE6' }} forceInset={{ top: 'always', bottom:'always' }}>
+            <Provider store={ store }>
+                <SafeAreaView 
+                    style={{ flex: 1, backgroundColor: '#2CAEE6' }}
+                    forceInset={{ top: 'always', bottom:'always' }}
+                >
                     <AppContainer />
                 </SafeAreaView>
             </Provider>

@@ -6,8 +6,6 @@ import { View, FlatList, TouchableOpacity, StyleSheet, Linking, RefreshControl, 
 
 import DestinationBox from 'ColumbiaViajes3/components/DestinationBoxComponent'
 
-import BackLeft from 'ColumbiaViajes3/components/BackLeftComponent'
-
 import Div from 'ColumbiaViajes3/layouts/default';
 
 import { setDestinations } from "ColumbiaViajes3/actions";
@@ -57,7 +55,7 @@ class DestinationList extends Component {
     }
 
     handlePress(item){
-        if(item.url==undefined){
+        if(typeof item.url === 'undefined'){
             this.props.navigation.navigate('DestinationDetail', item);
         }
         else{

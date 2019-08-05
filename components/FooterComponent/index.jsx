@@ -1,3 +1,3 @@
-import FooterComponent from './FooterComponent.jsx';
+import FooterComponent from './FooterComponent';
 
 export default FooterComponent;

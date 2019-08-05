@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component}  from 'react';
 
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
@@ -15,14 +15,21 @@ import { withNavigation } from 'react-navigation';
 class BackLeft extends Component{
     render(){
         return(
-            <View style={styles.body}>
-                <TouchableOpacity style={styles.container} onPress={() => this.props.navigation.goBack()}>
+            <View style={ styles.body }>
+                <TouchableOpacity 
+                    style={ styles.container } 
+                    onPress={() => this.props.navigation.goBack()}
+                >
                     <View>
-                        <FontAwesomeIcon size={27} color={"#fff"} icon={['fas', 'arrow-circle-left']} />
+                        <FontAwesomeIcon 
+                            size={27} 
+                            color={"#fff"} 
+                            icon={['fas', 'arrow-circle-left']}
+                        />
                     </View>
 
                     <View>
-                        <Text style={[styles.textVolver]}>Volver</Text>
+                        <Text style={ [styles.textVolver] }>Volver</Text>
                     </View>
                 </TouchableOpacity>
             </View>

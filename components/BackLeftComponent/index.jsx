@@ -1,3 +1,3 @@
-import BackLeftComponent from './BackLeftComponent.jsx';
+import BackLeftComponent from './BackLeftComponent';
 
 export default BackLeftComponent;

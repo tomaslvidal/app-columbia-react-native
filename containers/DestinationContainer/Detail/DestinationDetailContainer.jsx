@@ -2,15 +2,11 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Dimensions, Linking, RefreshControl } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Linking, RefreshControl } from 'react-native';
 
 import HTML from 'react-native-render-html';
 
 import Progress from 'react-native-progress/Bar';
-
-import BackLeft from '../../../components/BackLeftComponent';
-
-import Footer from '../../../components/FooterComponent';
 
 import Div from '../../../layouts/default';
 
@@ -39,7 +35,7 @@ class DestinationDetail extends Component {
             is_refreshing: false
         };
 
-        this._setMaxHeight = this._setMaxHeight.bind(this);
+        this.setMaxHeight = this.setMaxHeight.bind(this);
 
         this.scrollView = this.scrollView.bind(this);
 
@@ -48,8 +44,10 @@ class DestinationDetail extends Component {
         this.onRefresh = this.onRefresh.bind(this);
     }
 
-    async componentDidMount(){
-        if(typeof this.state.item.description === "undefined"){
+    async fetchDestination(is_refreshing = false){
+        this.setState({
+            is_refreshing
+        }, async () => {
             await axios.get(`https://columbiaapp.eviajes.online/api/destinations/${this.state.item.id}`)
             .then(res => {
                 this.props.updateDestination({
@@ -58,10 +56,17 @@ class DestinationDetail extends Component {
                 })
                 .then(() => {
                     this.setState({
-                        item: this.props.destinations[this.props.navigation.state.params.key]
+                        item: this.props.destinations[this.props.navigation.state.params.key],
+                        is_refreshing: false
                     });
                 });
             });
+        })
+    }
+
+    async componentDidMount(){
+        if(typeof this.state.item.description === "undefined"){
+            await this.fetchDestination();
         }
 
         this.setState({
@@ -70,33 +75,20 @@ class DestinationDetail extends Component {
     }
 
     onRefresh(){
-        this.setState({
-            is_refreshing: true
-        }, () => {
-            axios.get(`https://columbiaapp.eviajes.online/api/destinations/${this.state.item.id}`)
-            .then(res => {
-                this.props.updateDestination({
-                    key: this.props.navigation.state.params.key,
-                    data: res.data
-                })
-                .then(() => {
-                    this.setState({
-                        is_refreshing: false,
-                        item: this.props.destinations[this.props.navigation.state.params.key]
-                    });
-                });
-            });
-        });
+        this.fetchDestination(true);
     }
 
-    _setMaxHeight(e){
+    setMaxHeight(e){
         this.setState({
             maxWidth: e.nativeEvent.layout.width
         });
     }
 
     scrollView(e){
-        this.div.scroll_view.scrollTo({ x: 0, y: COORDINATES[e]-80});
+        this.div.scroll_view.scrollTo({
+            x: 0,
+            y: COORDINATES[e]-80
+        });
     }
 
     onLinkPress(href){
@@ -107,8 +99,15 @@ class DestinationDetail extends Component {
         const url = "https://columbiaapp.eviajes.online/destinations_m/download/";
 
         return (
-        <Div onRefresh={this.onRefresh} is_refreshing={this.state.is_refreshing} ref={(ref) => this.div = ref} name="Formulario de Reclamos" icon="wpforms" loading={this.state.loading}>
-            <View onLayout={(e) => this._setMaxHeight(e)}>
+        <Div
+            onRefresh={ this.onRefresh }
+            is_refreshing={ this.state.is_refreshing } 
+            ref={ref => this.div = ref}
+            name="Formulario de Reclamos"
+            icon="wpforms"
+            loading={ this.state.loading }
+        >
+            <View onLayout={e => this.setMaxHeight(e)}>
                 <View style={{ marginLeft: -20, marginRight: -20 }}>
                     <Image
                         source={{
@@ -132,17 +131,17 @@ class DestinationDetail extends Component {
                     <HTML 
                         imagesMaxWidth={this.state.maxWidth ? this.state.maxWidth : null}
                         staticContentMaxWidth={this.state.maxWidth ? this.state.maxWidth : null}
-                        html={this.state.item.description!=undefined ? this.state.item.description : '<div></div>'}
+                        html={typeof this.state.item.description !== 'undefined' ? this.state.item.description : '<div></div>'}
                         tagsStyles={tagsStyles}
                         textSelectable={true}
                         alterChildren = { (node) => {
                                 if(node.name === 'p'){
-                                    if(typeof node.attribs['style'] != "undefined"){
+                                    if(typeof node.attribs['style'] !== "undefined"){
                                         let arrayProperties = node.attribs['style'].split(';').map(item => item.trim());
 
                                         if(arrayProperties.length>0){
                                             ['start', 'end'].forEach(value => {
-                                                let find_index = arrayProperties.findIndex(item => typeof item != 'undefined' ? (item.indexOf(value) != -1 && item.indexOf('text-align') != -1) : false);
+                                                let find_index = arrayProperties.findIndex(item => typeof item !== 'undefined' ? (item.indexOf(value) != -1 && item.indexOf('text-align') != -1) : false);
 
                                                 if(find_index != -1){
                                                     delete arrayProperties[find_index];

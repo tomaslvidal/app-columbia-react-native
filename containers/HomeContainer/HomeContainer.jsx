@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Text, View, StyleSheet, Image, ImageBackground, TouchableOpacity, Linking, StatusBar, Alert } from 'react-native';
+import { Text, View, StyleSheet, ImageBackground, TouchableOpacity, Linking, StatusBar } from 'react-native';
 
 import { withNavigation } from 'react-navigation';
 
@@ -18,11 +18,17 @@ class HomeContainer extends Component {
 
         return(
             <View style={styles.body}>
-                <StatusBar backgroundColor={attributes.statusBarColor} barStyle='light-content' />
+                <StatusBar 
+                    backgroundColor={attributes.statusBarColor}
+                    barStyle='light-content'
+                />
 
                 <View style={[styles.row1, styles.separation]}>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Voucher')}>
-                        <ImageBackground style={styles.imageBackground} source={require(img_path+'vouchers.jpg')}>
+                        <ImageBackground 
+                            style={styles.imageBackground} 
+                            source={require(img_path+'vouchers.jpg')}
+                        >
                             <View style={[styles.viewText]}>
                                 <Text style={[styles.text]}>
                                     Mi Viaje
@@ -32,10 +38,13 @@ class HomeContainer extends Component {
                     </TouchableOpacity>
                 </View>
 
-                <View style={[styles.row1, {flexDirection: 'row'}]}>
+                <View style={[styles.row1, { flexDirection: 'row' }]}>
                     <View style={[styles.row1, styles.separation]}>
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('DestinationList')}>
-                            <ImageBackground style={styles.imageBackground} source={require(img_path+'destinos.jpg')}>
+                            <ImageBackground 
+                                style={styles.imageBackground} 
+                                source={require(img_path+'destinos.jpg')}
+                            >
                                 <View style={[styles.viewText]}>
                                     <Text style={[styles.text]}>
                                         Destinos
@@ -47,7 +56,10 @@ class HomeContainer extends Component {
 
                     <View style={[styles.row1, styles.separation]}>
                         <TouchableOpacity onPress={() => Linking.openURL('https://www.columbiaviajes.com.ar/landing/3/Web-Check-in/')}>
-                            <ImageBackground style={styles.imageBackground} source={require(img_path+'checkin.jpg')}>
+                            <ImageBackground 
+                                style={styles.imageBackground} 
+                                source={require(img_path+'checkin.jpg')}
+                            >
                                 <View style={[styles.viewText]}>
                                     <Text style={[styles.text]}>
                                         Web Check In
@@ -61,7 +73,10 @@ class HomeContainer extends Component {
                 <View style={[styles.row1, {flexDirection: 'row'}]}>
                     <View style={[styles.row1, styles.separation]}>
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('Surveys')}>
-                            <ImageBackground style={styles.imageBackground} source={require(img_path+'encuestas.jpg')}>
+                            <ImageBackground 
+                                style={styles.imageBackground} 
+                                source={require(img_path+'encuestas.jpg')}
+                            >
                                 <View style={[styles.viewText]}>
                                     <Text style={[styles.text]}>
                                         Encuesta
@@ -73,7 +88,10 @@ class HomeContainer extends Component {
 
                     <View style={[styles.row1, styles.separation]}>
                         <TouchableOpacity onPress={() => Linking.openURL('https://www.columbiaviajes.com.ar')}>
-                            <ImageBackground style={styles.imageBackground} source={require(img_path+'web.jpg')}>
+                            <ImageBackground 
+                                style={styles.imageBackground} 
+                                source={require(img_path+'web.jpg')}
+                            >
                                 <View style={[styles.viewText]}>
                                     <Text style={[styles.text]}>
                                         Web
@@ -87,7 +105,10 @@ class HomeContainer extends Component {
                 <View style={[styles.row1, {flexDirection: 'row'}]}>
                     <View style={[styles.row1, styles.separation]}>
                         <TouchableOpacity onPress={() => Linking.openURL('https://www.columbiaviajes.com.ar/paquetes.php?action=busqueda&destino=&tipo_paquete=9&salidas=&tarifaMax')}>
-                            <ImageBackground style={styles.imageBackground} source={require(img_path+'ofertas.jpg')}>
+                            <ImageBackground 
+                                style={styles.imageBackground}
+                                source={require(img_path+'ofertas.jpg')}
+                            >
                                 <View style={[styles.viewText]}>
                                     <Text style={[styles.text]}>
                                         Ofertas
@@ -99,7 +120,10 @@ class HomeContainer extends Component {
 
                     <View style={[styles.row1, styles.separation]}>
                         <TouchableOpacity onPress={() => Linking.openURL('https://www.columbiaviajes.com.ar/contacto.php')}>
-                            <ImageBackground style={styles.imageBackground} source={require(img_path+'contacto.jpg')}>
+                            <ImageBackground
+                                style={styles.imageBackground}
+                                source={require(img_path+'contacto.jpg')}
+                            >
                                 <View style={[styles.viewText]}>
                                     <Text style={[styles.text]}>
                                         Contacto
@@ -131,21 +155,6 @@ const styles = StyleSheet.create({
     },
     separation: {
         padding: 1
-    },
-    footer: {
-        height: 85, 
-        marginTop: 'auto', 
-        borderRadius: 1
-    },
-    footerImage:{
-        flex: 1,
-        alignSelf: 'center',
-        justifyContent:'center',
-        width:'100%',
-        height: '100%',
-        paddingTop: 10,
-        marginTop: 'auto',
-        marginBottom:'auto'
     },
     imageBackground: {
         height: '100%',

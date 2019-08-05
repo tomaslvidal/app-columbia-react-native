@@ -1,3 +1,3 @@
-import DestinationDetailContainer from './DestinationDetailContainer.jsx';
+import DestinationDetailContainer from './DestinationDetailContainer';
 
 export default DestinationDetailContainer;
