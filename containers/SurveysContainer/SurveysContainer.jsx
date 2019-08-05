@@ -20,6 +20,18 @@ import axios from 'axios';
 
 import { merge } from 'lodash';
 
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+
+import { faPollH, faTimes } from '@fortawesome/free-solid-svg-icons';
+
+import { withNavigation } from 'react-navigation';
+
+import { setSurveys } from 'ColumbiaViajes3/actions';
+
+library.add(faPollH, faTimes);
+
 const Form = t.form.Form;
 
 let stylesheet = merge(Form.stylesheet, {
@@ -50,13 +62,107 @@ class SurveysContainer extends Component{
     constructor(props){
         super(props);
 
-        this.state = {
-            loading: true,
-            forms: [],
-            state_surveys: {}
-        };
-
         this.onPress = this.onPress.bind(this);
+
+        this.onRefresh = this.onRefresh.bind(this);
+
+        this.fetchSurveys = this.fetchSurveys.bind(this);
+    }
+
+    async onRefresh(){
+        await this.fetchSurveys(true);
+    }
+
+    async fetchSurveys(is_refreshing = false){
+        this.props.setSurveys({
+            is_refreshing
+        })
+        .then(async () => {
+            await axios({
+                url: 'https://columbiaapp.eviajes.online/api/surveys/user',
+                method: 'GET',
+                headers: {
+                    Authorization: `Bearer ${this.props.access_token}`
+                }
+            })
+            .then(response => {
+                let items = response.data, forms = [];
+
+                for(i = 0; i < items.length; i++){
+                    forms[i] = {
+                        id: items[i].id,
+                        name: items[i].name,
+                        types: {},
+                        options: {
+                            fields: {}
+                        }
+                    }
+
+                    for (var d = 0; d < items[i].survey_fields.length; d++) {
+                        let item_options = {};
+
+                        if(items[i].survey_fields[d].type.toString() == "2"){
+                            for (var f = 0; f < items[i].survey_fields[d].survey_options.length; f++) {
+                                item_options[items[i].survey_fields[d].survey_options[f].id] = items[i].survey_fields[d].survey_options[f].value;
+                            }
+
+                            forms[i].options.fields[items[i].survey_fields[d].id] = {
+                                label: items[i].survey_fields[d].name,
+                                stylesheet: stylesheet,
+                                transformer: {
+                                    format: value => {
+                                        return(typeof value !== "undefined" ? value : '');
+                                    },
+                                    parse: value => {
+                                        return value || null;
+                                    }
+                                },
+                            };
+
+                            forms[i].types[items[i].survey_fields[d].id] = t.enums(item_options);
+                        }
+                        else if(items[i].survey_fields[d].type.toString() == "1"){
+                            forms[i].options.fields[items[i].survey_fields[d].id] = {
+                                label: items[i].survey_fields[d].name,
+                                stylesheet: stylesheet,
+                                factory: MultiSelect,
+                                options: [],
+                            };
+
+                            for (var f = 0; f < items[i].survey_fields[d].survey_options.length; f++) {
+                                forms[i].options.fields[items[i].survey_fields[d].id].options.push({
+                                    value: items[i].survey_fields[d].survey_options[f].id,
+                                    text: items[i].survey_fields[d].survey_options[f].value
+                                });
+                            }
+
+                            forms[i].types[items[i].survey_fields[d].id] = t.list(t.String);
+                        }
+                        else if(items[i].survey_fields[d].type.toString() == "3"){
+                            forms[i].options.fields[items[i].survey_fields[d].id] = {
+                                label: items[i].survey_fields[d].name,
+                                stylesheet: stylesheet,
+                            };
+
+                            forms[i].types[items[i].survey_fields[d].id] = t.String;
+                        }
+                    }
+
+                    forms[i].types = t.struct(forms[i].types);
+                }
+
+                this.props.setSurveys({
+                    items: forms,
+                    loading: false,
+                    is_refreshing: false
+                });
+            })
+            .catch(e => {
+                this.props.navigation.replace('Home');
+                
+                this.props.navigation.navigate('SignIn_', { routeName: this.props.navigation.state.routeName });
+            });
+        });
     }
 
     componentDidMount(){
@@ -68,89 +174,9 @@ class SurveysContainer extends Component{
                 this.props.navigation.navigate('SignIn_', { routeName: this.props.navigation.state.routeName });
             }
             else{
-                axios({
-                    url: 'https://columbiaapp.eviajes.online/api/surveys/user',
-                    method: 'GET',
-                    headers: {
-                        Authorization: `Bearer ${this.props.access_token}`
-                    }
-                })
-                .then(response => {
-                    let items = response.data, forms = [];
-
-                    for(i = 0; i < items.length; i++){
-                        forms[i] = {
-                            id: items[i].id,
-                            name: items[i].name,
-                            types: {},
-                            options: {
-                                fields: {}
-                            }
-                        }
-
-                        for (var d = 0; d < items[i].survey_fields.length; d++) {
-                            let item_options = {};
-
-                            if(items[i].survey_fields[d].type.toString() == "2"){
-                                for (var f = 0; f < items[i].survey_fields[d].survey_options.length; f++) {
-                                    item_options[items[i].survey_fields[d].survey_options[f].id] = items[i].survey_fields[d].survey_options[f].value;
-                                }
-
-                                forms[i].options.fields[items[i].survey_fields[d].id] = {
-                                    label: items[i].survey_fields[d].name,
-                                    stylesheet: stylesheet,
-                                    transformer: {
-                                        format: value => {
-                                            return(typeof value !== "undefined" ? value : '');
-                                        },
-                                        parse: value => {
-                                            return value || null;
-                                        }
-                                    },
-                                };
-
-                                forms[i].types[items[i].survey_fields[d].id] = t.enums(item_options);
-                            }
-                            else if(items[i].survey_fields[d].type.toString() == "1"){
-                                forms[i].options.fields[items[i].survey_fields[d].id] = {
-                                    label: items[i].survey_fields[d].name,
-                                    stylesheet: stylesheet,
-                                    factory: MultiSelect,
-                                    options: [],
-                                };
-
-                                for (var f = 0; f < items[i].survey_fields[d].survey_options.length; f++) {
-                                    forms[i].options.fields[items[i].survey_fields[d].id].options.push({
-                                        value: items[i].survey_fields[d].survey_options[f].id,
-                                        text: items[i].survey_fields[d].survey_options[f].value
-                                    });
-                                }
-
-                                forms[i].types[items[i].survey_fields[d].id] = t.list(t.String);
-                            }
-                            else if(items[i].survey_fields[d].type.toString() == "3"){
-                                forms[i].options.fields[items[i].survey_fields[d].id] = {
-                                    label: items[i].survey_fields[d].name,
-                                    stylesheet: stylesheet,
-                                };
-
-                                forms[i].types[items[i].survey_fields[d].id] = t.String;
-                            }
-                        }
-
-                        forms[i].types = t.struct(forms[i].types);
-                    }
-
-                    this.setState({
-                        forms: forms,
-                        loading: false
-                    });
-                })
-                .catch(e => {
-                    this.props.navigation.replace('Home');
-                    
-                    this.props.navigation.navigate('SignIn_', { routeName: this.props.navigation.state.routeName });
-                });
+                if(this.props.surveys.items.length === 0){
+                    this.fetchSurveys();
+                }
             }
         });
     }
@@ -159,33 +185,35 @@ class SurveysContainer extends Component{
         let data = this[`form${id}`].getValue();
 
         if(data){
-            this.setState({
+            this.props.setSurveys({
                 loading: true
-            }, () => {
-                data.id = id;
-
-                axios.post('https://columbiaapp.eviajes.online/api/surveysmade', data, { headers: {"Authorization" : `Bearer ${this.props.access_token}`} })
-                .then(res => {
-                    this.setState({
-                        state_surveys: {
-                            [id]: true
-                        }
-                    }, () => {
-                        this.setState({
-                            loading: false
-                        });
-                    });
-
-                    Alert.alert('Mensaje', 'Encuesta realizada', [
-                        {text: 'OK'}
-                    ]);
+            })
+            .then(() => {
+                axios({
+                    url: 'https://columbiaapp.eviajes.online/api/surveysmade',
+                    method: 'POST',
+                    data: {
+                        ...data,
+                        id: id
+                    },
+                    headers: {
+                        Authorization: `Bearer ${this.props.access_token}`
+                    }
+                })
+                .then(async res => {
+                    this.onRefresh()
+                    .then(() => {
+                        Alert.alert('Mensaje', 'Encuesta realizada', [
+                            {text: 'OK'}
+                        ]);
+                    })
                 })
                 .catch(e => {
                     Alert.alert('Mensaje', 'No se ha podido enviar la encuesta', [
                         {text: 'OK'}
                     ]);
 
-                    this.setState({
+                    this.props.setSurveys({
                         loading: false
                     });
                 });
@@ -195,10 +223,10 @@ class SurveysContainer extends Component{
 
     render(){
         return(
-            <Div name="Encuestas" icon='bar-chart' container={ false } loading={ this.state.loading }>
+            <Div onRefresh={ this.onRefresh } is_refreshing={ this.props.surveys.is_refreshing } name="Encuestas" icon='bar-chart' container={ false } loading={ this.props.surveys.loading }>
             {
-                this.state.forms.map((item, key) => {
-                    if(!this.state.state_surveys[item.id]){
+                this.props.surveys.items.length > 0 ?
+                    this.props.surveys.items.map((item, key) => {
                         return(
                             <Panel key={ key } index={ key } title={ item.name }>
                                 <Form 
@@ -221,8 +249,21 @@ class SurveysContainer extends Component{
                                 </TouchableHighlight>
                             </Panel>
                         );
-                    }
-                })
+                    })
+                :
+                    (
+                        <View style={{ alignItems: 'center' }}>
+                            <FontAwesomeIcon 
+                                size={37} 
+                                color={"#2BB8DD"} 
+                                icon={['fas', 'poll-h']}
+                            />
+
+                            <Text style={{ fontSize: 16, textAlign: 'center', marginTop: 5 }}>
+                                No hay encuestas para realizar, intente mas tarde
+                            </Text>
+                        </View>
+                    )
             }
             </Div>
         );
@@ -253,8 +294,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
     return {
+        surveys: state.surveys,
         access_token: state.account.oauth.access_token
     };
 };
 
-export default connect(mapStateToProps)(SurveysContainer);
+export default connect(mapStateToProps, { setSurveys })(withNavigation(SurveysContainer));

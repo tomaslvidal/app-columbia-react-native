@@ -4,7 +4,10 @@ import accountReducer from './account';
 
 import destinationsReducer from './destinations';
 
+import surveysReducer from './surveys';
+
 export default combineReducers({
     account: accountReducer,
-    destinations: destinationsReducer
+    destinations: destinationsReducer,
+    surveys: surveysReducer
 });

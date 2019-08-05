@@ -14,6 +14,13 @@ const setDestinations = item => async dispatch => {
     });
 };
 
+const setSurveys = item => async dispatch => {
+    dispatch({
+        type: types.SET_SURVEYS,
+        payload: item
+    });
+};
+
 const updateDestination = item => async dispatch => {
     dispatch({
         type: types.UPDATE_DESTINATION,
@@ -24,4 +31,4 @@ const updateDestination = item => async dispatch => {
     });
 };
 
-export { setLoguedAccount, setDestinations, updateDestination };
+export { setLoguedAccount, setDestinations, updateDestination, setVouchers, setSurveys };
