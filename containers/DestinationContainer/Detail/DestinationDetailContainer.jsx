@@ -44,24 +44,31 @@ class DestinationDetail extends Component {
         this.onRefresh = this.onRefresh.bind(this);
     }
 
-    async fetchDestination(is_refreshing = false){
-        this.setState({
-            is_refreshing
-        }, async () => {
-            await axios.get(`https://columbiaapp.eviajes.online/api/destinations/${this.state.item.id}`)
-            .then(res => {
-                this.props.updateDestination({
-                    key: this.props.navigation.state.params.key,
-                    data: res.data
-                })
-                .then(() => {
-                    this.setState({
-                        item: this.props.destinations[this.props.navigation.state.params.key],
-                        is_refreshing: false
+    fetchDestination(is_refreshing = false){
+        return new Promise((resolve, reject) => {
+            this.setState({
+                is_refreshing
+            }, () => {
+                axios.get(`https://columbiaapp.eviajes.online/api/destinations/${this.state.item.id}`)
+                .then(res => {
+                    this.props.updateDestination({
+                        key: this.props.navigation.state.params.key,
+                        data: res.data
+                    })
+                    .then(() => {
+                        this.setState({
+                            item: this.props.destinations[this.props.navigation.state.params.key],
+                            is_refreshing: false
+                        }, () => {
+                            resolve(true);
+                        });
                     });
-                });
-            });
-        })
+                })
+                .catch(e => {
+                    reject(e);
+                })
+            })
+        });
     }
 
     async componentDidMount(){
@@ -157,7 +164,7 @@ class DestinationDetail extends Component {
                             }
                         }
                         renderers = {{
-                            img: (parameters) => {
+                            img: parameters => {
                                 const key = Math.random().toString(36).substr(2, 5);
 
                                 return(
@@ -199,7 +206,7 @@ class DestinationDetail extends Component {
 
                                                 return '100%';
                                             })(parameters),
-                                            height: ((parameters) => {
+                                            height: (parameters => {
                                                 if(typeof parameters.height !== "undefined"){
                                                     return !isNaN(Number(parameters.height)) ? Number(parameters.height) : 180;
                                                 }
@@ -234,14 +241,18 @@ class DestinationDetail extends Component {
                                         if(typeof parameters.id !== "undefined"){
                                             if(parameters.id.length !== 0){
                                                     return(
-                                                        <View key={key} ref={ (ref) => this[parameters.id] = ref } onLayout={ ({nativeEvent}) => {
-                                                            if(this[parameters.id]) {
-                                                                this[parameters.id].measure((x, y, width, height, pageX, pageY) => {
-                                                                    COORDINATES[parameters.id] = pageY;
-                                                                });
-                                                            }
-                                                        }}>
-                                                            <Text >
+                                                        <View 
+                                                            key={key} 
+                                                            ref={ (ref) => this[parameters.id] = ref } 
+                                                            onLayout={ ({nativeEvent}) => {
+                                                                if(this[parameters.id]) {
+                                                                    this[parameters.id].measure((x, y, width, height, pageX, pageY) => {
+                                                                        COORDINATES[parameters.id] = pageY;
+                                                                    });
+                                                                }
+                                                            }}
+                                                        >
+                                                            <Text>
                                                                 {two}
                                                             </Text>
                                                         </View>
@@ -249,23 +260,29 @@ class DestinationDetail extends Component {
                                             }
                                         }
                                     }
-                                    else if(parameters.href.indexOf('#')===0){
+                                    else if(parameters.href.indexOf('#') === 0){
                                         return(
-                                            <TouchableOpacity key={key} onPress={() => { this.scrollView(parameters.href.slice(1)) } }>
-                                                <Text>{two}</Text>
+                                            <TouchableOpacity 
+                                                key={ key } 
+                                                onPress={() => { this.scrollView(parameters.href.slice(1)) } }
+                                            >
+                                                <Text>{ two }</Text>
                                             </TouchableOpacity>
                                         );
                                     }
                                     else{
                                         return(
-                                            <TouchableOpacity key={key} onPress={() => { this.onLinkPress(parameters.href) } }>
-                                                <Text>{two}</Text>
+                                            <TouchableOpacity 
+                                                key={ key } 
+                                                onPress={() => { this.onLinkPress(parameters.href) } }
+                                            >
+                                                <Text>{ two }</Text>
                                             </TouchableOpacity>
                                         );
                                     }
                                 }
 
-                                return(two);
+                                return two;
                             }
                         }}
                     />

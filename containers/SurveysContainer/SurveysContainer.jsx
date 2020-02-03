@@ -223,7 +223,14 @@ class SurveysContainer extends Component{
 
     render(){
         return(
-            <Div onRefresh={ this.onRefresh } is_refreshing={ this.props.surveys.is_refreshing } name="Encuestas" icon='bar-chart' container={ false } loading={ this.props.surveys.loading }>
+            <Div 
+                onRefresh={ this.onRefresh } 
+                is_refreshing={ this.props.surveys.is_refreshing } 
+                name="Encuestas" 
+                icon='bar-chart' 
+                container= { false }
+                loading={ this.props.surveys.loading }
+            >
             {
                 this.props.surveys.items.length > 0 ?
                     this.props.surveys.items.map((item, key) => {
